@@ -1,0 +1,15 @@
+{
+    "name": "alleyinteractive/mantle-site",
+    "description": "A site using the Mantle framework for WordPress",
+    "type": "project",
+    "license": "GPL-2.0-or-later",
+    "authors": [
+        {
+            "name": "Alley",
+            "email": "info@alley.co"
+        }
+    ],
+    "require": {
+
+    }
+}
