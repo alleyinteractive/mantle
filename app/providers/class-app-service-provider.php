@@ -7,20 +7,23 @@
 
 namespace App\Providers;
 
-class App_Service_Provider {
+use Mantle\Framework\Service_Provider;
+
+/**
+ * Application Service Provider
+ */
+class App_Service_Provider extends Service_Provider {
 	/**
 	 * Register any application services.
 	 */
-	public function register()
-	{
-		//
+	public function register() {
+		// todo.
 	}
 
 	/**
 	 * Bootstrap any application services.
 	 */
-	public function boot()
-	{
-		//
+	public function boot() {
+		// todo.
 	}
 }

@@ -1,0 +1,51 @@
+dist: bionic
+
+sudo: false
+
+language: php
+
+services:
+  - mysql
+
+notifications:
+  email: false
+
+cache:
+  directories:
+    - $HOME/.composer/cache
+
+matrix:
+  include:
+    - php: 7.3
+      env: WP_VERSION=latest WP_TRAVISCI=phpcs
+    - php: 7.4
+      env: WP_VERSION=latest
+
+before_install:
+  - |
+    export PATH="$HOME/.composer/vendor/bin:$PATH"
+  - |
+    if [ -f ~/.phpenv/versions/$(phpenv version-name)/etc/conf.d/xdebug.ini ]; then
+      phpenv config-rm xdebug.ini
+    else
+      echo "xdebug.ini does not exist"
+    fi
+
+install:
+  - |
+    composer validate --strict
+  - |
+    if [[ ! -z "$WP_VERSION" ]] ; then
+      bash bin/install-wp-tests.sh wordpress_test root "" 127.0.0.1 "$WP_VERSION"
+      composer global require "phpunit/phpunit=4.8.*|5.7.*"
+    fi
+  - |
+    composer install
+
+script:
+  - |
+    if [[ "$WP_TRAVISCI" == "phpcs" ]] ; then
+      composer run phpcs
+    fi
+  - |
+    phpunit

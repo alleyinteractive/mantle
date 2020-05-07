@@ -12,6 +12,8 @@ use Tests\Test_Case;
 /**
  * Base Test Case that each Test Case should extend.
  */
-class Example_Test extends Test_Case {
-
+class Test_Example extends Test_Case {
+  public function test_example() {
+    $this->assertTrue( true );
+  }
 }
