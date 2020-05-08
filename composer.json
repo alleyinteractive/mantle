@@ -38,7 +38,7 @@
         }
     },
     "require": {
-        "alleyinteractive/mantle-framework": "dev-master"
+        "alleyinteractive/mantle-framework": "*"
     },
     "require-dev": {
         "alley/alley-coding-standards": "dev-master"
