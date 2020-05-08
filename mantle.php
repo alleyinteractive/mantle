@@ -39,11 +39,6 @@ require_once __DIR__ . '/vendor/autoload.php';
  * Load the local version of the Mantle Framework if found.
  */
 if ( file_exists( __DIR__ . '/../mantle-framework/vendor/autoload.php' ) ) {
-	// Bail if the Mantle Framework already exists.
-	if ( class_exists( 'Mantle\Framework\Application' ) ) {
-		\wp_die( 'Mantle Framework is already loaded locally! Unable to load the parent directory\'s "mantle-framework".' );
-	}
-
 	require_once __DIR__ . '/../mantle-framework/vendor/autoload.php';
 }
 
