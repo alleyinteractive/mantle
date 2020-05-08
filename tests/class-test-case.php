@@ -10,6 +10,6 @@ namespace Tests;
 /**
  * Base Test Case that each Test Case should extend.
  */
-class Test_Case {
+abstract class Test_Case extends \PHPUnit\Framework\TestCase {
 
 }

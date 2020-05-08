@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<ruleset>
+	<description>alleyinteractive/mantle-site</description>
+
+	<arg value="ps" />
+
+	<exclude-pattern>tests/</exclude-pattern>
+
+	<rule ref="vendor/alley/alley-coding-standards" />
+
+	<rule ref="WordPress">
+		<exclude name="WordPress.NamingConventions.ValidPostTypeSlug.NotStringLiteral" />
+	</rule>
+
+	<rule ref="WordPress.NamingConventions.PrefixAllGlobals">
+		<properties>
+			<property name="prefixes" type="array">
+				<element value="App"/>
+			</property>
+		</properties>
+	</rule>
+
+	<rule ref="Squiz.Commenting.FunctionComment">
+		<exclude-pattern>src/mantle/framework/container/class-container.php</exclude-pattern>
+	</rule>
+
+	<rule ref="Squiz.PHP.DisallowMultipleAssignments">
+		<exclude-pattern>src/mantle/framework/container/class-container.php</exclude-pattern>
+	</rule>
+</ruleset>
