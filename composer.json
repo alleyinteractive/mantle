@@ -20,20 +20,6 @@
         "optimize-autoloader": true,
         "sort-packages": true
     },
-    "autoload": {
-        "psr-4": {
-            "App\\": "app/"
-        },
-        "classmap": [
-            "database/seeds",
-            "database/factories"
-        ]
-    },
-    "autoload-dev": {
-        "psr-4": {
-            "Tests\\": "tests/"
-        }
-    },
     "repositories": {
         "local": {
             "type": "path",

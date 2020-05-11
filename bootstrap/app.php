@@ -17,17 +17,17 @@ $app = new Framework\Application();
  */
 $app->singleton(
 	Framework\Contracts\Console\Kernel::class,
-	Framework\Console\Kernel::class,
+	App\Console\Kernel::class,
 );
 
 $app->singleton(
 	Framework\Contracts\Http\Kernel::class,
-	Framework\Http\Kernel::class,
+	App\Http\Kernel::class,
 );
 
 // Load the Application's Kernel depending on the context it was called.
 if ( defined( 'WP_CLI' ) && \WP_CLI ) {
-	$app_kernel = $app->make( Framework\Console\Kernel::class );
+	$app_kernel = $app->make( Framework\Contracts\Console\Kernel::class );
 } else {
 	// Boot up the HTTP Kernel.
 	$app_kernel = $app->make( Framework\Contracts\Http\Kernel::class );
