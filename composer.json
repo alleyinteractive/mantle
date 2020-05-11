@@ -1,28 +1,25 @@
 {
     "name": "alleyinteractive/mantle-site",
-    "description": "A site using the Mantle framework for WordPress",
     "type": "project",
+    "description": "A site using the Mantle framework for WordPress",
     "license": "GPL-2.0-or-later",
-    "repositories": {
-        "local": {
-            "type": "path",
-            "url": "../mantle-framework"
-        },
-        "remote": {
-            "type": "git",
-            "url": "git@github.com:alleyinteractive/mantle-framework.git"
-        },
-        "alley-coding-standards": {
-            "type": "git",
-            "url": "https://github.com/alleyinteractive/Alley-Coding-Standards"
-        }
-    },
     "authors": [
         {
             "name": "Alley",
             "email": "info@alley.co"
         }
     ],
+    "require": {
+        "alleyinteractive/mantle-framework": "*"
+    },
+    "require-dev": {
+        "alley/alley-coding-standards": "dev-master"
+    },
+    "config": {
+        "apcu-autoloader": true,
+        "optimize-autoloader": true,
+        "sort-packages": true
+    },
     "autoload": {
         "psr-4": {
             "App\\": "app/"
@@ -37,20 +34,23 @@
             "Tests\\": "tests/"
         }
     },
-    "require": {
-        "alleyinteractive/mantle-framework": "*"
-    },
-    "require-dev": {
-        "alley/alley-coding-standards": "dev-master"
+    "repositories": {
+        "local": {
+            "type": "path",
+            "url": "../mantle-framework"
+        },
+        "remote": {
+            "type": "git",
+            "url": "git@github.com:alleyinteractive/mantle-framework.git"
+        },
+        "alley-coding-standards": {
+            "type": "git",
+            "url": "https://github.com/alleyinteractive/Alley-Coding-Standards"
+        }
     },
     "minimum-stability": "dev",
     "prefer-stable": true,
-    "config": {
-        "apcu-autoloader": true,
-        "optimize-autoloader": true,
-        "sort-packages": true
-    },
     "scripts": {
-        "phpcs" : "phpcs --standard=./phpcs.xml ."
+        "phpcs": "phpcs --standard=./phpcs.xml ."
     }
 }
