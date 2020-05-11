@@ -8,6 +8,8 @@
  * @package Mantle
  */
 
+namespace App;
+
 /**
  * Mantle Application Base Directory
  *
@@ -40,6 +42,14 @@ require_once __DIR__ . '/vendor/autoload.php';
  */
 if ( file_exists( __DIR__ . '/../mantle-framework/vendor/autoload.php' ) ) {
 	require_once __DIR__ . '/../mantle-framework/vendor/autoload.php';
+}
+
+try {
+	spl_autoload_register(
+		\Mantle\Framework\generate_wp_autoloader( __NAMESPACE__, __DIR__ . '/app' )
+	);
+} catch ( \Exception $e ) {
+	\wp_die( $e->getMessage() ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 }
 
 /**

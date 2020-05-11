@@ -23,20 +23,6 @@
             "email": "info@alley.co"
         }
     ],
-    "autoload": {
-        "psr-4": {
-            "App\\": "app/"
-        },
-        "classmap": [
-            "database/seeds",
-            "database/factories"
-        ]
-    },
-    "autoload-dev": {
-        "psr-4": {
-            "Tests\\": "tests/"
-        }
-    },
     "require": {
         "alleyinteractive/mantle-framework": "*"
     },
