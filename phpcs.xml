@@ -27,4 +27,8 @@
 	<rule ref="Squiz.PHP.DisallowMultipleAssignments">
 		<exclude-pattern>src/mantle/framework/container/class-container.php</exclude-pattern>
 	</rule>
+
+	<rule ref="WordPress.Arrays.MultipleStatementAlignment.DoubleArrowNotAligned">
+		<exclude-pattern>config</exclude-pattern>
+	</rule>
 </ruleset>
