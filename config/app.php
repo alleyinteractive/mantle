@@ -32,7 +32,6 @@ return [
 		Mantle\Framework\Support\Providers\Error_Service_Provider::class,
 
 		// Application Providers.
-		App\asd::class,
 		App\Providers\App_Service_Provider::class,
 	],
 
