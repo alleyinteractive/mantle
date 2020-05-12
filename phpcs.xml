@@ -31,4 +31,8 @@
 	<rule ref="WordPress.Arrays.MultipleStatementAlignment.DoubleArrowNotAligned">
 		<exclude-pattern>config</exclude-pattern>
 	</rule>
+
+	<rule ref="Generic.CodeAnalysis.UselessOverridingMethod.Found">
+		<exclude-pattern>app/</exclude-pattern>
+	</rule>
 </ruleset>

@@ -33,6 +33,7 @@ return [
 		Mantle\Framework\Support\Providers\Error_Service_Provider::class,
 
 		// Application Providers.
+		App\Providers\Model_Register_Provider::class,
 		App\Providers\App_Service_Provider::class,
 	],
 
