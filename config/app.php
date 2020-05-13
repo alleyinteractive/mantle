@@ -29,8 +29,9 @@ return [
 	 */
 	'providers' => [
 		// Framework Providers.
+		Mantle\Framework\Providers\Error_Service_Provider::class,
 		Mantle\Framework\Database\Factory_Service_Provider::class,
-		Mantle\Framework\Support\Providers\Error_Service_Provider::class,
+		Mantle\Framework\Providers\Console_Service_Provider::class,
 
 		// Application Providers.
 		App\Providers\Model_Register_Provider::class,
@@ -50,4 +51,14 @@ return [
 		'App'    => Mantle\Framework\Facade\App::class,
 		'Config' => Mantle\Framework\Facade\Config::class,
 	],
+
+	/*
+	|--------------------------------------------------------------------------
+	| Application Namespace
+	|--------------------------------------------------------------------------
+	|
+	| Used to provide a configurable namespace for class generation.
+	|
+	*/
+	'namespace' => 'App',
 ];
