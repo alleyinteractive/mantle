@@ -7,7 +7,7 @@
 
 namespace App\Providers;
 
-use Mantle\Framework\Support\Providers\Model_Register_Provider as Service_Provider;
+use Mantle\Framework\Providers\Model_Register_Provider as Service_Provider;
 
 /**
  * Model Register Provider
