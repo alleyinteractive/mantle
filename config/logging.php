@@ -23,13 +23,13 @@ return [
 	|--------------------------------------------------------------------------
 	|
 	| Provides configuration for various log channels. Supported drivers are 'new_relic',
-	| 'ai_logger', 'slack', and 'error_log',
+	| 'ai_logger', 'slack', 'error_log', and 'custom'.
 	|
 	*/
 	'channels' => [
 		'stack' => [
 			'driver'   => 'stack',
-			'channels' => [ 'error_log', 'new_relic' ],
+			'channels' => [ 'error_log' ],
 		],
 
 		'error_log' => [
@@ -57,12 +57,26 @@ return [
 		 *
 		 * @link https://api.slack.com/messaging/webhooks#create_a_webhook
 		 */
-		'slack'     => [
+		'slack' => [
 			'driver'   => 'slack',
 			'url'      => '',
 			'username' => 'Mantle Log',
 			'emoji'    => ':boom:',
 			'level'    => 'critical',
+		],
+
+		/*
+		|--------------------------------------------------------------------------
+		| Custom Log Channel
+		|--------------------------------------------------------------------------
+		|
+		| Supports passing to a specific handler by class name or Monolog Handler
+		| instance via the 'handler' attribute.
+		|
+		*/
+		'custom' => [
+			'driver'  => 'custom',
+			'handler' => 'Example\Class\Name',
 		],
 	],
 ];
