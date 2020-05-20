@@ -11,7 +11,6 @@ namespace App\Factory;
 
 use Faker\Generator as Faker;
 use Mantle\Framework\Database\Model\Post;
-use Mantle\Framework\Support\Str;
 
 /**
  * Factory definition.
