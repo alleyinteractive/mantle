@@ -21,14 +21,10 @@ use Mantle\Framework\Support\Str;
 $factory->define(
 	Post::class, // phpcs:ignore
 	function ( Faker $faker ) {
-
-		$name = $faker->sentence;
-		$slug = Str::slug( $name );
-
 		return [
-			'name'    => $name,
-			'slug'    => $slug,
-			'content' => $faker->paragraph,
+			'post_title'   => $faker->sentence,
+			'post_content' => $faker->paragraph,
+			'post_status'  => 'publish',
 		];
 	}
 );
