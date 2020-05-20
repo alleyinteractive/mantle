@@ -25,6 +25,7 @@ $factory->define(
 			'post_title'   => $faker->sentence,
 			'post_content' => $faker->paragraph,
 			'post_status'  => 'publish',
+			'post_type'    => 'post',
 		];
 	}
 );
