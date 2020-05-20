@@ -1,6 +1,6 @@
 <?php
 /**
- * Post Factory
+ * Category Factory
  *
  * @package Mantle
  */
@@ -10,7 +10,7 @@
 namespace App\Factory;
 
 use Faker\Generator as Faker;
-use Mantle\Framework\Database\Model\Post;
+use Mantle\Framework\Database\Model\Term;
 
 /**
  * Factory definition.
@@ -18,13 +18,13 @@ use Mantle\Framework\Database\Model\Post;
  * @var \Mantle\Framework\Database\Factory\Factory $factory
  */
 $factory->define(
-	Post::class, // phpcs:ignore
+	Term::class, // phpcs:ignore
 	function ( Faker $faker ) {
 		return [
-			'post_title'   => $faker->sentence,
-			'post_content' => $faker->paragraph,
-			'post_status'  => 'publish',
-			'post_type'    => 'post',
+			'name'        => $faker->sentence,
+			'description' => $faker->paragraph,
+			'taxonomy'    => 'category',
+			'object_type' => 'post',
 		];
 	}
 );
