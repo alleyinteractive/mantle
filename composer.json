@@ -40,7 +40,7 @@
     "scripts": {
         "phpcs": "phpcs --standard=./phpcs.xml .",
         "post-autoload-dump": [
-          "@php wp mantle package:discover"
+          "wp mantle package:discover"
         ]
     }
 }
