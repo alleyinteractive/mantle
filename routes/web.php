@@ -5,7 +5,6 @@
 
 use Mantle\Framework\Facade\Route;
 
-// todo: not registering multiple
 Route::get( '/test', function() {
 	return 'TEST';
 } );

@@ -26,6 +26,7 @@ class Route_Service_Provider extends Service_Provider {
 	 * Define web routes.
 	 */
 	protected function map_web_routes() {
+		// todo: repalce with some abstraction to allow for testing.
 		require_once mantle_base_path( 'routes/web.php' );
 	}
 }
