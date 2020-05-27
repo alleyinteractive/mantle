@@ -49,9 +49,10 @@ return [
 	|
 	 */
 	'aliases'   => [
-		'App'    => Mantle\Framework\Facade\App::class,
-		'Config' => Mantle\Framework\Facade\Config::class,
-		'Log'    => Mantle\Framework\Facade\Log::class,
+		'App'     => Mantle\Framework\Facade\App::class,
+		'Config'  => Mantle\Framework\Facade\Config::class,
+		'Log'     => Mantle\Framework\Facade\Log::class,
+		'Request' => Mantle\Framework\Facade\Request::class,
 	],
 
 	/*

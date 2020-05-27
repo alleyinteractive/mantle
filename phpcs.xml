@@ -35,4 +35,12 @@
 	<rule ref="Generic.CodeAnalysis.UselessOverridingMethod.Found">
 		<exclude-pattern>app/</exclude-pattern>
 	</rule>
+
+	<rule ref="Squiz.PHP.CommentedOutCode.Found">
+		<exclude-pattern>routes/</exclude-pattern>
+	</rule>
+
+	<rule ref="Squiz.Commenting.InlineComment">
+		<exclude-pattern>routes/</exclude-pattern>
+	</rule>
 </ruleset>
