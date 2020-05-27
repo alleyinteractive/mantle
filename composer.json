@@ -39,6 +39,7 @@
     "minimum-stability": "dev",
     "prefer-stable": true,
     "scripts": {
-        "phpcs": "phpcs --standard=./phpcs.xml ."
+        "phpcs": "phpcs --standard=./phpcs.xml .",
+        "phpunit": "phpunit"
     }
 }
