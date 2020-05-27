@@ -31,11 +31,11 @@ require_once MANTLE_FRAMEWORK_DIR . $preload_path;
 tests_add_filter(
 	'muplugins_loaded',
 	function () {
-		require_once dirnamload.php';
+		require_once dirname( __DIR__ ) . '/mantle.php';
+		require_once MANTLE_FRAMEWORK_DIR . '/src/autoload.php';
 
 		try {
-e( __DIR__ ) . '/mantle.php';
-		require_once MANTLE_FRAMEWORK_DIR . '/src/auto			spl_autoload_register(
+			spl_autoload_register(
 				\Mantle\Framework\generate_wp_autoloader( __NAMESPACE__, __DIR__ )
 			);
 		} catch ( \Exception $e ) {
