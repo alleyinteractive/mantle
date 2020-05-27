@@ -5,11 +5,21 @@
  * @package Mantle
  */
 
-use App\Http\Controller\Test_Controller;
 use Mantle\Framework\Facade\Route;
 
-Route::get( '/another-item', Test_Controller::class . '@method' );
-
-// Route::get( '/another-item', function() {
-// 	return 'Example Response';
-// } );
+/*
+|--------------------------------------------------------------------------
+| Web Routes
+|--------------------------------------------------------------------------
+|
+| Register a controller route:
+|
+| 	Route::get( '/controller-route', Example_Controller::class . '@method_to_call' );
+|
+| Register a closure-based route:
+|
+| 	Route::get( '/closure-route', function( \Mantle\Framework\Http\Request $request ) {
+| 		dd( $request->all() );
+| 	} );
+|
+*/
