@@ -20,7 +20,7 @@ class Route_Service_Provider extends Service_Provider {
 	public function boot() {
 		parent::boot();
 
-		$this->prevent_pass_through_requests();
+		$this->allow_pass_through_requests();
 	}
 
 	/**
