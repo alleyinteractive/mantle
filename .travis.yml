@@ -38,7 +38,6 @@ install:
       composer global require "phpunit/phpunit=4.8.*|5.7.*"
     fi
   - |
-    mkdir ../mantle-framework
     composer install
 
 script:
