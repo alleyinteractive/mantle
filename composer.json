@@ -14,7 +14,8 @@
         "fzaninotto/faker": "^1.9"
     },
     "require-dev": {
-        "alley/alley-coding-standards": "dev-master"
+        "alley/alley-coding-standards": "dev-master",
+        "phpunit/phpunit": "^9"
     },
     "config": {
         "apcu-autoloader": true,
