@@ -43,9 +43,7 @@ install:
     fi
   - |
     mkdir ../mantle-framework
-    set +x
     composer install
-    set -x
 
 script:
   - |
