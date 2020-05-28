@@ -38,6 +38,7 @@
     "minimum-stability": "dev",
     "prefer-stable": true,
     "scripts": {
+        "phpcs": "phpcs --standard=./phpcs.xml .",
         "post-autoload-dump-toremove": [
           "wp mantle package:discover"
         ]
