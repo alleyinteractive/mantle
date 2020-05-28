@@ -38,7 +38,7 @@
     "minimum-stability": "dev",
     "prefer-stable": true,
     "scripts": {
-        "post-autoload-dump-toremove": [
+        "post-autoload-dump": [
           "wp mantle package:discover"
         ]
     }
