@@ -5,6 +5,7 @@
 	<arg value="ps" />
 
 	<exclude-pattern>tests/</exclude-pattern>
+	<exclude-pattern>bootstrap/cache</exclude-pattern>
 
 	<rule ref="vendor/alley/alley-coding-standards" />
 
