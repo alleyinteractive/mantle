@@ -43,7 +43,9 @@ install:
     fi
   - |
     mkdir ../mantle-framework
-    composer install --no-scripts
+    set +x
+    composer install
+    set -x
 
 script:
   - |
