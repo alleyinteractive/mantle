@@ -6,7 +6,6 @@
  */
 
 use Mantle\Framework;
-use Mantle\Framework\Http\Request;
 
 /**
  * Instantiate the application
@@ -29,11 +28,14 @@ $app->singleton(
 // Load the Application's Kernel depending on the context it was called.
 if ( defined( 'WP_CLI' ) && \WP_CLI ) {
 	$app_kernel = $app->make( Framework\Contracts\Console\Kernel::class );
-	$app_kernel->handle();
 } else {
 	// Boot up the HTTP Kernel.
 	$app_kernel = $app->make( Framework\Contracts\Http\Kernel::class );
-	$app_kernel->handle( Request::capture() );
 }
+
+/**
+ * Boot the Application
+ */
+$app_kernel->handle();
 
 return $app;
