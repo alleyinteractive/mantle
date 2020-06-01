@@ -22,4 +22,10 @@ use Mantle\Framework\Facade\Route;
 | 		dd( $request->all() );
 | 	} );
 |
+| Register a route with variables:
+|
+|		Route::get( '/hello/{who}', function( $name ) {
+			return "Why hello {$name}!";
+})
+|
 */
