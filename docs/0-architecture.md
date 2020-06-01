@@ -2,6 +2,52 @@ Architecture
 ============
 
 ## Service Provider
+Service providers act as the key method of extending the framework. Core application functionality will be defined and encapsulated entirely in a service provider.
+
+### Generating a Service Provider
+A service provider can be generated for you by running the following command:
+
+```bash
+wp mantle make:provider <name>
+```
+
+### Example Service Provider
+```php
+namespace App;
+
+use Mantle\Framework\Service_Provider;
+
+/**
+ * Example_Provider Service Provider
+ */
+class Example_Provider extends Service_Provider {
+
+	/**
+	 * Register the service provider.
+	 */
+	public function register() {
+		// Register the provider.
+	}
+
+	/**
+	 * Boot the service provider.
+	 */
+	public function boot() {
+		// Boot the provider.
+	}
+}
+```
+
+### Registering Providers
+All application service providers are registered in the `config/app.php` configuration file. The `providers` key provides a registry of all service providers loaded on each request.
+
+```php
+'providers' => [
+
+	// Add provider here...
+	App\Providers\App_Service_Provider::class,
+],
+```
 
 ## Service Container
 

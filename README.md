@@ -26,7 +26,7 @@ not included in the repository, since e.g. no models exist by default.
 .
 ├── README.md
 ├── app
-│   ├── cli
+│   ├── console
 │   │   └── class-example-command.php
 │   ├── models
 │   │   └── class-example-post.php
