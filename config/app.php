@@ -32,6 +32,7 @@ return [
 		Mantle\Framework\Providers\Error_Service_Provider::class,
 		Mantle\Framework\Database\Factory_Service_Provider::class,
 		Mantle\Framework\Providers\Console_Service_Provider::class,
+		Mantle\Framework\Providers\Docs_Service_Provider::class,
 
 		// Application Providers.
 		App\Providers\App_Service_Provider::class,

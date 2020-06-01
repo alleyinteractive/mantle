@@ -1,6 +1,5 @@
----
-title: Architecture
----
+Architecture
+============
 
 ## Service Provider
 
