@@ -16,4 +16,18 @@ return [
 	|
 	*/
 	'default' => 'wordpress',
+
+	'batch_size' => 5,
+
+	/*
+	|--------------------------------------------------------------------------
+	| Provider Configuration
+	|--------------------------------------------------------------------------
+	|
+	| Control the configuration for the queue providers.
+	|
+	*/
+	'wordpress' => [
+		'delay' => 300,
+	],
 ];
