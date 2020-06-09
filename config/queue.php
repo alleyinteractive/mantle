@@ -17,6 +17,14 @@ return [
 	*/
 	'default' => 'wordpress',
 
+	/*
+	|--------------------------------------------------------------------------
+	| Queue Batch Size
+	|--------------------------------------------------------------------------
+	|
+	| The amount of items handled in one run of the queue.
+	|
+	*/
 	'batch_size' => 5,
 
 	/*
@@ -28,6 +36,7 @@ return [
 	|
 	*/
 	'wordpress' => [
+		// Delay between queue runs in seconds.
 		'delay' => 300,
 	],
 ];
