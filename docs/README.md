@@ -17,7 +17,7 @@ composer create-project alleyinteractive/mantle-site my-site \
 ```
 
 _Note: In the future, we'll create a command to simplify this, so creating a site will be as
-easy as `mantle new <site>`._
+easy as `mantle new <site>`.
 
 ## Directory Structure
 
