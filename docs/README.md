@@ -1,4 +1,7 @@
-# Mantle Site Template
+Documentation
+=============
+
+Mantle is a framework for building large, robust websites and applications with WordPress. Mantle extends WordPress Core and acts as a layer between WordPress and your custom code, aimed at helping you write more structured, testable, DRY, clean code, and doing so more quickly.
 
 ## Installing a new Mantle Site
 
@@ -6,7 +9,7 @@ Mantle sites should live in `wp-content/private/{site-slug}/`. You can install
 a Mantle site using Composer, replacing `my-site` with your site slug. Be sure
 that you've created `wp-content/private/` in your WordPress installation first:
 
-```
+```bash
 cd wp-content/private/
 composer create-project alleyinteractive/mantle-site my-site \
 --repository="{\"url\": \"https://github.com/alleyinteractive/mantle-site.git\", \"type\": \"vcs\"}" \
@@ -14,7 +17,7 @@ composer create-project alleyinteractive/mantle-site my-site \
 ```
 
 _Note: In the future, we'll create a command to simplify this, so creating a site will be as
-easy as `mantle new <site>`._
+easy as `mantle new <site>`.
 
 ## Directory Structure
 
