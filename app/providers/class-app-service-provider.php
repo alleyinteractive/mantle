@@ -17,13 +17,13 @@ class App_Service_Provider extends Service_Provider {
 	 * Register any application services.
 	 */
 	public function register() {
-		// todo.
+		// Add application registration here.
 	}
 
 	/**
 	 * Bootstrap any application services.
 	 */
 	public function boot() {
-		// todo.
+		// Boot the application here.
 	}
 }
