@@ -8,6 +8,7 @@
 namespace App\Providers;
 
 use Mantle\Framework\Facade\Request;
+use Mantle\Framework\Facade\Route;
 use Mantle\Framework\Providers\Route_Service_Provider as Service_Provider;
 
 /**
@@ -34,7 +35,6 @@ class Route_Service_Provider extends Service_Provider {
 	 * Define web routes.
 	 */
 	protected function map_web_routes() {
-		// todo: replace with some abstraction to allow for testing.
-		require_once mantle_base_path( 'routes/web.php' );
+		Route::middleware( 'web' )->group( mantle_base_path( 'routes/web.php' ) );
 	}
 }
