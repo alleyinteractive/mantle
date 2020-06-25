@@ -10,10 +10,6 @@ services:
 notifications:
   email: false
 
-cache:
-  directories:
-    - $HOME/.composer/cache
-
 branches:
   only:
     - master
@@ -41,7 +37,7 @@ install:
       bash bin/install-wp-tests.sh wordpress_test root "" 127.0.0.1 "$WP_VERSION"
     fi
   - |
-    composer install -n
+    composer clear-cache && composer install -n
 
 script:
   - |
