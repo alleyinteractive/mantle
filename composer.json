@@ -23,11 +23,7 @@
         "sort-packages": true
     },
     "repositories": {
-        "local": {
-            "type": "path",
-            "url": "../mantle-framework/*"
-        },
-        "remote": {
+        "mantle-framework": {
             "type": "git",
             "url": "git@github.com:alleyinteractive/mantle-framework.git"
         },
