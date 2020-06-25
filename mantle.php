@@ -37,13 +37,6 @@ if ( ! file_exists( __DIR__ . '/vendor/autoload.php' ) ) {
  */
 require_once __DIR__ . '/vendor/autoload.php';
 
-/**
- * Load the local version of the Mantle Framework if found.
- */
-if ( file_exists( __DIR__ . '/../mantle-framework/vendor/autoload.php' ) ) {
-	require_once __DIR__ . '/../mantle-framework/vendor/autoload.php';
-}
-
 try {
 	spl_autoload_register(
 		\Mantle\Framework\generate_wp_autoloader( __NAMESPACE__, __DIR__ . '/app' )
