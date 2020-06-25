@@ -9,8 +9,8 @@
 
 namespace App\Factory;
 
+use App\Models\Post;
 use Faker\Generator as Faker;
-use Mantle\Framework\Database\Model\Post;
 
 /**
  * Factory definition.
