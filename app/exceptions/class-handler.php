@@ -1,10 +1,18 @@
 <?php
+/**
+ * Handler class file.
+ *
+ * @package Mantle
+ */
 
 namespace App\Exceptions;
 
 use Mantle\Framework\Exceptions\Handler as ExceptionHandler;
 use Throwable;
 
+/**
+ * Application Error Handler
+ */
 class Handler extends ExceptionHandler {
 
 	/**
@@ -17,10 +25,7 @@ class Handler extends ExceptionHandler {
 	/**
 	 * Report or log an exception.
 	 *
-	 * @param Throwable $exception
-	 * @return void
-	 *
-	 * @throws Exception
+	 * @param Throwable $exception Exception thrown.
 	 */
 	public function report( Throwable $exception ) {
 		parent::report( $exception );
@@ -29,11 +34,9 @@ class Handler extends ExceptionHandler {
 	/**
 	 * Render an exception into an HTTP response.
 	 *
-	 * @param  \Mantle\Framework\Http\Request $request
-	 * @param  \Throwable               $exception
+	 * @param  \Mantle\Framework\Http\Request $request Request object.
+	 * @param  \Throwable                     $exception Exception thrown.
 	 * @return \Symfony\Component\HttpFoundation\Response
-	 *
-	 * @throws \Throwable
 	 */
 	public function render( $request, Throwable $exception ) {
 		return parent::render( $request, $exception );
