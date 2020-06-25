@@ -26,6 +26,11 @@ $app->singleton(
 	App\Http\Kernel::class,
 );
 
+$app->singleton(
+	Framework\Contracts\Exceptions\Handler::class,
+	App\Exceptions\Handler::class
+);
+
 // Load the Application's Kernel depending on the context it was called.
 if ( defined( 'WP_CLI' ) && \WP_CLI ) {
 	$app_kernel = $app->make( Framework\Contracts\Console\Kernel::class );

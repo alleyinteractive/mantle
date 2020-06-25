@@ -29,3 +29,8 @@ use Mantle\Framework\Facade\Route;
 })
 |
 */
+
+Route::get( '/hello/{who}', function( $name ) {
+	return "Why hello {$name}!";
+// })->middleware( 'can' );
+})->middleware( 'can:manage_options' );
