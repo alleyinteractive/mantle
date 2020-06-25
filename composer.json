@@ -25,7 +25,7 @@
     "repositories": {
         "local": {
             "type": "path",
-            "url": "../mantle-framework"
+            "url": "../mantle-framework/*"
         },
         "remote": {
             "type": "git",
