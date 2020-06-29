@@ -16,7 +16,7 @@ cache:
 
 branches:
   only:
-    - master
+    - main
 
 matrix:
   include:
