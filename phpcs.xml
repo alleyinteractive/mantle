@@ -19,6 +19,7 @@
 				<element value="App"/>
 			</property>
 		</properties>
+		<exclude-pattern>views/</exclude-pattern>
 	</rule>
 
 	<rule ref="Squiz.Commenting.FunctionComment">
