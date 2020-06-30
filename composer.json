@@ -10,7 +10,7 @@
         }
     ],
     "require": {
-        "alleyinteractive/mantle-framework": "*",
+        "alleyinteractive/mantle-framework": "dev-main",
         "fzaninotto/faker": "^1.9"
     },
     "require-dev": {
