@@ -10,11 +10,12 @@
         }
     ],
     "require": {
-        "alleyinteractive/mantle-framework": "*",
+        "alleyinteractive/mantle-framework": "dev-main",
         "fzaninotto/faker": "^1.9"
     },
     "require-dev": {
-        "alley/alley-coding-standards": "^0.1"
+        "alley/alley-coding-standards": "^0.1",
+        "phpunit/phpunit": "^9"
     },
     "config": {
         "apcu-autoloader": true,
@@ -22,11 +23,7 @@
         "sort-packages": true
     },
     "repositories": {
-        "local": {
-            "type": "path",
-            "url": "../mantle-framework"
-        },
-        "remote": {
+        "mantle-framework": {
             "type": "git",
             "url": "git@github.com:alleyinteractive/mantle-framework.git"
         },
@@ -41,6 +38,7 @@
         "phpcs": "phpcs --standard=./phpcs.xml .",
         "post-autoload-dump": [
           "./bin/package-discover.sh"
-        ]
+        ],
+        "phpunit": "phpunit"
     }
 }
