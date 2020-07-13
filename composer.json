@@ -1,46 +1,48 @@
 {
-    "name": "alleyinteractive/mantle-site",
-    "type": "project",
-    "description": "A site using the Mantle framework for WordPress",
-    "license": "GPL-2.0-or-later",
-    "authors": [
-        {
-            "name": "Alley",
-            "email": "info@alley.co"
-        }
-    ],
-    "require": {
-        "alleyinteractive/mantle-framework": "*",
-        "fzaninotto/faker": "^1.9"
-    },
-    "require-dev": {
-        "alley/alley-coding-standards": "^0.1"
-    },
-    "config": {
-        "apcu-autoloader": true,
-        "optimize-autoloader": true,
-        "sort-packages": true
-    },
-    "repositories": {
-        "local": {
-            "type": "path",
-            "url": "../mantle-framework"
-        },
-        "remote": {
-            "type": "git",
-            "url": "git@github.com:alleyinteractive/mantle-framework.git"
-        },
-        "alley-coding-standards": {
-            "type": "git",
-            "url": "https://github.com/alleyinteractive/Alley-Coding-Standards"
-        }
-    },
-    "minimum-stability": "dev",
-    "prefer-stable": true,
-    "scripts": {
-        "phpcs": "phpcs --standard=./phpcs.xml .",
-        "post-autoload-dump": [
-          "./bin/package-discover.sh"
-        ]
+  "name": "alleyinteractive/mantle-site",
+  "type": "project",
+  "description": "A site using the Mantle framework for WordPress",
+  "license": "GPL-2.0-or-later",
+  "authors": [
+    {
+      "name": "Alley",
+      "email": "info@alley.co"
     }
+  ],
+  "require": {
+    "alleyinteractive/mantle-framework": "dev-main",
+    "fzaninotto/faker": "^1.9"
+  },
+  "require-dev": {
+    "alley/alley-coding-standards": "^0.1",
+    "phpunit/phpunit": "^9"
+  },
+  "config": {
+    "apcu-autoloader": true,
+    "optimize-autoloader": true,
+    "sort-packages": true
+  },
+  "repositories": {
+    "mantle-framework": {
+      "type": "git",
+      "url": "git@github.com:alleyinteractive/mantle-framework.git"
+    },
+    "alley-coding-standards": {
+      "type": "git",
+      "url": "https://github.com/alleyinteractive/Alley-Coding-Standards"
+    },
+    "sml": {
+      "type": "git",
+      "url": "git@github.com:alleyinteractive/sml.git"
+    }
+  },
+  "minimum-stability": "dev",
+  "prefer-stable": true,
+  "scripts": {
+    "post-autoload-dump": [
+      "./bin/package-discover.sh"
+    ],
+    "phpcs": "phpcs --standard=./phpcs.xml .",
+    "phpunit": "phpunit"
+  }
 }
