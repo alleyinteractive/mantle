@@ -31,13 +31,13 @@ return [
 		// Framework Providers.
 		Mantle\Framework\Database\Factory_Service_Provider::class,
 		Mantle\Framework\Providers\Console_Service_Provider::class,
-		Mantle\Framework\Providers\Error_Service_Provider::class,
-		Mantle\Framework\Providers\Queue_Service_Provider::class,
 		Mantle\Framework\Providers\Docs_Service_Provider::class,
+		Mantle\Framework\Providers\Error_Service_Provider::class,
+		Mantle\Framework\Providers\Model_Service_Provider::class,
+		Mantle\Framework\Providers\Queue_Service_Provider::class,
 
 		// Application Providers.
 		App\Providers\App_Service_Provider::class,
-		App\Providers\Model_Register_Provider::class,
 		App\Providers\Route_Service_Provider::class,
 	],
 
