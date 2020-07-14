@@ -2,7 +2,7 @@ Architecture
 ============
 
 ## Service Provider
-Service providers act as the key method of extending the framework. Core application functionality will be defined and encapsulated entirely in a service provider.
+Service providers act as the key method of extending the framework and bootstrapping essential services. Core application functionality will be defined and encapsulated entirely in a service provider. Your own application, as well as all core Mantle services, are bootstrapped via Service Providers.
 
 ### Generating a Service Provider
 A service provider can be generated for you by running the following command:
@@ -27,6 +27,12 @@ class Example_Provider extends Service_Provider {
 	 */
 	public function register() {
 		// Register the provider.
+		$this->app->singleton(
+			'binding-to-register',
+			function( $app ) {
+				return new Essential_Service( $app );
+			}
+		);
 	}
 
 	/**
@@ -50,7 +56,6 @@ All application service providers are registered in the `config/app.php` configu
 ```
 
 ## Service Container
-
 The service container is a powerful tool for managing class dependencies and performing dependency injection with ease. Most function calls are performed through the service container and support dynamic dependency injection without any need to configure it.
 
 Here is an example of the global instance of `Shared_Object` being injected into the controller's constructor. The instance is a global singleton the service container dynamically included as a parameter to the controller's contructor.
