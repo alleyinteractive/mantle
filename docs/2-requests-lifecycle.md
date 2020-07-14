@@ -171,6 +171,9 @@ Route::get( '/', function () {
 } );
 ```
 
+#### View Location
+By default WordPress will only load a template part from the active theme and parent theme if applicable. Mantle supports loading views from a dynamic set of locations. Mantle support automatically register the current theme and parent theme as view locations.
+
 ### Redirect to Endpoint and Route
 ```php
 Route::get( '/logout', function() {
