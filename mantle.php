@@ -41,6 +41,10 @@ try {
 	spl_autoload_register(
 		\Mantle\Framework\generate_wp_autoloader( __NAMESPACE__, __DIR__ . '/app' )
 	);
+
+	spl_autoload_register(
+		\Mantle\Framework\generate_wp_autoloader( __NAMESPACE__ . '\Database', __DIR__ . '/database' )
+	);
 } catch ( \Exception $e ) {
 	\wp_die( $e->getMessage() ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 }
