@@ -7,7 +7,7 @@
 
 namespace App\Providers;
 
-use Mantle\Framework\Service_Provider;
+use Mantle\Framework\Providers\App_Service_Provider as Service_Provider;
 
 /**
  * Application Service Provider
@@ -25,5 +25,14 @@ class App_Service_Provider extends Service_Provider {
 	 */
 	public function boot() {
 		// Boot the application here.
+	}
+
+	/**
+	 * Schedule any commands for the Application
+	 *
+	 * @param \Mantle\Framework\Scheduling\Schedule $schedule Scheduler instance.
+	 */
+	protected function schedule( $schedule ) {
+		// Schedule any commands, jobs, callbacks, etc. here.
 	}
 }
