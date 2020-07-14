@@ -37,7 +37,6 @@ return [
 
 		// Application Providers.
 		App\Providers\App_Service_Provider::class,
-		App\Providers\Model_Register_Provider::class,
 		App\Providers\Route_Service_Provider::class,
 	],
 
