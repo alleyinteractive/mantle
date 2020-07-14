@@ -30,7 +30,9 @@ class Kernel extends Http_Kernel {
 	 * @var array
 	 */
 	protected $middleware_groups = [
-		'web' => [],
+		'web' => [
+			\Mantle\Framework\Http\Routing\Middleware\Substitute_Bindings::class,
+		],
 	];
 
 	/**

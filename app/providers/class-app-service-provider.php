@@ -34,6 +34,5 @@ class App_Service_Provider extends Service_Provider {
 	 */
 	protected function schedule( $schedule ) {
 		// Schedule any commands, jobs, callbacks, etc. here.
-		$schedule->job( \App\Jobs\Example_Job::class );
 	}
 }
