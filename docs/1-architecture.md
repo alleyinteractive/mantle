@@ -11,7 +11,7 @@ A service provider can be generated for you by running the following command:
 wp mantle make:provider <name>
 ```
 
-### Example Service Provider
+### Service Provider Structure
 ```php
 namespace App;
 
@@ -55,13 +55,20 @@ All application service providers are registered in the `config/app.php` configu
 ],
 ```
 
+### Automatic Registration with WordPress Events
+A service provider can implement an interface to automatically register the provider's callback with the respective WordPress hook.
+
+Interface | Action
+--------- | ------
+`Mantle\Framework\Contracts\Providers\Init` | `init`
+`Mantle\Framework\Contracts\Providers\Wp_Loaded` | `wp_loaded`
+
 ## Service Container
 The service container is a powerful tool for managing class dependencies and performing dependency injection with ease. Most function calls are performed through the service container and support dynamic dependency injection without any need to configure it.
 
 Here is an example of the global instance of `Shared_Object` being injected into the controller's constructor. The instance is a global singleton the service container dynamically included as a parameter to the controller's contructor.
 
 ```php
-<?php
 namespace App\Http\Controllers;
 
 use App\Shared_Object;
@@ -78,11 +85,9 @@ class Example_Controller extends \Mantle\Framework\Http\Controller {
 ```
 
 ## Facades
-
-Facades are a static interface to the instances available from the service container.
+Facades are a static interface to the instances available from the service container. Instead of determining the underlying class or resolving it through the application, a facade will provide a single-line interface to call a singleton object from the container.
 
 ```php
-<?php
 use Mantle\Framework\Facade\Config;
 
 echo Config::get( 'app.attribute' );
@@ -96,20 +101,8 @@ Aliases provide a root namespace level way of interfacing with classes in the fr
 
 
 ```php
-<?php
-use Log;
-
 Log::info( 'My log message!' );
 
 // Can be rewritten as...
 mantle_app()['log']->info( 'My log message!' );
-```
-
-A facade as an alias:
-
-```php
-<?php
-use Config;
-
-echo Config::get( 'app.attribute' );
 ```
