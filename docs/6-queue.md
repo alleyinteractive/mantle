@@ -25,7 +25,7 @@ use App\Jobs\Example_Job;
 Example_Job::dispatch( $post_data_to_include );
 ```
 
-## Multiple Queues
+### Multiple Queues
 To allow for some priority between jobs a job can be sent to a specific queue. By default all jobs will be sent
 to the `default` queue. A job can be selectively sent to a smaller/different queue to allow for some priority
 among jobs.
@@ -38,6 +38,12 @@ Example_Job::dispatch();
 Example_Job::dispatch()->on_queue( 'priority' );
 ```
 
-## Future Additions
+### Dispatch Synchronously
+A job can be invoked synchronously and will be run in the current request.
 
+```php
+Example_Job::dispatch_now();
+```
+
+## Future Additions
 In the future, we hope to add better processing for failed jobs and better support for concurrency among jobs.
