@@ -53,7 +53,7 @@ echo loop( $posts, 'view-to-load' );
 ```
 
 ### `iterate()`
-Iterate over a collection/array of arbitrary data. Each view is passed `index` and `item` as a variable.
+Iterate over a collection/array of arbitrary data. Each view is passed `index` and `item` as a the current item in the loop.
 
 ```php
 echo iterate( [ 1, 2, 3 ], 'view-to-load' );
