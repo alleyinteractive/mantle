@@ -10,7 +10,7 @@
     }
   ],
   "require": {
-    "alleyinteractive/mantle-framework": "*",
+    "alleyinteractive/mantle-framework": "dev-main",
     "fzaninotto/faker": "^1.9"
   },
   "require-dev": {
@@ -39,7 +39,7 @@
   "minimum-stability": "dev",
   "prefer-stable": true,
   "scripts": {
-    "post-autoload-dump": [
+    "disabled-post-autoload-dump": [
       "./bin/package-discover.sh"
     ],
     "phpcs": "phpcs --standard=./phpcs.xml .",
