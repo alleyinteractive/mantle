@@ -8,6 +8,13 @@ Mantle's Test Framework provides a special bootstrapper and installer for WordPr
 codebase when running unit tests. In Mantle, you use the same codebase and a separate database. As long as your test suite isn't writing to any
 files, a singular codebase is a preferable setup, especially if you want to use xdebug to step through your test.
 
+The Mantle Test Framework expects a test config your WordPress root directory, named `wp-tests-config.php`. See [the sample config in the Mantle Framework](https://github.com/alleyinteractive/mantle-framework/blob/main/src/mantle/framework/testing/wp-tests-config-sample.php)
+to get started. This config is similar to `wp-config.php` and defines many of the same constants. Most importantly, it defines the database
+information, which *must* be different from your environment's database. If you reuse the same database, your data could be lost!
+
+Lastly, see this repository's [`tests/bootstrap.php` file](https://github.com/alleyinteractive/mantle-site/blob/main/tests/bootstrap.php) for
+examples of how to load the Mantle Test Framework in your project.
+
 ### Why This Instead of WordPress Core's Test Suite?
 
 We hope nobody interprets Mantle's Test Framework as a slight against WordPress Core's test suite. We :heart: WordPress Core's test suite and
