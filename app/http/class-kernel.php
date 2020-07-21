@@ -31,6 +31,7 @@ class Kernel extends Http_Kernel {
 	 */
 	protected $middleware_groups = [
 		'web' => [
+			\Mantle\Framework\Http\Routing\Middleware\Setup_WordPress::class,
 			\Mantle\Framework\Http\Routing\Middleware\Substitute_Bindings::class,
 		],
 	];
