@@ -33,6 +33,7 @@ class Kernel extends Http_Kernel {
 		'web' => [
 			\Mantle\Framework\Http\Routing\Middleware\Setup_WordPress::class,
 			\Mantle\Framework\Http\Routing\Middleware\Substitute_Bindings::class,
+			\Mantle\Framework\Http\Routing\Middleware\Wrap_Template::class,
 		],
 	];
 
