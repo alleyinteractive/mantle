@@ -35,6 +35,7 @@ return [
 		Mantle\Framework\Providers\Error_Service_Provider::class,
 		Mantle\Framework\Providers\Model_Service_Provider::class,
 		Mantle\Framework\Providers\Queue_Service_Provider::class,
+		Mantle\Framework\Query_Monitor\Query_Monitor_Service_Provider::class,
 
 		// Application Providers.
 		App\Providers\App_Service_Provider::class,
@@ -54,7 +55,9 @@ return [
 		'App'     => Mantle\Framework\Facade\App::class,
 		'Config'  => Mantle\Framework\Facade\Config::class,
 		'Log'     => Mantle\Framework\Facade\Log::class,
+		'Queue'   => Mantle\Framework\Facade\Queue::class,
 		'Request' => Mantle\Framework\Facade\Request::class,
+		'View'    => Mantle\Framework\Facade\View::class,
 	],
 
 	/*
