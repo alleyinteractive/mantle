@@ -29,3 +29,5 @@ use Mantle\Framework\Facade\Route;
 })
 |
 */
+
+Route::get( '/test', function() { return 'asdad'; } );
