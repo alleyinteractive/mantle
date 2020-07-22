@@ -29,7 +29,3 @@ use Mantle\Framework\Facade\Route;
 })
 |
 */
-
-Route::get('/test/{who}', function($name) {
-	return response()->view( 'example' );
-});
