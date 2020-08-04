@@ -8,7 +8,7 @@ Mantle's Test Framework provides a special bootstrapper and installer for WordPr
 codebase when running unit tests. In Mantle, you use the same codebase and a separate database. As long as your test suite isn't writing to any
 files, a singular codebase is a preferable setup, especially if you want to use xdebug to step through your test.
 
-The Mantle Test Framework expects a test config your WordPress root directory, named `wp-tests-config.php`. See [the sample config in the Mantle Framework](https://github.com/alleyinteractive/mantle-framework/blob/main/src/mantle/framework/testing/wp-tests-config-sample.php)
+The Mantle Test Framework expects a test config in your WordPress root directory, named `wp-tests-config.php`. See [the sample config in the Mantle Framework](https://github.com/alleyinteractive/mantle-framework/blob/main/src/mantle/framework/testing/wp-tests-config-sample.php)
 to get started. This config is similar to `wp-config.php` and defines many of the same constants. Most importantly, it defines the database
 information, which *must* be different from your environment's database. If you reuse the same database, your data could be lost!
 
@@ -164,8 +164,6 @@ As with in `WP_UnitTestCase`, you can add phpdoc annotations to a test for expec
 
 Mantle's Test Framework uses traits to add optional functionality to a test case.
 
-* `Refresh_Database` - Using this trait ensures that the database is rolled back after each test in the text case has run
+* `Refresh_Database` - Using this trait ensures that the database is rolled back after each test in the test case has run. Without it, data in the database will persist between tests, which almost certainly would not be desirable. That said, if your test case doesn't interact with the database, omitting this trait will provide a significant performance boost.
 * `Admin_Screen` - Using this trait sets the current "screen" to a WordPress admin screen, and `is_admin()` will return true in tests in the test case
 * `Network_Admin_Screen` - Same as with `Admin_Screen` except for the network admin and `is_network_admin()`
-
-## Misc
