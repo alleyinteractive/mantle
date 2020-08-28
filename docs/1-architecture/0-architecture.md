@@ -1,6 +1,16 @@
 Architecture
 ============
 
+- [Architecture](#architecture)
+	- [Service Provider](#service-provider)
+		- [Generating a Service Provider](#generating-a-service-provider)
+		- [Service Provider Structure](#service-provider-structure)
+		- [Registering Providers](#registering-providers)
+		- [Automatic Registration with WordPress Events](#automatic-registration-with-wordpress-events)
+	- [Service Container](#service-container)
+	- [Facades](#facades)
+	- [Aliases](#aliases)
+
 ## Service Provider
 Service providers act as the key method of extending the framework and bootstrapping essential services. Core application functionality will be defined and encapsulated entirely in a service provider. Your own application, as well as all core Mantle services, are bootstrapped via Service Providers.
 
