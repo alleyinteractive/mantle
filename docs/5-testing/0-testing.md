@@ -14,6 +14,9 @@
 - [Users](#users)
 	- [Assertions](#assertions-1)
 - [Deprecated and Incorrect Usage Assertion](#deprecated-and-incorrect-usage-assertion)
+- [Cron / Queue Assertions](#cron--queue-assertions)
+	- [Cron](#cron)
+	- [Queue](#queue)
 - [Remote Request API Mock](#remote-request-api-mock)
 	- [Faking All Requests](#faking-all-requests)
 	- [Faking Multiple Endpoints](#faking-multiple-endpoints)
@@ -235,21 +238,21 @@ expected exceptions.
 * `@expectedIncorrectUsage` - Expects that `_doing_it_wrong()` will be called
   during the course of the test
 
-```php
-$
-
 # Cron / Queue Assertions
 Cron and queue jobs can be asserted in unit tests.
 
+## Cron
 ```php
-$this->assertNotInCronQueue( 'example' ); wp_schedule_single_event( time(),
-'example' );
+$this->assertNotInCronQueue( 'example' );
+wp_schedule_single_event( time(), 'example' );
 
 $this->assertInCronQueue( 'example' );
 
-$this->dispatch_cron( 'example' ); $this->assertNotInCronQueue( 'example' );
+$this->dispatch_cron( 'example' );
+$this->assertNotInCronQueue( 'example' );
 ```
 
+## Queue
 ```php
 $job = new Example_Job( 1, 2, 3 );
 
@@ -261,10 +264,11 @@ $this->assertNotQueued( $job );
 
 Example_Job::dispatch( 1, 2, 3 );
 
-$this->assertQueued( Example_Job::class, [ 1, 2, 3 ] ); $this->assertQueued(
-$job );
+$this->assertQueued( Example_Job::class, [ 1, 2, 3 ] );
+$this->assertQueued( $job );
 
-// Fire the queue. $this->dispatch_queue();
+// Fire the queue.
+$this->dispatch_queue();
 
 $this->assertNotQueued( Example_Job::class, [ 1, 2, 3 ] );
 $this->assertNotQueued( $job );
@@ -278,8 +282,8 @@ generate a response.
 ## Faking All Requests
 ```php
 $this->fake_request()
-	->with_response_code( 404 )
-	->with_body( 'test body' );
+  ->with_response_code( 404 )
+  ->with_body( 'test body' );
 ```
 
 ## Faking Multiple Endpoints
@@ -288,11 +292,11 @@ will return a 500.
 
 ```php
 $this->fake_request( 'https://testing.com/*' )
-	->with_response_code( 404 )
+  ->with_response_code( 404 )
   ->with_body( 'test body' );
 
 $this->fake_request( 'https://github.com/*' )
-	->with_response_code( 500 )
+  ->with_response_code( 500 )
   ->with_body( 'fake body' );
 ```
 
