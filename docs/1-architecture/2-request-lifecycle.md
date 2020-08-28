@@ -1,7 +1,26 @@
-Requests Lifecycle
+Request Lifecycle
 ==================
 
-Mantle provides a MVC framework on-top of WordPress. You can add a route fluently and send a response straight back without needing to work with WordPress's `add_rewrite_rule()` at all.
+- [Request Lifecycle](#request-lifecycle)
+	- [Registering Routes](#registering-routes)
+		- [Closure Routes](#closure-routes)
+		- [Controller Routes](#controller-routes)
+		- [Named Routes](#named-routes)
+		- [Route Groups](#route-groups)
+		- [Available Router Methods](#available-router-methods)
+	- [Requests Pass Through to WordPress Routing](#requests-pass-through-to-wordpress-routing)
+	- [Route Middleware](#route-middleware)
+		- [Example Middleware](#example-middleware)
+		- [Authentication Middleware](#authentication-middleware)
+	- [Responses](#responses)
+		- [Strings & Arrays](#strings--arrays)
+		- [Views](#views)
+			- [View Location](#view-location)
+		- [Redirect to Endpoint and Route](#redirect-to-endpoint-and-route)
+
+Mantle provides a MVC framework on-top of WordPress. You can add a route
+fluently and send a response straight back without needing to work with
+WordPress's `add_rewrite_rule()` at all.
 
 ```php
 Route::get( '/example-route', function() {
