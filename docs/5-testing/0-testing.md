@@ -276,7 +276,9 @@ generate a response.
 
 ## Faking All Requests
 ```php
-$this->fake_request() ->with_response_code( 404 ) ->with_body( 'test body' );
+$this->fake_request()
+	->with_response_code( 404 )
+	->with_body( 'test body' );
 ```
 
 ## Faking Multiple Endpoints
@@ -284,10 +286,12 @@ Faking a specific endpoint, `testing.com` will return a 404 while `github.com`
 will return a 500.
 
 ```php
-$this->fake_request( 'https://testing.com/*' ) ->with_response_code( 404 )
+$this->fake_request( 'https://testing.com/*' )
+	->with_response_code( 404 )
   ->with_body( 'test body' );
 
-$this->fake_request( 'https://github.com/*' ) ->with_response_code( 500 )
+$this->fake_request( 'https://github.com/*' )
+	->with_response_code( 500 )
   ->with_body( 'fake body' );
 ```
 
