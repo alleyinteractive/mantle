@@ -256,7 +256,8 @@ $job = new Example_Job( 1, 2, 3 );
 // Assert if a job class with a set of arguments is not in the queue.
 $this->assertNotQueued( Example_Job::class, [ 1, 2, 3 ] );
 
-// Assert if a specific job is not in the queue. $this->assertNotQueued( $job );
+// Assert if a specific job is not in the queue.
+$this->assertNotQueued( $job );
 
 Example_Job::dispatch( 1, 2, 3 );
 
@@ -298,7 +299,8 @@ $this->fake_request( 'https://github.com/*' )
 You can also pass an array with a set of responses (or a callback):
 
 ```php
-use Mantle\Framework\Testing\Mock_Http_Response; $this->fake_request(
+use Mantle\Framework\Testing\Mock_Http_Response;
+$this->fake_request(
   [
     'https://github.com/*'  => Mock_Http_Response::create()->with_body( 'github' ),
     'https://twitter.com/*' => Mock_Http_Response::create()->with_body( 'twitter' ),
