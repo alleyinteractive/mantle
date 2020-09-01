@@ -1,6 +1,7 @@
-# Test Framework
+Testing Framework
+=================
 
-- [Test Framework](#test-framework)
+- [Testing Framework](#testing-framework)
 - [Setup](#setup)
 	- [Why This Instead of WordPress Core's Test Suite?](#why-this-instead-of-wordpress-cores-test-suite)
 - [HTTP Requests and Responses](#http-requests-and-responses)
