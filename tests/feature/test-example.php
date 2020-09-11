@@ -19,9 +19,6 @@ class Test_Example extends Test_Case {
 	}
 
 	public function test_route() {
-		// Route::get( '/test', function() { return 'yes'; } );
-		$this->get( '/test' )
-			->assertOk()
-			->assertSeeText( 'yes' );
+		$this->get( '/' )->assertOk();
 	}
 }
