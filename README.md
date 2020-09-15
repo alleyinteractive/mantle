@@ -1,4 +1,4 @@
-# Mantle Site Template
+# Mantle
 
 ## Installing a new Mantle Site
 
