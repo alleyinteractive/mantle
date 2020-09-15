@@ -1,0 +1,23 @@
+{
+  "name": "mantle-docs",
+  "version": "0.0.1",
+  "description": "Documentation for Mantle Sites",
+  "main": "index.js",
+  "authors": {
+    "name": "Alley Interactive",
+    "email": "info@alley.co"
+  },
+  "repository": "https://github.com/alleyinteractive/mantle-site/",
+  "scripts": {
+    "dev": "vuepress dev .",
+    "build": "vuepress build ."
+  },
+  "license": "GPL",
+  "devDependencies": {
+    "vuepress": "^1.5.3",
+    "vuepress-plugin-clean-urls": "^1.1.2"
+  },
+  "dependencies": {
+    "glob": "^7.1.6"
+  }
+}
