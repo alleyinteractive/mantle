@@ -1,11 +1,24 @@
 Scheduling Tasks
 ================
 
+- [Scheduling Tasks](#scheduling-tasks)
+	- [Introduction](#introduction)
+	- [Defining Schedules](#defining-schedules)
+		- [Schedule Frequency Options](#schedule-frequency-options)
+			- [Day Constraints](#day-constraints)
+			- [Between Time Constraints](#between-time-constraints)
+			- [Truth Test Constraints](#truth-test-constraints)
+			- [Environment Constraints](#environment-constraints)
+	- [Future Plans](#future-plans)
+
 ## Introduction
-To help provide a singular interface for scheduling jobs in WordPress (and to not interact with WordPress cron) Mantle provides a fluent interface for defining scheduleable tasks.
+To help provide a singular interface for scheduling jobs in WordPress (and to
+not interact with WordPress cron) Mantle provides a fluent interface for
+defining scheduleable tasks.
 
 ## Defining Schedules
-Jobs and Console Commands can be scheduled in the `app/providers/class-app-service-provider.php` file in your application.
+Jobs and Console Commands can be scheduled in the
+`app/providers/class-app-service-provider.php` file in your application.
 
 ```php
 namespace App\Providers;
@@ -16,26 +29,26 @@ use Mantle\Framework\Providers\App_Service_Provider as Service_Provider;
  * Application Service Provider
  */
 class App_Service_Provider extends Service_Provider {
-	// ...
+  // ...
 
-	/**
-	 * Schedule any commands for the Application
-	 *
-	 * @param \Mantle\Framework\Scheduling\Schedule $schedule Scheduler instance.
-	 */
-	protected function schedule( $schedule ) {
-		// Schedule a job class.
-		$schedule->job( \App\Jobs\Example_Job::class )->daily();
+  /**
+   * Schedule any commands for the Application
+   *
+   * @param \Mantle\Framework\Scheduling\Schedule $schedule Scheduler instance.
+   */
+  protected function schedule( $schedule ) {
+    // Schedule a job class.
+    $schedule->job( \App\Jobs\Example_Job::class )->daily();
 
-		// Schedule a console command.
-		$schedule->command( \App\Console\Example_Command::class )->hourly();
+    // Schedule a console command.
+    $schedule->command( \App\Console\Example_Command::class )->hourly();
 
-		$schedule->call(
-			function() {
-				// Do something!
-			}
-		)->weekly();
-	}
+    $schedule->call(
+      function() {
+        // Do something!
+      }
+    )->weekly();
+  }
 }
 ```
 
@@ -71,7 +84,9 @@ Method  | Description
 `->yearly();`  |  Run the task on the first day of every year at 00:00
 `->timezone( 'America/New_York' );` | Set the timezone
 
-These methods may be combined with additional constraints to create even more finely tuned schedules that only run on certain days of the week. For example, to schedule a command to run weekly on Monday:
+These methods may be combined with additional constraints to create even more
+finely tuned schedules that only run on certain days of the week. For example,
+to schedule a command to run weekly on Monday:
 
 ```php
 // Run once per week on Monday at 1 PM...
@@ -81,10 +96,10 @@ $schedule->call( function () {
 
 // Run hourly from 8 AM to 5 PM on weekdays...
 $schedule->command( Example_Command::class )
-          ->weekdays()
-          ->hourly()
-          ->timezone( 'America/Chicago' )
-          ->between( '8:00', '17:00' );
+  ->weekdays()
+  ->hourly()
+  ->timezone( 'America/Chicago' )
+  ->between( '8:00', '17:00' );
 ```
 
 Below is a list of the additional schedule constraints:
@@ -107,7 +122,9 @@ Method  | Description
 
 #### Day Constraints
 
-The `days` method may be used to limit the execution of a task to specific days of the week. For example, you may schedule a command to run hourly on Sundays and Wednesdays:
+The `days` method may be used to limit the execution of a task to specific days
+of the week. For example, you may schedule a command to run hourly on Sundays
+and Wednesdays:
 
 ```php
 $schedule->command( Example_Command::class )
@@ -117,7 +134,8 @@ $schedule->command( Example_Command::class )
 
 #### Between Time Constraints
 
-The `between` method may be used to limit the execution of a task based on the time of day:
+The `between` method may be used to limit the execution of a task based on the
+time of day:
 
 ```php
 $schedule->command( Example_Command::class )
@@ -125,41 +143,48 @@ $schedule->command( Example_Command::class )
   ->between( '7:00', '22:00' );
 ```
 
-Similarly, the `unlessBetween` method can be used to exclude the execution of a task for a period of time:
+Similarly, the `unlessBetween` method can be used to exclude the execution of a
+task for a period of time:
 
 ```php
 $schedule->command( Example_Command::class )
   ->hourly()
-	->unlessBetween( '23:00', '4:00' );
-	```
+  ->unlessBetween( '23:00', '4:00' );
+  ```
 
 #### Truth Test Constraints
 
-The `when` method may be used to limit the execution of a task based on the result of a given truth test. In other words, if the given `Closure` returns `true`, the task will execute as long as no other constraining conditions prevent the task from running:
+The `when` method may be used to limit the execution of a task based on the
+result of a given truth test. In other words, if the given `Closure` returns
+`true`, the task will execute as long as no other constraining conditions
+prevent the task from running:
 
 ```php
 $schedule->command( Example_Command::class )
-	->daily()
-	->when( function () {
+  ->daily()
+  ->when( function () {
       return true;
-	} );
+  } );
 ```
 
-The `skip` method may be seen as the inverse of `when`. If the `skip` method returns `true`, the scheduled task will not be executed:
+The `skip` method may be seen as the inverse of `when`. If the `skip` method
+returns `true`, the scheduled task will not be executed:
 
 ```php
 $schedule->command( Example_Command::class )
-	->daily()
-	->skip( function () {
+  ->daily()
+  ->skip( function () {
     return true;
-	} );
+  } );
 ```
 
-When using chained `when` methods, the scheduled command will only execute if all `when` conditions return `true`.
+When using chained `when` methods, the scheduled command will only execute if
+all `when` conditions return `true`.
 
 #### Environment Constraints
 
-The `environments` method may be used to execute tasks only on the given environments:
+The `environments` method may be used to execute tasks only on the given
+environments:
 
 ```php
 $schedule->command( Example_Command::class )
@@ -168,4 +193,5 @@ $schedule->command( Example_Command::class )
 ```
 
 ## Future Plans
-In the future we plan on adding in additional protection for task overlapping and task concurrency.
+In the future we plan on adding in additional protection for task overlapping
+and task concurrency.
