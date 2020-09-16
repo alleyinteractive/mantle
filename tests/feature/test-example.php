@@ -7,6 +7,7 @@
 
 namespace Tests\Feature;
 
+use Mantle\Framework\Facade\Route;
 use Tests\Test_Case;
 
 /**
@@ -15,5 +16,9 @@ use Tests\Test_Case;
 class Test_Example extends Test_Case {
   public function test_example() {
     $this->assertTrue( true );
-  }
+	}
+
+	public function test_route() {
+		$this->get( '/' )->assertOk();
+	}
 }
