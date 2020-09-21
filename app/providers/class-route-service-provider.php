@@ -7,7 +7,6 @@
 
 namespace App\Providers;
 
-use Mantle\Framework\Facade\Request;
 use Mantle\Framework\Facade\Route;
 use Mantle\Framework\Providers\Route_Service_Provider as Service_Provider;
 
@@ -28,13 +27,7 @@ class Route_Service_Provider extends Service_Provider {
 	 * Define routes for the application.
 	 */
 	public function map() {
-		$this->map_web_routes();
-	}
-
-	/**
-	 * Define web routes.
-	 */
-	protected function map_web_routes() {
 		Route::middleware( 'web' )->group( mantle_base_path( 'routes/web.php' ) );
+		Route::middleware( 'rest-api' )->group( mantle_base_path( 'routes/rest-api.php' ) );
 	}
 }

@@ -30,11 +30,12 @@ class Kernel extends Http_Kernel {
 	 * @var array
 	 */
 	protected $middleware_groups = [
-		'web' => [
+		'web'      => [
 			\Mantle\Framework\Http\Routing\Middleware\Setup_WordPress::class,
 			\Mantle\Framework\Http\Routing\Middleware\Substitute_Bindings::class,
 			\Mantle\Framework\Http\Routing\Middleware\Wrap_Template::class,
 		],
+		'rest-api' => [],
 	];
 
 	/**

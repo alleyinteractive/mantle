@@ -23,6 +23,9 @@ Request Lifecycle
 		- [View Location](#view-location)
 			- [Default View Locations](#default-view-locations)
 	- [Redirect to Endpoint and Route](#redirect-to-endpoint-and-route)
+- [REST API Routing](#rest-api-routing)
+	- [Registering Routes](#registering-routes-1)
+	- [Using Middleware](#using-middleware)
 
 Mantle provides a MVC framework on-top of WordPress. You can add a route
 fluently and send a response straight back without needing to work with
@@ -352,4 +355,78 @@ Route::get( '/old-page', function() {
 Route::get( '/oh-no', function() {
   return response()->redirect_to_route( 'route_name' );
 } );
+```
+
+# REST API Routing
+Mantle supports registering to the WordPress REST API directly. REST API Routes
+are registered underneath with native core functions and does not use the
+Symfony-based routing that web requests pass through.
+
+## Registering Routes
+Registering a REST API route requires a different function call if you do not
+wish to use a closure.
+
+```php
+Route::rest_api( 'namespace/v1', '/route-to-use', function() {
+  return [ 1, 2, 3 ];
+} );
+```
+
+Routes can also be registered using the same HTTP verbs web routes use with some
+minor differences.
+
+```php
+Route::rest_api(
+	'namespace/v1',
+	function() {
+		Route::get(
+			'/example-group-get',
+			function() {
+				return [ 1, 2, 3 ];
+			}
+		);
+
+		Route::get(
+			'/example-with-param/(?P<slug>[a-z\-]+)',
+			function( WP_REST_Request $request) {
+				return $request['slug'];
+			}
+		);
+	}
+);
+```
+
+REST API routes can also be registered using the same arguments you would pass
+to `register_rest_route()`.
+
+```php
+Route::rest_api(
+	'namespace/v1',
+	function() {
+		Route::get(
+			'/example-endpoint',
+			function() {
+				// This callback can be omitted, too.
+			},
+			[
+				'permission_callback' => function() {
+					// ...
+				}
+			]
+		);
+	}
+);
+```
+
+## Using Middleware
+REST API routes also support the same [Route Middleware](#route-middleware) that
+web requests use. The only difference is that web requests are passed a Mantle
+Request object while REST API requests are passed a `WP_REST_Request` one.
+
+```php
+Route::middleware( Example_Middleware::class )->group(
+	function() {
+		Route::rest_api( 'namespace/v1', '/example-route', function() { /* ... */ } );
+	}
+)
 ```
