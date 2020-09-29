@@ -1,4 +1,5 @@
 const glob = require('glob');
+const fs = require('fs');
 const { description } = require('../package')
 
 // Convert text to have uppercase first characters.
@@ -10,6 +11,11 @@ const slugToTitle = (text) => {
     .join(' ')
     .replace(/\w\S*/g, (w) => (w.replace(/^\w/, (c) => c.toUpperCase())))
     .replace('.md', '');
+};
+
+const getTitleForFile = (file) => {
+  const lines = fs.readFileSync(file, 'utf-8').split('\n');
+  return lines[0] || undefined;
 };
 
 const sidebar = glob
@@ -26,7 +32,7 @@ const sidebar = glob
       collapsable: false,
       sidebarDepth: 3,
       children: files.map((file) => ({
-        title: slugToTitle(file.split('/').pop()),
+        title: getTitleForFile(file) || slugToTitle(file.split('/').pop()),
         path: file.replace('.md', '').replace('./', '/'),
       })),
     };

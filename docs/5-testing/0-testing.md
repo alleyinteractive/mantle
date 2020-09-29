@@ -4,6 +4,7 @@ Testing Framework
 - [Testing Framework](#testing-framework)
 	- [Setup](#setup)
 		- [Why This Instead of WordPress Core's Test Suite?](#why-this-instead-of-wordpress-cores-test-suite)
+		- [Drop-in Support for Core Test Suite](#drop-in-support-for-core-test-suite)
 	- [HTTP Requests and Responses](#http-requests-and-responses)
 		- [Examples](#examples)
 		- [Assertions](#assertions)
@@ -38,13 +39,20 @@ database. As long as your test suite isn't writing to any files, a singular
 codebase is a preferable setup, especially if you want to use xdebug to step
 through your test.
 
-The Mantle Test Framework expects a test config in your WordPress root
-directory, named `wp-tests-config.php`. See [the sample config in the Mantle
+The Mantle Test Framework will work out of the box defining a set of constants
+to install WordPress. The default set of constants can be overridden using a
+test config in your WordPress root directory, named `wp-tests-config.php`. See
+[the sample config in the Mantle
 Framework](https://github.com/alleyinteractive/mantle-framework/blob/main/src/mantle/framework/testing/wp-tests-config-sample.php)
 to get started. This config is similar to `wp-config.php` and defines many of
 the same constants. Most importantly, it defines the database information, which
 *must* be different from your environment's database. If you reuse the same
 database, your data could be lost!
+
+The default configuration will install WordPress using a `localhost` database
+named `wordpress_unit_tests` with the username/password pair of `root/root`. All
+constants can be overridden using the `wp-tests-config.php` file or your unit
+test's bootstrap file.
 
 Lastly, see this repository's [`tests/bootstrap.php`
 file](https://github.com/alleyinteractive/mantle-site/blob/main/tests/bootstrap.php)
@@ -63,6 +71,15 @@ tests. That's worked fine, but it's not optimal. Mantle's Test Framework tries
 to incorporate the best parts of WordPress Core's test suite, but remove the
 unnecessary bits. Without having to worry about older versions of PHP, that also
 allows Mantle's Test Framework to use the latest versions of PHPUnit itself.
+
+### Drop-in Support for Core Test Suite
+
+The Mantle Test Framework supports legacy support for core's test suite methods,
+including `go_to()` and `factory()` among others. Projects are able to switch to
+the Mantle Test Framework without needing to rewrite any existing unit tests.
+The `Mantle\Framework\Testing\Framework_Test_Case` class should be extended from
+for any non-Mantle based project. For more information, see [Transitioning to
+Test Framework](./1-transition.md).
 
 ## HTTP Requests and Responses
 
