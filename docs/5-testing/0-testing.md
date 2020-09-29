@@ -2,34 +2,34 @@ Testing Framework
 =================
 
 - [Testing Framework](#testing-framework)
-- [Setup](#setup)
-	- [Why This Instead of WordPress Core's Test Suite?](#why-this-instead-of-wordpress-cores-test-suite)
-- [HTTP Requests and Responses](#http-requests-and-responses)
-	- [Examples](#examples)
-	- [Assertions](#assertions)
-		- [HTTP Status Assertions](#http-status-assertions)
-		- [Header Assertions](#header-assertions)
-		- [Content Body Assertions](#content-body-assertions)
-		- [WordPress Query Assertions](#wordpress-query-assertions)
-		- [WordPress Existence Assertions](#wordpress-existence-assertions)
-- [Users](#users)
-	- [Assertions](#assertions-1)
-- [Deprecated and Incorrect Usage Assertion](#deprecated-and-incorrect-usage-assertion)
-- [Cron / Queue Assertions](#cron--queue-assertions)
-	- [Cron](#cron)
-	- [Queue](#queue)
-- [Remote Request API Mock](#remote-request-api-mock)
-	- [Faking All Requests](#faking-all-requests)
-	- [Faking Multiple Endpoints](#faking-multiple-endpoints)
-	- [Faking With a Callback](#faking-with-a-callback)
-	- [Generating a Response](#generating-a-response)
-	- [Asserting Requests](#asserting-requests)
-- [Optional Traits](#optional-traits)
+	- [Setup](#setup)
+		- [Why This Instead of WordPress Core's Test Suite?](#why-this-instead-of-wordpress-cores-test-suite)
+	- [HTTP Requests and Responses](#http-requests-and-responses)
+		- [Examples](#examples)
+		- [Assertions](#assertions)
+			- [HTTP Status Assertions](#http-status-assertions)
+			- [Header Assertions](#header-assertions)
+			- [Content Body Assertions](#content-body-assertions)
+			- [WordPress Query Assertions](#wordpress-query-assertions)
+			- [WordPress Existence Assertions](#wordpress-existence-assertions)
+	- [Users](#users)
+		- [Assertions](#assertions-1)
+	- [Deprecated and Incorrect Usage Assertion](#deprecated-and-incorrect-usage-assertion)
+	- [Cron / Queue Assertions](#cron--queue-assertions)
+		- [Cron](#cron)
+		- [Queue](#queue)
+	- [Remote Request API Mock](#remote-request-api-mock)
+		- [Faking All Requests](#faking-all-requests)
+		- [Faking Multiple Endpoints](#faking-multiple-endpoints)
+		- [Faking With a Callback](#faking-with-a-callback)
+		- [Generating a Response](#generating-a-response)
+		- [Asserting Requests](#asserting-requests)
+	- [Optional Traits](#optional-traits)
 
 Mantle provides a PHPUnit test framework to make it easier to test your code
 with WordPress.
 
-# Setup
+## Setup
 
 Mantle's Test Framework provides a special bootstrapper and installer for
 WordPress. It is common in WordPress to use a _separate_ WordPress codebase when
@@ -50,7 +50,7 @@ Lastly, see this repository's [`tests/bootstrap.php`
 file](https://github.com/alleyinteractive/mantle-site/blob/main/tests/bootstrap.php)
 for examples of how to load the Mantle Test Framework in your project.
 
-## Why This Instead of WordPress Core's Test Suite?
+### Why This Instead of WordPress Core's Test Suite?
 
 We hope nobody interprets Mantle's Test Framework as a slight against WordPress
 Core's test suite. We :heart: WordPress Core's test suite and Mantle's Test
@@ -64,7 +64,7 @@ to incorporate the best parts of WordPress Core's test suite, but remove the
 unnecessary bits. Without having to worry about older versions of PHP, that also
 allows Mantle's Test Framework to use the latest versions of PHPUnit itself.
 
-# HTTP Requests and Responses
+## HTTP Requests and Responses
 
 Mantle provides a fluent HTTP Request interface to make it easier to write
 feature/integration tests using PHPUnit and WordPress. This library is a
@@ -80,7 +80,7 @@ that some content is present in the response body or that some header was set.
 
 Request methods are HTTP verbs, `get()`, `post()`, `put()`, etc.
 
-## Examples
+### Examples
 
 As a basic example, here we create a post via its factory, then request it and
 assert we see the post's name (title):
@@ -108,12 +108,12 @@ $this->following_redirects()
      ->assertSee( 'Success!' );
 ```
 
-## Assertions
+### Assertions
 
 `Test_Response` provides many assertions to confirm aspects of the response
 return as expected.
 
-### HTTP Status Assertions
+#### HTTP Status Assertions
 
 * `assertSuccessful()` - Assert 2xx
 * `assertOk()` - Assert 200
@@ -126,13 +126,13 @@ return as expected.
 * `assertRedirect( $uri = null )` - Asserts that the response is 301 or 302, and
   also runs `assertLocation()` with the `$uri`
 
-### Header Assertions
+#### Header Assertions
 
 * `assertLocation( $uri )`
 * `assertHeader( $header_name, $value = null )`
 * `assertHeaderMissing( $header_name )`
 
-### Content Body Assertions
+#### Content Body Assertions
 
 * `assertSee( $value )` - Assert the given string exists in the body content
 * `assertSeeInOrder( array $values )` - Assert the given strings exist in the
@@ -144,7 +144,7 @@ return as expected.
 * `assertDontSee( $value )`
 * `assertDontSeeText( $value )`
 
-### WordPress Query Assertions
+#### WordPress Query Assertions
 
 * `assertQueryTrue( ...$prop )` - Assert the given WP_Query `is_` functions
   (`is_single()`, `is_archive()`, etc.) return true and all others return false
@@ -154,7 +154,7 @@ return as expected.
   object match that of `get_queried_object()`
 
 
-### WordPress Existence Assertions
+#### WordPress Existence Assertions
 
 * `assertPostExists( array $args )` - Assert if a post exists given a set of
   arguments.
@@ -169,7 +169,7 @@ return as expected.
 * `assertUserDoesNotExists( array $args )` - Assert if a user doesn't exists
   given a set of arguments.
 
-# Users
+## Users
 
 The Mantle Test Framework provides a method, `acting_as( $user )` to execute a
 test as a given user or a user in the given role. This is best explained through
@@ -194,7 +194,7 @@ $user = $this->acting_as( 'editor' );
 $this->acting_as( $some_user_created_elsewhere );
 ```
 
-## Assertions
+### Assertions
 
 Mantle's Test Case provides some assertions above and beyond PHPUnit's, largely
 influenced by `WP_UnitTestCase`. Here's a runthrough.
@@ -229,7 +229,7 @@ WordPress Query assertions (see above)
 * `assertQueriedObjectId( int $id )`
 * `assertQueriedObject( $object )`
 
-# Deprecated and Incorrect Usage Assertion
+## Deprecated and Incorrect Usage Assertion
 
 As with in `WP_UnitTestCase`, you can add phpdoc annotations to a test for
 expected exceptions.
@@ -239,12 +239,17 @@ expected exceptions.
 * `@expectedIncorrectUsage` - Expects that `_doing_it_wrong()` will be called
   during the course of the test
 
-# Cron / Queue Assertions
+## Cron / Queue Assertions
 Cron and queue jobs can be asserted in unit tests.
 
-## Cron
+### Cron
+* `assertInCronQueue( string $action, array $args = [] )`
+* `assertNotInCronQueue( string $action, array $args = [] )`
+* `dispatch_cron( string $action = null )`
+
 ```php
 $this->assertNotInCronQueue( 'example' );
+
 wp_schedule_single_event( time(), 'example' );
 
 $this->assertInCronQueue( 'example' );
@@ -253,41 +258,45 @@ $this->dispatch_cron( 'example' );
 $this->assertNotInCronQueue( 'example' );
 ```
 
-## Queue
+### Queue
+* `assertJobQueued( $job, array $args = [], string $queue = null )`
+* `assertJobNotQueued( $job, array $args = [], string $queue = null )`
+* `dispatch_queue( string $queue = null )`
+
 ```php
 $job = new Example_Job( 1, 2, 3 );
 
 // Assert if a job class with a set of arguments is not in the queue.
-$this->assertNotQueued( Example_Job::class, [ 1, 2, 3 ] );
+$this->assertJobNotQueued( Example_Job::class, [ 1, 2, 3 ] );
 
 // Assert if a specific job is not in the queue.
-$this->assertNotQueued( $job );
+$this->assertJobNotQueued( $job );
 
 Example_Job::dispatch( 1, 2, 3 );
 
-$this->assertQueued( Example_Job::class, [ 1, 2, 3 ] );
-$this->assertQueued( $job );
+$this->assertJobQueued( Example_Job::class, [ 1, 2, 3 ] );
+$this->assertJobQueued( $job );
 
 // Fire the queue.
 $this->dispatch_queue();
 
-$this->assertNotQueued( Example_Job::class, [ 1, 2, 3 ] );
-$this->assertNotQueued( $job );
+$this->assertJobNotQueued( Example_Job::class, [ 1, 2, 3 ] );
+$this->assertJobNotQueued( $job );
 ```
 
-# Remote Request API Mock
+## Remote Request API Mock
 Remote request mocks are a very common use case to test against when unit
 testing. Mantle gives you the ability to mock specific requests and fluently
 generate a response.
 
-## Faking All Requests
+### Faking All Requests
 ```php
 $this->fake_request()
   ->with_response_code( 404 )
   ->with_body( 'test body' );
 ```
 
-## Faking Multiple Endpoints
+### Faking Multiple Endpoints
 Faking a specific endpoint, `testing.com` will return a 404 while `github.com`
 will return a 500.
 
@@ -313,7 +322,7 @@ $this->fake_request(
 );
 ```
 
-## Faking With a Callback
+### Faking With a Callback
 ```php
 $this->fake_request(
   function( string $url, array $request_args ) {
@@ -328,7 +337,7 @@ $this->fake_request(
 );
 ```
 
-## Generating a Response
+### Generating a Response
 `Mantle\Framework\Testing\Mock_Http_Response` exists to help you fluently build
 a WordPress-style remote response.
 
@@ -349,16 +358,17 @@ Mock_Http_Response::create()
   ->with_redirect( 'https://wordpress.org/' );
 ```
 
-## Asserting Requests
+### Asserting Requests
 All remote requests can be asserted against, even if they're not being faked by
-the test case.
+the test case. Mantle will log if an actual remote request is being made
+during an unit test.
 
 ```php
 $this->assertRequestSent( 'https://alley.co/' );
 $this->assertRequestNotSent( 'https://anothersite.com/' );
 ```
 
-# Optional Traits
+## Optional Traits
 
 Mantle's Test Framework uses traits to add optional functionality to a test
 case.
