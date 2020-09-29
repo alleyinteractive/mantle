@@ -203,7 +203,7 @@ before_script:
     - bash bin/install-wp-tests.sh wordpress_unit_tests root '' localhost $WP_VERSION
 
     # Copy the wp-tests-config.php to the WP installation.
-		- cp ${WP_TESTS_DIR-/tmp/wordpress-tests-lib}/wp-tests-config.php ${WP_CORE_DIR-/tmp/wordpress/}wp-tests-config.php
+    - cp ${WP_TESTS_DIR-/tmp/wordpress-tests-lib}/wp-tests-config.php ${WP_CORE_DIR-/tmp/wordpress/}wp-tests-config.php
 
     # Set up the wp-content directory. This assumes that this repo name matches the theme name
     - |
@@ -218,9 +218,9 @@ before_script:
     # Install Composer
     - |
       cd ${WP_CORE_DIR}wp-content/
-			composer install
+      composer install
 
-			export PATH=$PATH:${og_dir}/vendor/bin/
+      export PATH=$PATH:${og_dir}/vendor/bin/
       # After CodeSniffer install you should refresh your path.
       phpenv rehash
       phpcs --version
