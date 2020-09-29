@@ -1,5 +1,4 @@
-Model Factory
-=============
+# Model Factory
 
 - [Model Factory](#model-factory)
 	- [Defining Factories for a Model](#defining-factories-for-a-model)

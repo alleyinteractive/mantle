@@ -1,5 +1,4 @@
-Querying Models
-===============
+# Querying Models
 
 - [Querying Models](#querying-models)
 	- [Querying the Model Directly](#querying-the-model-directly)

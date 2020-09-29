@@ -1,5 +1,4 @@
-Configuration
-=============
+# Configuration
 
 - [Configuration](#configuration)
 - [Introduction](#introduction)

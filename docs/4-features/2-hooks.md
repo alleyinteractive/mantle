@@ -1,5 +1,4 @@
-WordPress Hooks
-===============
+# WordPress Hooks
 
 - [WordPress Hooks](#wordpress-hooks)
 	- [Find a Hook's Usage in the Codebase](#find-a-hooks-usage-in-the-codebase)

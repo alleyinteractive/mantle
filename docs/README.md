@@ -1,5 +1,4 @@
-Introduction
-============
+# Introduction
 
 Mantle is a framework for building large, robust websites and applications with
 WordPress. Mantle extends WordPress Core and acts as a layer between WordPress

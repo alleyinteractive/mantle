@@ -1,5 +1,4 @@
-Model Registration
-==================
+# Model Registration
 
 - [Model Registration](#model-registration)
 	- [Registering Post Types/Taxonomies](#registering-post-typestaxonomies)

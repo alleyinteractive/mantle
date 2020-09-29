@@ -1,5 +1,4 @@
-Scheduling Tasks
-================
+# Scheduling Tasks
 
 - [Scheduling Tasks](#scheduling-tasks)
 	- [Introduction](#introduction)

@@ -1,5 +1,4 @@
-Commands
-========
+# Commands
 
 - [Commands](#commands)
 	- [Introduction](#introduction)
