@@ -24,10 +24,10 @@ application.
 
 ### What would be a service provider?
 A good example of what should be a service provider would be a feature in your
-application. For example, a network of sites have a syndication feature. The
-feature could be wrapped into a single service provider which would bootstrap
-and setup all required services. The service provider would be the starting
-point for that feature.
+application. For example, a network of sites have a feature to syndicated content
+between sites. The feature could be wrapped into a single service provider which
+would bootstrap and setup all required services. The service provider would be the
+starting point for that feature.
 
 ### Registering a Service Provider
 The application stores service providers in the `config/app.php` file includes
