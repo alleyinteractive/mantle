@@ -24,7 +24,7 @@ const sidebar = glob
       title: slugToTitle(folder),
       path: files[0].replace('.md', '').replace('./', '/'),
       collapsable: false,
-      sidebarDepth: 1,
+      sidebarDepth: 3,
       children: files.map((file) => ({
         title: slugToTitle(file.split('/').pop()),
         path: file.replace('.md', '').replace('./', '/'),
@@ -56,6 +56,7 @@ module.exports = {
     editLinkText: 'Help us improve this page!',
     lastUpdated: 'Last Updated',
     repo: 'alleyinteractive/mantle-site',
+    displayAllHeaders: false,
     nav: [
       { text: 'Home', link: '/', target: '_self', },
       { text: 'Alley', link: 'https://alley.co/', },
