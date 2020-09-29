@@ -1,5 +1,4 @@
-Request Lifecycle
-==================
+# Request Lifecycle
 
 - [Request Lifecycle](#request-lifecycle)
 	- [Registering Routes](#registering-routes)

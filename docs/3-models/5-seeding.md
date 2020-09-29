@@ -1,5 +1,4 @@
-Database Seeding
-================
+# Database Seeding
 
 - [Database Seeding](#database-seeding)
 - [Introduction](#introduction)

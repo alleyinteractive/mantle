@@ -1,5 +1,4 @@
-Models
-======
+# Models
 
 - [Models](#models)
 	- [Supported Model Types](#supported-model-types)

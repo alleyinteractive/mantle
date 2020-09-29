@@ -1,5 +1,4 @@
-Directory Structure
-=================
+# Directory Structure
 
 - [Directory Structure](#directory-structure)
 - [Overview](#overview)

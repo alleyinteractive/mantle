@@ -1,5 +1,4 @@
-Testing Framework
-=================
+# Testing Framework
 
 - [Testing Framework](#testing-framework)
 	- [Setup](#setup)

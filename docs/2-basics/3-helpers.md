@@ -1,5 +1,4 @@
-Helpers
-=======
+# Helpers
 
 - [Helpers](#helpers)
 	- [Application Helpers](#application-helpers)

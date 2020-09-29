@@ -10,12 +10,13 @@ const slugToTitle = (text) => {
   return parts
     .join(' ')
     .replace(/\w\S*/g, (w) => (w.replace(/^\w/, (c) => c.toUpperCase())))
-    .replace('.md', '');
+    .replace('.md', '')
+    .replace('# ', '');
 };
 
 const getTitleForFile = (file) => {
   const lines = fs.readFileSync(file, 'utf-8').split('\n');
-  return lines[0] || undefined;
+  return lines[0].replace('# ', '') || undefined;
 };
 
 const sidebar = glob
@@ -40,29 +41,25 @@ const sidebar = glob
   .filter(item => false !== item);
 
 module.exports = {
-  /**
-   * Ref：https://v1.vuepress.vuejs.org/config/#title
-   */
   title: 'Mantle',
-  /**
-   * Ref：https://v1.vuepress.vuejs.org/config/#description
-   */
   description,
+  base: '/',
   head: [
-    ['meta', { name: 'theme-color', content: '#3eaf7c' }],
+    // ['meta', { name: 'theme-color', content: '#3eaf7c' }],
     ['meta', { name: 'apple-mobile-web-app-capable', content: 'yes' }],
     ['meta', { name: 'apple-mobile-web-app-status-bar-style', content: 'black' }],
-    ['meta', { name: 'robots', content: 'noindex' }]
+    ['meta', { name: 'robots', content: 'noindex' }],
   ],
   themeConfig: {
+    activeHeaderLinks: false,
+    displayAllHeaders: false,
     docsBranch: 'main',
     docsDir: 'docs',
     editLinks: false,
     editLinks: true,
     editLinkText: 'Help us improve this page!',
-    lastUpdated: 'Last Updated',
+    lastUpdated: false,
     repo: 'alleyinteractive/mantle-site',
-    displayAllHeaders: false,
     nav: [
       { text: 'Home', link: '/', target: '_self', },
       { text: 'Alley', link: 'https://alley.co/', },

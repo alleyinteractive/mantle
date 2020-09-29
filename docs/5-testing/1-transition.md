@@ -1,5 +1,4 @@
-Transitioning to Test Framework
-======================================
+# Transitioning to Test Framework
 
 - [Transitioning to Test Framework](#transitioning-to-test-framework)
 	- [Getting Started](#getting-started)

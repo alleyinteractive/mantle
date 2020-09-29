@@ -1,5 +1,4 @@
-Installation
-============
+# Installation
 
 - [Installation](#installation)
 	- [Requirements](#requirements)

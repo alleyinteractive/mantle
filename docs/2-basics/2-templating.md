@@ -1,5 +1,4 @@
-Templating
-==========
+# Templating
 
 - [Templating](#templating)
 	- [Views](#views)

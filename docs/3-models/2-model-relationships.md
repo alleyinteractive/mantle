@@ -1,5 +1,4 @@
-Model Relationships
-===================
+# Model Relationships
 
 - [Model Relationships](#model-relationships)
 	- [Introduction](#introduction)

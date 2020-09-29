@@ -1,5 +1,4 @@
-Queues
-======
+# Queues
 
 - [Queues](#queues)
 	- [Creating Jobs](#creating-jobs)

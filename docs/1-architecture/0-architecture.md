@@ -1,5 +1,4 @@
-Architecture
-============
+# Architecture
 
 - [Architecture](#architecture)
 	- [Service Provider](#service-provider)
