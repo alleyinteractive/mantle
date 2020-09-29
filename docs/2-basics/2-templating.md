@@ -3,8 +3,9 @@ Templating
 
 - [Templating](#templating)
 	- [Views](#views)
+		- [Blade Templates](#blade-templates)
 		- [View File Location](#view-file-location)
-		- [Default View Locations](#default-view-locations)
+			- [Default View Locations](#default-view-locations)
 	- [Passing Variables to Views](#passing-variables-to-views)
 		- [Passing Global Variables](#passing-global-variables)
 	- [Setting the Global Post Object.](#setting-the-global-post-object)
@@ -13,7 +14,7 @@ Templating
 			- [`iterate()`](#iterate)
 		- [View Shortcuts](#view-shortcuts)
 
-Templating in WordPress should be as delightful -- Mantle hopes to make it that
+Templating in WordPress should be delightful -- Mantle hopes to make it that
 way.
 
 ## Views
@@ -23,6 +24,16 @@ WordPress template parts can be returned for a route.
 Route::get( '/', function () {
   return response()->view( 'template-parts/block', [ 'variable' => '123' ] );
 } );
+```
+
+### Blade Templates
+Mantle also supports loading [Laravel's Blade](https://laravel.com/docs/8.x/blade) template
+parts. Blade and WordPress template parts can be used interchangeably. Mantle
+uses the `illuminate/view` package directly to provide complete compatibility
+with Blade templating.
+
+```php
+Hello, {{ $name }}
 ```
 
 ### View File Location
@@ -38,7 +49,7 @@ View_Loader::add_path( '/path-to-add' );
 View_Loader::remove_path( '/path-to-remove' );
 ```
 
-### Default View Locations
+#### Default View Locations
 - Active Theme
 - Parent of Active Theme
 - `{root of mantle site}/views`
@@ -54,6 +65,14 @@ echo view( 'view/to/load', [ 'foo' => 'bar' ] );
 
 // Inside the view...
 echo mantle_get_var( 'foo' );
+```
+
+Inside of [Blade Templates](#blade-templates) variables can access the variables
+directly. Blade will automatically escape the contents of a variable when using
+`\{\{ ... \}\}`.
+
+```php
+Hello {{ $foo }}!
 ```
 
 ### Passing Global Variables
@@ -75,7 +94,7 @@ properly.
 Route::get( '/article/{article}', function ( App\Article $article ) {
   // Supports passing a model, ID, or core WordPress object.
   return View::make( 'template-parts/block', [ 'post' => $article ] )->set_post( $article );
-}
+} );
 ```
 
 ### View Helpers
