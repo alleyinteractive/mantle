@@ -19,10 +19,3 @@ use Mantle\Framework\Facade\Route;
 | 	} );
 |
 */
-
-Route::rest_api(
-	'/namespace/v1',
-	function() {
-		// Register routes here...
-	}
-);
