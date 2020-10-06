@@ -19,7 +19,6 @@ Example_Post::whereSlug( 'slug-to-find' )->first();
 // You can also use the `where()` method diretly.
 Example_Post::where( 'slug', 'slug-to-find' )->first();
 
-
 // Posts in a list of IDs.
 Example_Post::whereIn( [ 1, 2, 3 ] )->get();
 
