@@ -30,10 +30,6 @@
     "alley-coding-standards": {
       "type": "git",
       "url": "https://github.com/alleyinteractive/Alley-Coding-Standards"
-    },
-    "sml": {
-      "type": "git",
-      "url": "git@github.com:alleyinteractive/sml.git"
     }
   },
   "minimum-stability": "dev",
