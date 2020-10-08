@@ -22,7 +22,7 @@ project.
 
 ### Via Mantle Installer
 
-Download the Mantle installer using Composer.
+Download the Mantle installer using [Composer](https://getcomposer.org/).
 
 ::: tip
 The `composer global config` will be unnecessary once Mantle is open-sourced.
