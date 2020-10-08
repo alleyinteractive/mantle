@@ -1,6 +1,6 @@
-# Request Lifecycle
+# Requests
 
-- [Request Lifecycle](#request-lifecycle)
+- [Requests](#requests)
 	- [Registering Routes](#registering-routes)
 		- [Closure Routes](#closure-routes)
 		- [Controller Routes](#controller-routes)
@@ -25,6 +25,8 @@
 	- [REST API Routing](#rest-api-routing)
 		- [Registering Routes](#registering-routes-1)
 		- [Using Middleware](#using-middleware)
+	- [Events](#events)
+		- [New Relic](#new-relic)
 
 Mantle provides a MVC framework on-top of WordPress. You can add a route
 fluently and send a response straight back without needing to work with
@@ -429,3 +431,29 @@ Route::middleware( Example_Middleware::class )->group(
 	}
 )
 ```
+
+## Events
+
+Mantle-powered routes for both web and REST API will fire the `Route_Matched`
+event when a route has been matched. It will always include the current request
+object. For web routes it will include the `Route` object as the route property.
+For REST API requests it will include an array of information about the current
+matched route.
+
+```php
+use Mantle\Framework\Http\Routing\Events\Route_Matched;
+Event::listen(
+	Route_Matched::class,
+	function( Route_Matched $event ) {
+		var_dump( $event->route );
+		var_dump( $event->request->ip() );
+	}
+);
+```
+
+### New Relic
+
+Using the `Route_Matched` event Mantle will automatically fill in transaction
+information for New Relic if the extension is loaded. All requests will
+have the transaction name properly formatted instead of relying on New Relic to
+fill in the blanks.
