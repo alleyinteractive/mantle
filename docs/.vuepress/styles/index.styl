@@ -6,3 +6,37 @@
 
 .home .hero img
   max-width 450px!important
+
+h1, h2, h3, h4
+	border: none;
+
+header.navbar
+	border: none
+	box-shadow: inset 0 -1px #e3e8ee;
+
+aside.sidebar
+	border: none
+	box-shadow: inset -1px 0 #e3e8ee;
+
+.home-code
+	margin: 40px 0;
+
+.home-code pre
+	overflow: hidden !important;
+
+@media (min-width: 990px)
+	.home-code
+		column-gap: 30px;
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+
+.home-lower
+	column-gap: 30px;
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+
+.goals
+	margin: 50px auto 0;
+	text-align: center;
+	font-size: 1.2rem;
+	line-height: 1.3;

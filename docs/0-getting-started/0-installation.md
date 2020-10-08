@@ -3,6 +3,8 @@
 - [Installation](#installation)
 	- [Requirements](#requirements)
 	- [Installing a new Mantle Site](#installing-a-new-mantle-site)
+		- [Via Mantle Installer](#via-mantle-installer)
+		- [Via Composer Create-Project](#via-composer-create-project)
 	- [Configuration](#configuration)
 
 ## Requirements
@@ -15,13 +17,36 @@ the event those requirements aren't met, Mantle will fall back to MySQL.
 
 ## Installing a new Mantle Site
 
-Mantle sites should live in `wp-content/private/{site-slug}/` inside a WordPress
-project. You can install a Mantle site using Composer, replacing `my-site` with
-your site slug. Be sure that you've created `wp-content/private/` in your
-WordPress installation first:
+Mantle sites should live in `wp-content/plugins/{site-slug}/` inside a WordPress
+project.
+
+### Via Mantle Installer
+
+Download the Mantle installer using Composer.
+
+::: tip
+The `composer global config` will be unnecessary once Mantle is open-sourced.
+:::
 
 ```bash
-cd wp-content/private/
+composer global config repositories.mantle-installer git git@github.com:alleyinteractive/mantle-installer.git
+composer global require alleyinteractive/mantle-installer
+```
+
+Once installed the `mantle new` command will create a fresh Mantle installation
+wherever you specify. It can also install WordPress for you or install Mantle
+into an existing WordPress installation.
+
+```bash
+mantle new my-site
+```
+
+### Via Composer Create-Project
+
+You can install a Mantle site using Composer, replacing `my-site` with your site's slug.
+
+```bash
+cd wp-content/plugins/
 composer create-project alleyinteractive/mantle-site my-site \
 --repository="{\"url\": \"https://github.com/alleyinteractive/mantle-site.git\", \"type\": \"vcs\"}" \
 --remove-vcs --stability=dev --no-cache --no-interaction
@@ -31,6 +56,6 @@ _Note: In the future, we'll create a command to simplify this, so creating a sit
 easy as `mantle new <site>`._
 
 ## Configuration
-Mantle should be loaded through a `mu-plugin`, `client-mu-plugin`, or other
+Mantle should be loaded through a `mu-plugin`, `client-mu-plugin`, or another
 initialization script as a plugin. To ensure that all features work correctly,
 Mantle should be loaded before the `muplugins_loaded` action is fired.
