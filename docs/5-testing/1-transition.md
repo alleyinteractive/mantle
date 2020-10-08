@@ -1,12 +1,6 @@
 # Transitioning to Test Framework
 
-- [Transitioning to Test Framework](#transitioning-to-test-framework)
-	- [Getting Started](#getting-started)
-		- [Add Composer Repositories](#add-composer-repositories)
-		- [Install `alleyinteractive/mantle-framework` as a dependency.](#install-alleyinteractivemantle-framework-as-a-dependency)
-	- [Change Test Case](#change-test-case)
-	- [Adjusting Unit Test Bootstrap](#adjusting-unit-test-bootstrap)
-	- [Configuring Continuous Integration](#configuring-continuous-integration)
+[[toc]]
 
 The Mantle Test Framework can be used outside of projects that started as a
 Mantle project such as normal WordPress sites, themes, and plugins. The
@@ -22,12 +16,11 @@ If you do not have a `composer.json` file in your project initialize that with
 `composer init`.
 
 ::: tip
-This is only required until Mantle is open sourced.
+This is only required until Mantle is open-sourced.
 :::
 
 ```bash
 composer config repositories.mantle-framework git git@github.com:alleyinteractive/mantle-framework.git
-composer config repositories.sml git git@github.com:alleyinteractive/sml.git
 ```
 
 ### Install `alleyinteractive/mantle-framework` as a dependency.
