@@ -97,6 +97,7 @@ developer. WordPress can already accomplish great things out of the box. Mantle
 aims to make it easier and simpler to use. Code should be fluent, reusable, easy
 to read, testable, and delightful to work with.
 
-[Get started here.](./0-getting-started/0-installation.md)
+[Get started here](./0-getting-started/0-installation.md) or visit our
+[GitHub](https://github.com/alleyinteractive/mantle) to contribute.
 
 </div>
