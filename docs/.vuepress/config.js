@@ -66,6 +66,11 @@ module.exports = {
     ],
     sidebar,
   },
+  markdown: {
+    toc: {
+      includeLevel: [1,2,3,4],
+    },
+  },
   plugins: [
     '@vuepress/plugin-back-to-top',
     '@vuepress/plugin-medium-zoom',

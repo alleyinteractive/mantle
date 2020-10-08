@@ -1,32 +1,6 @@
 # Requests
 
-- [Requests](#requests)
-	- [Registering Routes](#registering-routes)
-		- [Closure Routes](#closure-routes)
-		- [Controller Routes](#controller-routes)
-		- [Named Routes](#named-routes)
-		- [Route Groups](#route-groups)
-		- [Available Router Methods](#available-router-methods)
-		- [Requests Pass Through to WordPress Routing](#requests-pass-through-to-wordpress-routing)
-	- [Route Model Binding](#route-model-binding)
-		- [Implicit Binding](#implicit-binding)
-			- [Customizing The Default Key Name](#customizing-the-default-key-name)
-		- [Explicit Binding](#explicit-binding)
-			- [Customizing The Resolution Logic](#customizing-the-resolution-logic)
-		- [Route Middleware](#route-middleware)
-			- [Example Middleware](#example-middleware)
-			- [Authentication Middleware](#authentication-middleware)
-	- [Responses](#responses)
-			- [Strings & Arrays](#strings--arrays)
-		- [Views](#views)
-			- [View Location](#view-location)
-				- [Default View Locations](#default-view-locations)
-		- [Redirect to Endpoint and Route](#redirect-to-endpoint-and-route)
-	- [REST API Routing](#rest-api-routing)
-		- [Registering Routes](#registering-routes-1)
-		- [Using Middleware](#using-middleware)
-	- [Events](#events)
-		- [New Relic](#new-relic)
+[[toc]]
 
 Mantle provides a MVC framework on-top of WordPress. You can add a route
 fluently and send a response straight back without needing to work with
@@ -69,14 +43,31 @@ Route::get( '/controller-endpoint', Controller_Class::class . '@method_to_invoke
 ```
 
 ### Named Routes
-Naming a route provides an easy-to-reference way of generating a URLs for a
+Naming a route provides an easy-to-reference way of generating URLs for a
 route.
+
+```php
+Route::get( '/post/{slug}', function() {
+	//
+} )->name( 'route-name' );
+```
+
+Routes can also pass the name to the router through as an array.
 
 ```php
 Route::get( '/posts/{slug}', [
   'name' => 'named-route',
   'callback' => function() { ... },
 ] );
+```
+
+#### Generating URLs to Named Routes
+
+Once a route has a name assigned to it, you may use the route's name when
+generating URLs or redirects via the helper `route` function.
+
+```php
+$url = route( 'route-name' );
 ```
 
 ### Route Groups
@@ -107,11 +98,11 @@ Route::delete( $uri, $callback );
 Route::options( $uri, $callback );
 ```
 
-### Requests Pass Through to WordPress Routing
+### Requests Pass-Through to WordPress Routing
 By default, requests will pass down to WordPress if there is no match in Mantle.
 That can be changed inside of `Route_Service_Provider`. If the request doesn't
 have a match, the request will 404 and terminate before going through
-WordPress's require rules. REST API requests will always pass through to
+WordPress' require rules. REST API requests will always pass through to
 WordPress and bypass Mantle routing.
 
 ```php
