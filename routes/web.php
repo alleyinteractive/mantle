@@ -25,7 +25,7 @@ use Mantle\Framework\Facade\Route;
 | Register a route with variables:
 |
 |		Route::get( '/hello/{who}', function( $name ) {
-			return "Why hello {$name}!";
-})
+|			return "Why hello {$name}!";
+|		} );
 |
 */

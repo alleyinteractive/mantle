@@ -1,22 +1,42 @@
 # Querying Models
 
-- [Querying Models](#querying-models)
-	- [Querying the Model Directly](#querying-the-model-directly)
-	- [Querying Posts with Terms](#querying-posts-with-terms)
-	- [Querying with Meta](#querying-with-meta)
-	- [Ordering Results](#ordering-results)
-	- [Limitations](#limitations)
-- [Querying Multiple Models](#querying-multiple-models)
+[[toc]]
 
-Models support a fluent query builder that will return a easy-to-use Collection
+Models support a fluent query builder that will return an easy-to-use Collection
 of models.
 
-## Querying the Model Directly
+## Retrieving Models
+
+Once a model exists you are ready to start retrieving data. Each model acts as a
+powerful query builder that allows you to fluently query the underlying data
+that each model represents.
+
+```php
+$posts = Post::all();
+
+foreach ( $posts as $post ) {
+	echo $post->title;
+}
+```
+
+### Adding Additional Constraints
+The `all` method will return all the results for a model.
+
+::: tip
+For `Post` models, the `all` method will retrieve only published posts by default. You
+can easily include all post statuses by calling `anyStatus()` on the model.
+
+```php
+Post::where( ... )->anyStatus()->all();
+```
+
+:::
+
 ```php
 // Posts with a post_name equal to 'slug-to-find'.
 Example_Post::whereSlug( 'slug-to-find' )->first();
 
-// You can also use the `where()` method diretly.
+// You can also use an `where()` method directly.
 Example_Post::where( 'slug', 'slug-to-find' )->first();
 
 // Posts in a list of IDs.
@@ -74,7 +94,6 @@ Example_Post::query()->orderBy( 'name', 'asc' )->get();
 ## Limitations
 Not all fields are supported to be queried against since this is a fluent
 interface for the underlying `WP_Query` and `WP_Tax_Query` classes.
-
 
 # Querying Multiple Models
 Multiple models of the same type (posts/terms/etc.) can be queried together.
