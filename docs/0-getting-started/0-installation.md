@@ -43,7 +43,6 @@ You can install a Mantle site using Composer, replacing `my-site` with your site
 ```bash
 cd wp-content/plugins/
 composer create-project alleyinteractive/mantle my-site \
---repository="{\"url\": \"https://github.com/alleyinteractive/mantle.git\", \"type\": \"vcs\"}" \
 --remove-vcs --stability=dev --no-cache --no-interaction
 ```
 
