@@ -7,7 +7,7 @@
     "name": "Alley Interactive",
     "email": "info@alley.co"
   },
-  "repository": "https://github.com/alleyinteractive/mantle-site/",
+  "repository": "https://github.com/alleyinteractive/mantle/",
   "scripts": {
     "dev": "vuepress dev .",
     "build": "vuepress build ."

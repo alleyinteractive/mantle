@@ -30,7 +30,7 @@ constants can be overridden using the `wp-tests-config.php` file or your unit
 test's bootstrap file.
 
 Lastly, see this repository's [`tests/bootstrap.php`
-file](https://github.com/alleyinteractive/mantle-site/blob/main/tests/bootstrap.php)
+file](https://github.com/alleyinteractive/mantle/blob/main/tests/bootstrap.php)
 for examples of how to load the Mantle Test Framework in your project.
 
 ### Why This Instead of WordPress Core's Test Suite?

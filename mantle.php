@@ -2,7 +2,7 @@
 /**
  * Mantle - A framework for powerful WordPress development.
  *
- * @link https://github.com/alleyinteractive/mantle-site/
+ * @link https://github.com/alleyinteractive/mantle/
  *
  * @author Alley Interactive
  * @package Mantle

@@ -58,7 +58,7 @@ module.exports = {
     editLinks: true,
     editLinkText: 'Help us improve this page!',
     lastUpdated: false,
-    repo: 'alleyinteractive/mantle-site',
+    repo: 'alleyinteractive/mantle',
     nav: [
       { text: 'Home', link: '/', target: '_self', },
       { text: 'Alley', link: 'https://alley.co/', },
