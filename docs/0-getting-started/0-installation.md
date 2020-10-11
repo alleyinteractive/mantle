@@ -46,9 +46,6 @@ composer create-project alleyinteractive/mantle my-site \
 --remove-vcs --stability=dev --no-cache --no-interaction
 ```
 
-_Note: In the future, we'll create a command to simplify this, so creating a site will be as
-easy as `mantle new <site>`._
-
 ## Configuration
 Mantle should be loaded through a `mu-plugin`, `client-mu-plugin`, or another
 initialization script as a plugin. To ensure that all features work correctly,
