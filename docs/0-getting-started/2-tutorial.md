@@ -17,12 +17,7 @@ PHP environment such as [VVV](https://varyingvagrantvagrants.org/).
 
 Download the Mantle installer using [Composer](https://getcomposer.org/).
 
-::: tip
-The `composer global config` will be unnecessary once Mantle is open-sourced.
-:::
-
 ```bash
-composer global config repositories.mantle-installer git git@github.com:alleyinteractive/mantle-installer.git
 composer global require alleyinteractive/mantle-installer
 ```
 

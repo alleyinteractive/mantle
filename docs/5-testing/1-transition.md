@@ -10,23 +10,12 @@ framework can be added and loaded to your existing theme's unit test.
 
 This guide assumes that we are in a `wp-content/` rooted WordPress project.
 
-### Add Composer Repositories
-
-If you do not have a `composer.json` file in your project initialize that with
-`composer init`.
-
-::: tip
-This is only required until Mantle is open-sourced.
-:::
-
-```bash
-composer config repositories.mantle-framework git git@github.com:alleyinteractive/mantle-framework.git
-```
-
 ### Install `alleyinteractive/mantle-framework` as a dependency.
 
-Install the latest version of the `main` branch. Composer does not need to be
-loaded on all requests unless you plan on using Mantle outside of your unit tests.
+If you do not have a `composer.json` file in your project initialize that with
+`composer init`. Install the latest version of the `main` branch. Composer does
+not need to be loaded on all requests unless you plan on using Mantle outside of
+your unit tests.
 
 ```bash
 composer require alleyinteractive/mantle-framework:dev-main
