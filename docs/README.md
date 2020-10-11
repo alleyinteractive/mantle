@@ -73,7 +73,8 @@ of powerful template helpers to help DRY up your templates.
 
 Work with actual models to interact with data in your application. Mantle
 streamlines WordPress development to provide a uniform interface to work with
-core WordPress data structures. Define relationships between models and data structures to allow WordPress to
+core WordPress data structures. Define relationships between models and data
+structures bringing WordPress into the 21st century.
 
 </div>
 

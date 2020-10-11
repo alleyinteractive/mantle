@@ -21,19 +21,23 @@ aside.sidebar
 .home-code
 	margin: 40px 0;
 
-.home-code pre
+.home-code > div[class*="language-"]
+	margin-bottom: 0;
+	margin-top: 0;
+
+.home-code pre[class*="language-"]
 	overflow: hidden !important;
 
-@media (min-width: 990px)
+@media (min-width: 768px)
 	.home-code
+		display: grid;
+		grid-template-columns: repeat(2, minmax(auto, calc(50% - 15px)));
+		grid-column-gap: 30px;
+
+	.home-lower
 		column-gap: 30px;
 		display: grid;
-		grid-template-columns: repeat(2, 1fr);
-
-.home-lower
-	column-gap: 30px;
-	display: grid;
-	grid-template-columns: repeat(3, 1fr);
+		grid-template-columns: repeat(3, 1fr);
 
 .goals
 	margin: 50px auto 0;
