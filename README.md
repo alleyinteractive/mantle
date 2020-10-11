@@ -2,19 +2,20 @@
 
 ## Installing a new Mantle Site
 
-Mantle sites should live in `wp-content/private/{site-slug}/`. You can install
-a Mantle site using Composer, replacing `my-site` with your site slug. Be sure
-that you've created `wp-content/private/` in your WordPress installation first:
+Mantle sites should live in `wp-content/plugins/{site-slug}/`. You can install
+a Mantle site using Composer, replacing `my-site` with your site slug. Download the Mantle installer using [Composer](https://getcomposer.org/).
 
-```
-cd wp-content/private/
-composer create-project alleyinteractive/mantle-site my-site \
---repository="{\"url\": \"https://github.com/alleyinteractive/mantle-site.git\", \"type\": \"vcs\"}" \
---remove-vcs --stability=dev --no-cache --no-interaction
+```bash
+composer global require alleyinteractive/mantle-installer
 ```
 
-_Note: In the future, we'll create a command to simplify this, so creating a site will be as
-easy as `mantle new <site>`._
+Once installed the `mantle new` command will create a fresh Mantle installation
+wherever you specify. It can also install WordPress for you or install Mantle
+into an existing WordPress installation.
+
+```bash
+mantle new my-site
+```
 
 ## Directory Structure
 

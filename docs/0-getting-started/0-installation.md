@@ -24,12 +24,7 @@ project.
 
 Download the Mantle installer using [Composer](https://getcomposer.org/).
 
-::: tip
-The `composer global config` will be unnecessary once Mantle is open-sourced.
-:::
-
 ```bash
-composer global config repositories.mantle-installer git git@github.com:alleyinteractive/mantle-installer.git
 composer global require alleyinteractive/mantle-installer
 ```
 
@@ -47,8 +42,8 @@ You can install a Mantle site using Composer, replacing `my-site` with your site
 
 ```bash
 cd wp-content/plugins/
-composer create-project alleyinteractive/mantle-site my-site \
---repository="{\"url\": \"https://github.com/alleyinteractive/mantle-site.git\", \"type\": \"vcs\"}" \
+composer create-project alleyinteractive/mantle my-site \
+--repository="{\"url\": \"https://github.com/alleyinteractive/mantle.git\", \"type\": \"vcs\"}" \
 --remove-vcs --stability=dev --no-cache --no-interaction
 ```
 
