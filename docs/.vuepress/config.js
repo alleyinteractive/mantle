@@ -64,6 +64,10 @@ module.exports = {
       { text: 'Alley', link: 'https://alley.co/', },
     ],
     sidebar,
+    algolia: {
+      apiKey: 'f4cbda59264a3b8e945405e83fc6d685',
+      indexName: 'mantle'
+    },
   },
   markdown: {
     toc: {
