@@ -40,6 +40,46 @@ automatic controller routing will be added.
 
 ```php
 Route::get( '/controller-endpoint', Controller_Class::class . '@method_to_invoke' );
+Route::get( '/controller-endpoint', [ Controller_Class::class, 'method_to_invoke' ] );
+```
+
+#### Generating a Controller
+
+A controller can be generated through the CLI.
+
+```bash
+wp mantle make:controller <name>
+```
+
+#### Invokable Controllers
+
+A single-method controller is supported by defining a controller with an `__invoke`
+method.
+
+```php
+use Mantle\Framework\Http\Controller;
+
+class Invokable_Controller extends Controller {
+	/**
+	 * Method to run.
+	 */
+	public function __invoke() {
+		return [ ... ];
+	}
+}
+```
+
+Invokable controllers can be registered by passing the controller class name to
+the router.
+
+```php
+Route::get( '/example-route', Invokable_Controller::class );
+```
+
+Invokable controllers are also generate-able through the CLI.
+
+```bash
+wp mantle make:controller --invokable
 ```
 
 ### Named Routes
