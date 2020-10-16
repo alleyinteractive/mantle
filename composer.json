@@ -14,23 +14,14 @@
     "fzaninotto/faker": "^1.9"
   },
   "require-dev": {
-    "alley/alley-coding-standards": "^0.1",
+    "alleyinteractive/alley-coding-standards": "^0.1",
+    "nunomaduro/collision": "^5.0",
     "phpunit/phpunit": "^9"
   },
   "config": {
     "apcu-autoloader": true,
     "optimize-autoloader": true,
     "sort-packages": true
-  },
-  "repositories": {
-    "mantle-framework": {
-      "type": "git",
-      "url": "git@github.com:alleyinteractive/mantle-framework.git"
-    },
-    "alley-coding-standards": {
-      "type": "git",
-      "url": "https://github.com/alleyinteractive/Alley-Coding-Standards"
-    }
   },
   "minimum-stability": "dev",
   "prefer-stable": true,
