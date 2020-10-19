@@ -219,7 +219,7 @@ the boot method of the `Route_Service_Provider` class:
 public function boot() {
   parent::boot();
 
-  Route::model( 'user', App\User::class );
+  Route::bind_model( 'user', App\User::class );
 }
 ```
 
