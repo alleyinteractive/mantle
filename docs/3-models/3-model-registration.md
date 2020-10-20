@@ -1,10 +1,6 @@
 # Model Registration
 
-- [Model Registration](#model-registration)
-	- [Registering Post Types/Taxonomies](#registering-post-typestaxonomies)
-	- [Register REST API Fields](#register-rest-api-fields)
-	- [Register Meta Fields](#register-meta-fields)
-- [Bootable Trait Methods](#bootable-trait-methods)
+[[toc]]
 
 Let's aim to spend less time writing registration code and more time building
 websites.
@@ -59,7 +55,7 @@ return [
 ];
 ```
 
-## Register REST API Fields
+### Register REST API Fields
 Models can define REST API fields inside of a model easily. Registration should
 be defined in the model's `boot()` method. To ensure the model's fields are
 always registered, the model should beadded to the `config/models.php` file
@@ -91,7 +87,7 @@ class Post extends Base_Post implements Registrable_Fields {
 }
 ```
 
-## Register Meta Fields
+### Register Meta Fields
 Models can define meta values to associate with the model. Similar to
 registering a model's REST API field, registration should be defined in the
 model's `boot()` method. To ensure the fields are always registered, the model
@@ -101,7 +97,7 @@ should beadded to the `config/models.php` file under the `register` property.
 // to come.
 ```
 
-# Bootable Trait Methods
+## Bootable Trait Methods
 To allow for simplicity when writing traits that are shared among a set of
 models, traits support a `boot` and `initialize` method to allow for automatic
 registration of the respective trait. The trait name are suffixed with the name
@@ -118,3 +114,36 @@ trait Example_Trait {
   }
 }
 ```
+
+## Model Routing
+
+Models can define post/term singular and archive routes. This will replace the
+WordPress singular routes for posts and terms with no additional customization
+needed. Routes inside models can use any model alias or attribute, too.
+
+By default, any model that uses the `Register_Post_Type` or `Register_Taxonomy`
+will have their routes defined for them. The default route format is
+`/{object_name}/` and `/{object_name}/{slug}/` for the archive and singular
+route, respectively. The model can define their own route by replacing the
+`get_route()` or `get_archive_route()` methods.
+
+::: tip
+For routes that don't use the registration traits the model can still have
+their routing handled by including `Mantle\Framework\Database\Model\Concerns\Custom_Post_Permalink` or
+`Mantle\Framework\Database\Model\Concerns\Custom_Term_Link` traits.
+:::
+
+```php
+use Mantle\Framework\Database\Model\Post;
+use Mantle\Framework\Database\Model\Registration\Register_Post_Type;
+
+class Product extends Post {
+	use Register_Post_Type;
+
+	public static function get_route(): ?string {
+		return '/product/{slug}';
+	}
+}
+```
+
+For more information, see [Model Routing](../2-basics/0-requests.md#model-routing)

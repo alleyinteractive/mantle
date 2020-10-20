@@ -172,6 +172,54 @@ class Route_Service_Provider extends Service_Provider {
 }
 ```
 
+## Model Routing
+
+Models can have their permalinks and routing handled automatically. The
+underlying WordPress object will use the Mantle-generated URL for the model,
+too. The application will generate an archive route for post models and singular
+routes for post and term models.
+
+::: tip
+Models that are automatically registered will have their routing automatically
+registered. Read more about [model registration here](../3-models/3-model-registration.md#model-routing).
+:::
+
+### Model Routing Controller
+
+Similar to a resource controller, the router will invoke a single controller for
+the 'resource' (the model).
+
+| Method | Callback |
+| ------ | ---------|
+| Archive `/product/{slug}/` | `Product_Controller::index()` |
+| Singular `/product/{slug}/` | `Product_Controller::show()` |
+
+### Registering a Model for Routing
+
+Route models can be registered like any other route and also supports prefixes,
+middleware, etc.
+
+```php
+Route::model( Product::class, Product_Controller::class );
+```
+
+In the above example the `Product` model will have `/product/{slug}` and
+`/product` routes registered.
+
+```php
+use Mantle\Framework\Database\Model\Post;
+use Mantle\Framework\Database\Model\Concerns\Custom_Post_Permalink;
+
+class Product extends Post {
+	use Custom_Post_Permalink;
+
+	public function get_route(): ?string {
+		return '/route/{slug}';
+	}
+}
+```
+
+
 ## Route Model Binding
 Routes support model binding that will automatically resolve a model based on a
 route parameter and a type-hint on the route method. This supports implicit and
