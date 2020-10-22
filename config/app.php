@@ -29,6 +29,7 @@ return [
 	 */
 	'providers' => [
 		// Framework Providers.
+		Mantle\Framework\Filesystem\Filesystem_Service_Provider::class,
 		Mantle\Framework\Database\Factory_Service_Provider::class,
 		Mantle\Framework\Providers\Console_Service_Provider::class,
 		Mantle\Framework\Providers\Docs_Service_Provider::class,
