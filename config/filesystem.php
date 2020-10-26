@@ -19,7 +19,6 @@ return [
 	*/
 	'default' => 'local',
 
-
 	/*
 	|--------------------------------------------------------------------------
 	| Filesystem Disks
@@ -32,18 +31,9 @@ return [
 	| Supported Drivers: "local", "ftp", "sftp", "s3"
 	|
 	*/
-
 	'disks' => [
 		'local' => [
 			'driver' => 'local',
-			'root' => storage_path( 'app' ),
-		],
-
-		'public' => [
-			'driver'     => 'local',
-			'root'       => storage_path( 'app/public' ),
-			'url'        => env( 'APP_URL' ) . '/storage',
-			'visibility' => 'public',
 		],
 
 		's3' => [
