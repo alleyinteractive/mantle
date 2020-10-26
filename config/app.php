@@ -60,7 +60,9 @@ return [
 		'Log'     => Mantle\Framework\Facade\Log::class,
 		'Queue'   => Mantle\Framework\Facade\Queue::class,
 		'Request' => Mantle\Framework\Facade\Request::class,
+		'Route'   => Mantle\Framework\Facade\Route::class,
 		'View'    => Mantle\Framework\Facade\View::class,
+		'Storage' => Mantle\Framework\Facade\Storage::class,
 	],
 
 	/*
