@@ -6,7 +6,7 @@
 
 ## Find a Hook's Usage in the Codebase
 Quickly calculate the usage of a specific WordPress hook throughout your code
-base. Mantle will read all specified files in a specific path to fine all uses
+base. Mantle will read all specified files in a specific path to find all uses
 of a specific action/filter along with their respective line number.
 
 On initial scan of the file system, the results can be a bit slow to build a
