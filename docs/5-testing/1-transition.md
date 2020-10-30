@@ -49,76 +49,37 @@ class Test_Case extends Framework_Test_Case {
 Commonly unit tests live inside of plugins or themes. For this use case, we're
 going to adjust a theme's unit test bootstrap file to load the test framework.
 
+::: tip
+1. You might not need an autoloader if you are rolling your own.
+2. The callback to `install()` is completely optional.
+:::
+
 ```php
 <?php
 /**
  * Theme Testing using Mantle Framework
  */
 
-use function Mantle\Framework\Testing\tests_add_filter;
+namespace App\Tests;
 
-if ( ! defined( 'WP_CONTENT_DIR' ) ) {
-	define( 'WP_CONTENT_DIR', preg_replace( '#/wp-content/.*$#', '/wp-content', __DIR__ ) );
-}
+// Install the Mantle Test Framework.
+\Mantle\Framework\Testing\install(
+	function() {
+		// Setup any additional dependencies.
 
-$preload_path = '/src/mantle/framework/testing/preload.php';
-
-// Define the framework location.
-define( 'MANTLE_FRAMEWORK_DIR', WP_CONTENT_DIR . '/vendor/alleyinteractive/mantle-framework' );
-
-if ( ! file_exists( MANTLE_FRAMEWORK_DIR . $preload_path ) ) {
-	echo "ERROR: Unable to find the mantle framework!\n";
-	exit( 1 );
-}
-
-// Load some features that require early.
-require_once MANTLE_FRAMEWORK_DIR . $preload_path;
-
-/**
- * Setup our environment (theme, plugins).
- */
-function _manually_load_environment() {
-	// Load the Mantle Test Framework.
-	require_once MANTLE_FRAMEWORK_DIR . '/src/autoload.php';
-
-	// Set our theme.
-	switch_theme( 'twenty-twenty' );
-
-	/*
-	 * Tests won't start until the uploads directory is scanned, so use the
-	 * lightweight directory from the test install.
-	 *
-	 * @see https://core.trac.wordpress.org/changeset/29120.
-	 */
-	add_filter( 'pre_option_upload_path', function () {
-		return ABSPATH . 'wp-content/uploads';
-	} );
-
-	if ( ! defined( 'JETPACK_DEV_DEBUG' ) ) {
-		define( 'JETPACK_DEV_DEBUG', true );
+		\Mantle\Framework\Testing\tests_add_filter(
+			'muplugins_loaded',
+			function() {
+				// Setup any dependencies once WordPress is loaded, such as themes.
+				switch_theme( 'twentytwenty' );
+			}
+		);
 	}
+);
 
-	// Set active plugins (if any).
-	update_option( 'active_plugins', [
-		'jetpack/jetpack.php',
-	] );
-
-	/*
-	 * Disable Edit Flow notifications by default. If Edit Flow is enabled, the
-	 * notifications module can hit errors because the unit test factory creates
-	 * posts without authors.
-	 */
-	add_filter( 'ef_notification_status_change', '__return_false' );
-}
-tests_add_filter( 'muplugins_loaded', '_manually_load_environment' );
-
-try {
-	require_once MANTLE_FRAMEWORK_DIR . '/src/mantle/framework/testing/wordpress-bootstrap.php';
-} catch ( \Throwable $throwable ) {
-	echo "ERROR: Failed to load WordPress!\n";
-	echo "{$throwable}\n";
-	exit( 1 );
-}
+spl_autoload_register(
+	\Mantle\Framework\generate_wp_autoloader( __NAMESPACE__, __DIR__ )
+);
 ```
 
 ## Configuring Continuous Integration

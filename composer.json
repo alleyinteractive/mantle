@@ -10,13 +10,13 @@
     }
   ],
   "require": {
-    "alleyinteractive/mantle-framework": "dev-main",
+    "alleyinteractive/mantle-framework": "dev-unit-test-standalone",
     "fzaninotto/faker": "^1.9"
   },
   "require-dev": {
     "alleyinteractive/alley-coding-standards": "^0.2",
-    "nunomaduro/collision": "^5.0",
-    "phpunit/phpunit": "^9"
+    "phpunit/phpunit": "^8.5.8|^9.3.3",
+    "nunomaduro/collision": "^5.0"
   },
   "config": {
     "apcu-autoloader": true,
