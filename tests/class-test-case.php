@@ -2,10 +2,10 @@
 /**
  * Test_Case Class
  *
- * @package Mantle
+ * @package App
  */
 
-namespace Tests;
+namespace App\Tests;
 
 /**
  * Base Test Case that each Test Case should extend.
