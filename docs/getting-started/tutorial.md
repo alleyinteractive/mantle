@@ -79,7 +79,7 @@ return [
 ## Creating a Factory
 
 Instead of having to open up `wp-admin` and create data yourself, we can use
-[Mantle's Factories](../3-models/4-model-factory.md) to create data for us. Open
+[Mantle's Factories](../models/model-factory.md) to create data for us. Open
 up your terminal and use the `make:factory` command:
 
 ```bash
@@ -190,7 +190,7 @@ to view a specific project.
 
 ::: tip
 The second route uses PHP type-hinting to automatically resolve the model
-instance with [implicit model binding](../2-basics/0-requests.md#implicit-binding).
+instance with [implicit model binding](../basics/requests.md#implicit-binding).
 :::
 
 ```php

@@ -4,7 +4,7 @@ heroText: Mantle
 heroImage: /logo.png
 tagline: Mantle is a framework for building large, robust websites and applications with WordPress
 actionText: Get Started →
-actionLink: /0-getting-started/0-installation/
+actionLink: /getting-started/installation/
 footer: Copyright © 2020-present Alley
 ---
 
@@ -20,8 +20,8 @@ footer: Copyright © 2020-present Alley
   <div class="feature">
     <h2>Modern Toolkit</h2>
     <p>
-      Includes a <a href="/3-models/0-models/">powerful ORM</a>, simple to use <a href="/2-basics/0-requests/">routing</a>,
-			<a href="/2-basics/2-templating/">blade-powered templating</a>, and a <a href="/5-testing/0-testing/">fast independent testing library for WordPress</a> out of the box.
+      Includes a <a href="/models/models/">powerful ORM</a>, simple to use <a href="/basics/requests/">routing</a>,
+			<a href="/basics/templating/">blade-powered templating</a>, and a <a href="/testing/testing/">fast independent testing library for WordPress</a> out of the box.
     </p>
   </div>
 </div>
@@ -59,7 +59,7 @@ public function show( Post $post ) {
 
 <div>
 
-### [Flexible RESTful Routing](./2-basics/0-requests.md)
+### [Flexible RESTful Routing](./basics/requests.md)
 
 Use a Symfony-powered routing framework on top of WordPress to respond to
 requests in your application. Respond to requests using native PHP or Blade templates, both supporting a set
@@ -69,7 +69,7 @@ of powerful template helpers to help DRY up your templates.
 
 <div>
 
-### [Interface with Data Models](./3-models/0-models.md)
+### [Interface with Data Models](./models/models.md)
 
 Work with actual models to interact with data in your application. Mantle
 streamlines WordPress development to provide a uniform interface to work with
@@ -80,7 +80,7 @@ structures bringing WordPress into the 21st century.
 
 <div>
 
-### [Test Framework](./5-testing/0-testing.md)
+### [Test Framework](./testing/testing.md)
 
 Use the independent Mantle Test Framework to make your code testable and unit tests simple
 to write. Supports a drop-in replacement for core testing framework that will
@@ -99,7 +99,7 @@ developer. WordPress can already accomplish great things out of the box. Mantle
 aims to make it easier and simpler to use. Code should be fluent, reusable, easy
 to read, testable, and delightful to work with.
 
-[Get started here](./0-getting-started/0-installation.md) or visit our
+[Get started here](./getting-started/installation.md) or visit our
 [GitHub](https://github.com/alleyinteractive/mantle) to contribute.
 
 </div>

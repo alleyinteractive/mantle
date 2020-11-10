@@ -181,7 +181,7 @@ routes for post and term models.
 
 ::: tip
 Models that are automatically registered will have their routing automatically
-registered. Read more about [model registration here](../3-models/3-model-registration.md#model-routing).
+registered. Read more about [model registration here](../models/model-registration.md#model-routing).
 :::
 
 ### Model Routing Controller

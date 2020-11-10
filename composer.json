@@ -10,8 +10,8 @@
     }
   ],
   "require": {
-    "alleyinteractive/mantle-framework": "dev-main",
-    "fzaninotto/faker": "^1.9",
+    "alleyinteractive/mantle-framework": "*",
+    "fakerphp/faker": "^1.9",
     "symfony/mime": "^5.1"
   },
   "require-dev": {
@@ -32,5 +32,11 @@
     ],
     "phpcs": "phpcs --standard=./phpcs.xml .",
     "phpunit": "phpunit"
+  },
+  "repositories": {
+    "local": {
+      "type": "path",
+      "url": "../mantle-framework"
+    }
   }
 }
