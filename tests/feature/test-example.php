@@ -2,13 +2,12 @@
 /**
  * Test_Case Class
  *
- * @package Mantle
+ * @package App
  */
 
-namespace Tests\Feature;
+namespace App\Tests\Feature;
 
-use Mantle\Framework\Facade\Route;
-use Tests\Test_Case;
+use App\Tests\Test_Case;
 
 /**
  * Base Test Case that each Test Case should extend.

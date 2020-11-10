@@ -32,12 +32,12 @@ return [
 		Mantle\Framework\Filesystem\Filesystem_Service_Provider::class,
 		Mantle\Framework\Database\Factory_Service_Provider::class,
 		Mantle\Framework\Providers\Console_Service_Provider::class,
-		Mantle\Framework\Providers\Docs_Service_Provider::class,
 		Mantle\Framework\Providers\Error_Service_Provider::class,
 		Mantle\Framework\Providers\Model_Service_Provider::class,
 		Mantle\Framework\Providers\Queue_Service_Provider::class,
 		Mantle\Framework\Query_Monitor\Query_Monitor_Service_Provider::class,
 		Mantle\Framework\Providers\New_Relic_Service_Provider::class,
+		Mantle\Framework\Database\Pagination\Paginator_Service_Provider::class,
 
 		// Application Providers.
 		App\Providers\App_Service_Provider::class,

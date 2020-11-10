@@ -2,10 +2,10 @@
 /**
  * Create_Application trait file.
  *
- * @package Mantle
+ * @package App
  */
 
-namespace Tests;
+namespace App\Tests;
 
 use Mantle\Framework\Application;
 
