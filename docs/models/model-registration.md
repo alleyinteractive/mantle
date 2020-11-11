@@ -146,4 +146,4 @@ class Product extends Post {
 }
 ```
 
-For more information, see [Model Routing](../2-basics/0-requests.md#model-routing)
+For more information, see [Model Routing](../basics/requests.md#model-routing)

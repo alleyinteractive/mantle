@@ -29,6 +29,7 @@ return [
 	 */
 	'providers' => [
 		// Framework Providers.
+		Mantle\Framework\Filesystem\Filesystem_Service_Provider::class,
 		Mantle\Framework\Database\Factory_Service_Provider::class,
 		Mantle\Framework\Providers\Console_Service_Provider::class,
 		Mantle\Framework\Providers\Error_Service_Provider::class,
@@ -59,7 +60,9 @@ return [
 		'Log'     => Mantle\Framework\Facade\Log::class,
 		'Queue'   => Mantle\Framework\Facade\Queue::class,
 		'Request' => Mantle\Framework\Facade\Request::class,
+		'Route'   => Mantle\Framework\Facade\Route::class,
 		'View'    => Mantle\Framework\Facade\View::class,
+		'Storage' => Mantle\Framework\Facade\Storage::class,
 	],
 
 	/*
