@@ -18,11 +18,13 @@ jobs:
       - name: Copy
         uses: andstor/copycat-action@v3
         with:
-          personal_token: ${{ secrets.PERSONAL_TOKEN }}
-          src_path: /.
           clean: true
-          dst_path: /plugins/mantle-app/
+          dst_branch: main
           dst_owner: alleyinteractive
+          dst_path: /plugins/mantle-app/
           dst_repo_name: create-mantle-app
           email: mantle@alley.co
+          personal_token: ${{ secrets.PERSONAL_TOKEN }}
+          src_branch: main
+          src_path: /
           username: alley-ci
