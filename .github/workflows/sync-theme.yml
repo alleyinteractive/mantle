@@ -4,7 +4,7 @@ on:
       - gh-action
 
   schedule:
-    - cron: '0 */2 * * *'
+    - cron: '0 */6 * * *'
 
 name: sync-theme
 
@@ -19,6 +19,8 @@ jobs:
         env:
           TOKEN: ${{ secrets.PERSONAL_TOKEN }}
         run: |
+          set -e
+
           git config --global user.name "$GITHUB_ACTOR"
           git config --global user.email "$GITHUB_ACTOR@users.noreply.github.com"
 
@@ -32,9 +34,7 @@ jobs:
           rm -rf create-mantle-app/themes/twentytwenty
 
           echo "Replacing theme..."
-          mv wordpress/wp-content/themes/twentytwenty create-mantle-app/themes/twentytwenty
-          rm -rf create-mantle-app/themes/twentytwenty/.git
-          rm -rf create-mantle-app/themes/twentytwenty/.github
+          mv wordpress/wp-content/themes/twentytwenty create-mantle-app/themes
 
           if [ -z "$(git status --porcelain)" ]; then
             echo "No changes detected."
