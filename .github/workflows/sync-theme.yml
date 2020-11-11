@@ -1,0 +1,39 @@
+on:
+  push:
+    branches:
+      - gh-action
+
+  schedule:
+    - cron: '0 */2 * * *'
+
+name: sync-theme
+
+jobs:
+  sync-theme:
+    name: sync theme
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Copy
+        shell: bash
+        env:
+          TOKEN: ${{ secrets.PERSONAL_TOKEN }}
+        run: |
+          echo "Cloning create-mantle-app..."
+          git clone --depth=1 https://$TOKEN@github.com/alleyinteractive/create-mantle-app.git create-mantle-app
+
+          echo "Cloning theme..."
+          git clone --depth=1 https://github.com/WordPress/twentytwenty.git theme
+
+          echo "Removing old theme..."
+          rm -rf create-mantle-app/themes/twentytwenty
+
+          echo "Replacing theme..."
+          mv theme create-mantle-app/themes/twentytwenty
+          rm -rf create-mantle-app/themes/twentytwenty/.git
+
+          echo "Committing..."
+          cd create-mantle-app/themes
+          git add -A
+          git commit -m "Syncing twentytwenty"
+          git push

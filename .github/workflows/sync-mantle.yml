@@ -2,10 +2,6 @@ on:
   push:
     branches:
       - main
-      - gh-action
-
-  schedule:
-    - cron: '0 */2 * * *'
 
 name: create-mantle-app sync
 
