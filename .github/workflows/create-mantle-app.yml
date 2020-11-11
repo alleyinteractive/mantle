@@ -3,6 +3,7 @@ on:
     branches:
       - main
       - gh-action
+
   schedule:
     - cron: '0 */2 * * *'
 
@@ -19,6 +20,9 @@ jobs:
         with:
           personal_token: ${{ secrets.PERSONAL_TOKEN }}
           src_path: /.
+          clean: true
           dst_path: /plugins/mantle-app/
           dst_owner: alleyinteractive
           dst_repo_name: create-mantle-app
+          email: mantle@alley.co
+          username: alley-ci
