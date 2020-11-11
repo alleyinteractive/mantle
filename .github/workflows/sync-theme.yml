@@ -26,14 +26,15 @@ jobs:
           git clone --depth=1 https://$TOKEN@github.com/alleyinteractive/create-mantle-app.git create-mantle-app
 
           echo "Cloning theme..."
-          git clone --depth=1 https://github.com/WordPress/twentytwenty.git theme
+          git clone --depth=1 https://github.com/WordPress/WordPress.git wordpress
 
           echo "Removing old theme..."
           rm -rf create-mantle-app/themes/twentytwenty
 
           echo "Replacing theme..."
-          mv theme create-mantle-app/themes/twentytwenty
+          mv wordpress/wp-content/themes/twentytwenty create-mantle-app/themes/twentytwenty
           rm -rf create-mantle-app/themes/twentytwenty/.git
+          rm -rf create-mantle-app/themes/twentytwenty/.github
 
           echo "Committing..."
           cd create-mantle-app/themes
