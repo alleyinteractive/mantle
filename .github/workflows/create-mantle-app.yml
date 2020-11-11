@@ -11,6 +11,7 @@ name: create-mantle-app sync
 jobs:
   copy-to-create-mantle-app:
     name: copy files to create-mantle-app
+    runs-on: ubuntu-latest
 
     steps:
       - name: Copy
