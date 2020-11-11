@@ -35,9 +35,13 @@ jobs:
           echo "Replacing theme..."
           mv wordpress/wp-content/themes/twentytwenty create-mantle-app/themes/twentytwenty
 
-          echo "Committing..."
-          cd create-mantle-app/themes
+          if [ -z "$(git status --porcelain)" ]; then
+            echo "No changes"
+          else
+            echo "Committing..."
+            cd create-mantle-app/themes
 
-          git add -A
-          git commit -m "Syncing twentytwenty"
-          git push
+            git add -A
+            git commit -m "Syncing twentytwenty"
+            git push
+          fi
