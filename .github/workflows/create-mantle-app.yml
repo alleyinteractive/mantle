@@ -1,0 +1,20 @@
+on:
+  push:
+    tags:
+      - 'v*.*.*'
+
+name: create-mantle-app sync
+
+jobs:
+  copy-to-create-mantle-app:
+    name: copy files to create-mantle-app
+
+    steps:
+      - name: Copy
+        uses: andstor/copycat-action@v3
+        with:
+          personal_token: ${{ secrets.PERSONAL_TOKEN }}
+          src_path: /.
+          dst_path: /plugins/mantle-app/
+          dst_owner: alleyinteractive
+          dst_repo_name: create-mantle-app
