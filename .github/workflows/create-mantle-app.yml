@@ -18,12 +18,13 @@ jobs:
       - name: Copy
         uses: andstor/copycat-action@v3
         with:
+          commit_message: "Syncing from alleyinteractive/mantle"
           clean: true
           dst_branch: main
           dst_owner: alleyinteractive
-          dst_path: /plugins/mantle-app/
+          dst_path: /plugins/mantle-app
           dst_repo_name: create-mantle-app
           exclude: '.github/*'
           personal_token: ${{ secrets.PERSONAL_TOKEN }}
           src_branch: main
-          src_path: /
+          src_path: /.
