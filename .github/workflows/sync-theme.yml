@@ -14,11 +14,14 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Copy
+      - name: Copy Latest Theme
         shell: bash
         env:
           TOKEN: ${{ secrets.PERSONAL_TOKEN }}
         run: |
+          git config --global user.name "$GITHUB_ACTOR"
+          git config --global user.email "mantle@alley.co"
+
           echo "Cloning create-mantle-app..."
           git clone --depth=1 https://$TOKEN@github.com/alleyinteractive/create-mantle-app.git create-mantle-app
 
