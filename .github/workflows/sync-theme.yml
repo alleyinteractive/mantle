@@ -20,7 +20,7 @@ jobs:
           TOKEN: ${{ secrets.PERSONAL_TOKEN }}
         run: |
           git config --global user.name "$GITHUB_ACTOR"
-          git config --global user.email "mantle@alley.co"
+          git config --global user.email "$GITHUB_ACTOR@users.noreply.github.com"
 
           echo "Cloning create-mantle-app..."
           git clone --depth=1 https://$TOKEN@github.com/alleyinteractive/create-mantle-app.git create-mantle-app
@@ -35,6 +35,11 @@ jobs:
           mv wordpress/wp-content/themes/twentytwenty create-mantle-app/themes/twentytwenty
           rm -rf create-mantle-app/themes/twentytwenty/.git
           rm -rf create-mantle-app/themes/twentytwenty/.github
+
+          if [ -z "$(git status --porcelain)" ]; then
+            echo "No changes detected."
+            exit 0
+          fi
 
           echo "Committing..."
           cd create-mantle-app/themes
