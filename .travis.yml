@@ -24,6 +24,14 @@ matrix:
       env: WP_VERSION=latest WP_TRAVISCI=phpcs
     - php: 7.4
       env: WP_VERSION=latest
+    - php: 8.0
+      env: WP_VERSION=latest
+    - php: 7.3
+      env: WP_VERSION=trunk
+  allow_failures:
+    - php: 8.0
+    - php: 7.3
+      env: WP_VERSION=trunk
 
 before_install:
   - |
