@@ -56,6 +56,7 @@ return [
 	 */
 	'aliases'   => [
 		'App'     => Mantle\Framework\Facade\App::class,
+		'Cache'   => Mantle\Framework\Facade\Cache::class,
 		'Config'  => Mantle\Framework\Facade\Config::class,
 		'Event'   => Mantle\Framework\Facade\Event::class,
 		'Log'     => Mantle\Framework\Facade\Log::class,
