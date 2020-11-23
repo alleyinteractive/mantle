@@ -1,7 +1,7 @@
 ---
 home: true
 heroText: Mantle
-heroImage: /logo.png
+heroImage: /logo.jpg
 tagline: Mantle is a framework for building large, robust websites and applications with WordPress
 actionText: Get Started →
 actionLink: /getting-started/installation/
