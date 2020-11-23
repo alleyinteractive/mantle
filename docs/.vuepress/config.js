@@ -46,5 +46,11 @@ module.exports = {
         notFoundPath: '/404.html',
       },
     ],
+    [
+      '@vuepress/google-analytics',
+      {
+        'ga': 'G-G4HGJSHN3S',
+      }
+    ]
   ]
 }
