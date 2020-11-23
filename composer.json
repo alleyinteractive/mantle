@@ -11,7 +11,8 @@
   ],
   "require": {
     "alleyinteractive/mantle-framework": "dev-main",
-    "fzaninotto/faker": "^1.9"
+    "fakerphp/faker": "^1.9",
+    "symfony/mime": "^5.1"
   },
   "require-dev": {
     "alleyinteractive/alley-coding-standards": "^0.2",
@@ -26,7 +27,7 @@
   "minimum-stability": "dev",
   "prefer-stable": true,
   "scripts": {
-    "disabled-post-autoload-dump": [
+    "post-autoload-dump": [
       "./bin/package-discover.sh"
     ],
     "phpcs": "phpcs --standard=./phpcs.xml .",

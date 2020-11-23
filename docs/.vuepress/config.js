@@ -1,44 +1,4 @@
-const glob = require('glob');
-const fs = require('fs');
-const { description } = require('../package')
-
-// Convert text to have uppercase first characters.
-const slugToTitle = (text) => {
-  const parts = text.split('-');
-  parts.shift();
-
-  return parts
-    .join(' ')
-    .replace(/\w\S*/g, (w) => (w.replace(/^\w/, (c) => c.toUpperCase())))
-    .replace('.md', '')
-    .replace('# ', '');
-};
-
-const getTitleForFile = (file) => {
-  const lines = fs.readFileSync(file, 'utf-8').split('\n');
-  return lines[0].replace('# ', '') || undefined;
-};
-
-const sidebar = glob
-  .sync('./!(vendor|node_modules)')
-  .map((folder) => {
-    const files = glob.sync(`${folder}/*.md`);
-    if (! files.length) {
-      return false;
-    }
-
-    return {
-      title: slugToTitle(folder),
-      path: files[0].replace('.md', '').replace('./', '/'),
-      collapsable: false,
-      sidebarDepth: 3,
-      children: files.map((file) => ({
-        title: getTitleForFile(file) || slugToTitle(file.split('/').pop()),
-        path: file.replace('.md', '').replace('./', '/'),
-      })),
-    };
-  })
-  .filter(item => false !== item);
+const { description } = require('../package');
 
 module.exports = {
   title: 'Mantle',
@@ -63,7 +23,7 @@ module.exports = {
       { text: 'Home', link: '/', target: '_self', },
       { text: 'Alley', link: 'https://alley.co/', },
     ],
-    sidebar,
+    sidebar: require('./sidebar'),
     algolia: {
       apiKey: 'f4cbda59264a3b8e945405e83fc6d685',
       indexName: 'mantle'
@@ -77,6 +37,7 @@ module.exports = {
   plugins: [
     '@vuepress/plugin-back-to-top',
     '@vuepress/plugin-medium-zoom',
+    'check-md',
     [
       'vuepress-plugin-clean-urls',
       {
