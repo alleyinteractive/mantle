@@ -97,4 +97,6 @@ jobs:
 
       - name: Test Mantle
         shell: bash
-        run: ${WP_CORE_DIR}/wp-content/plugins/mantle/vendor/bin/phpunit --verbose
+        run: |
+          cd ${WP_CORE_DIR}/wp-content/plugins/mantle
+          composer run phpunit
