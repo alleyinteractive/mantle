@@ -36,7 +36,6 @@ jobs:
             can_fail: true
 
     name: PHP ${{ matrix.php }} -- ${{ matrix.wp_version }}
-
     env:
       WP_DEVELOP_DIR: /tmp/wordpress
       WP_CORE_DIR: /tmp/wordpress
