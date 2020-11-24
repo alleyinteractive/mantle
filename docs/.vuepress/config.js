@@ -51,6 +51,13 @@ module.exports = {
       {
         'ga': 'G-G4HGJSHN3S',
       }
-    ]
+    ],
+    [
+      'sitemap',
+      {
+        hostname: 'https://mantle.alley.co',
+        exclude: ['/404.html'],
+      }
+    ],
   ]
 }
