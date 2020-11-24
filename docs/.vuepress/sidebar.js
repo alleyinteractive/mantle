@@ -51,6 +51,7 @@ module.exports = [
       'hooks',
       'file-system',
       'caper',
+      'cache',
     ]),
   },
   {
