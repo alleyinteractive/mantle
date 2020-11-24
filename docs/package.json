@@ -1,7 +1,7 @@
 {
   "name": "mantle-docs",
-  "version": "0.0.1",
-  "description": "Documentation for Mantle Sites",
+  "version": "0.1.0",
+  "description": "Mantle is a framework for building large, robust websites and applications with WordPress ",
   "main": "index.js",
   "authors": {
     "name": "Alley Interactive",
