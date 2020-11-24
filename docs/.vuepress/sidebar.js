@@ -50,6 +50,7 @@ module.exports = [
       'scheduling-tasks',
       'hooks',
       'file-system',
+      'cache',
     ]),
   },
   {
