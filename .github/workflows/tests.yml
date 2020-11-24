@@ -89,12 +89,15 @@ jobs:
       - name: Install WordPress and Copy Project
         shell: bash
         run: |
-          bash bin/install-wp-tests.sh "$(pwd)/vendor/alleyinteractive/mantle-framework/src/mantle/framework/testing/wp-tests-config-sample.php" wordpress_unit_tests root "" 127.0.0.1 "$WP_VERSION"
+          bash bin/install-wp-tests.sh wordpress_unit_tests root '' 127.0.0.1 $WP_VERSION
 
-          mkdir "$WP_CORE_DIR/wp-content/private/"
-          cp -R . "$WP_CORE_DIR/wp-content/private/mantle-site"
-          cd "$WP_CORE_DIR/wp-content/private/mantle-site/"
+          # Copy the wp-tests-config.php to the WP installation.
+          cp ${WP_TESTS_DIR-/tmp/wordpress-tests-lib}/wp-tests-config.php ${WP_CORE_DIR-/tmp/wordpress}/wp-tests-config.php
+
+          # Go into the core directory and replace wp-content.
+          mkdir -p ${WP_CORE_DIR}/wp-content/plugins/mantle
+          cp -R . "${WP_CORE_DIR}/wp-content/plugins/mantle"
 
       - name: Test Mantle
         shell: bash
-        run: ${WP_CORE_DIR}/wp-content/private/mantle-site/vendor/bin/phpunit --verbose
+        run: ${WP_CORE_DIR}/wp-content/plugins/mantle/vendor/bin/phpunit --verbose
