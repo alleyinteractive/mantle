@@ -39,6 +39,7 @@ module.exports = [
       'model-relationships',
       'model-registration',
       'model-factory',
+      'serialization',
       'seeding',
     ]),
   },
