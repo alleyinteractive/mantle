@@ -1,7 +1,6 @@
 name: Coding Standards
 
 on:
-  push:
   pull_request:
 
 jobs:

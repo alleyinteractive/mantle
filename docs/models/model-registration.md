@@ -91,10 +91,28 @@ class Post extends Base_Post implements Registrable_Fields {
 Models can define meta values to associate with the model. Similar to
 registering a model's REST API field, registration should be defined in the
 model's `boot()` method. To ensure the fields are always registered, the model
-should beadded to the `config/models.php` file under the `register` property.
+should be added to the `config/models.php` file under the `register` property.
+
+By default, Mantle will pass the `object_subtype` argument for you for the
+model, registering meta only for the specific object type and object subtype the
+model represents. In the following example, the meta will be added to the `post`
+object type in WordPress and the `product` object subtype.
 
 ```php
-// to come.
+namespace App\Models;
+
+use Mantle\Framework\Contracts\Database\Registrable_Meta;
+use Mantle\Framework\Database\Model\Post;
+use Mantle\Framework\Database\Model\Registration\Register_Meta;
+
+class Product extends Post implements Registrable_Meta {
+  use Register_Meta;
+
+  protected static function boot() {
+		static::register_meta( 'product_id' );
+		static::register_meta( 'feedback', [ ... ] );
+  }
+}
 ```
 
 ## Bootable Trait Methods
