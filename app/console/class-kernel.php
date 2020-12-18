@@ -21,4 +21,13 @@ class Kernel extends Console_Kernel {
 	protected $commands = [
 		// ...
 	];
+
+	/**
+	 * Register the commands for the application.
+	 *
+	 * @return void
+	 */
+	public function commands(): void {
+		$this->load( __DIR__ );
+	}
 }
