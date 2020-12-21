@@ -1,19 +1,15 @@
 # Model Relationships
 
-- [Model Relationships](#model-relationships)
-	- [Introduction](#introduction)
-	- [Defining Relationships](#defining-relationships)
-		- [Has One/Has Many](#has-onehas-many)
-			- [Storing](#storing)
-		- [Belongs To](#belongs-to)
-			- [Storing](#storing-1)
+[[toc]]
 
 ## Introduction
+
 Data in an application will often have a relationship with other data. In
 Mantle, data represented as models can have relationships with other models with
 ease.
 
 ## Defining Relationships
+
 Relationships are defined as methods on the model. Since, like models
 themselves, relationships also serve as powerful query builders, defining
 relationships as methods provides powerful method chaining and querying
@@ -29,12 +25,13 @@ Relationships between posts will use an underlying meta query while
 relationships between posts and terms will use a taxonomy query.
 
 ### Has One/Has Many
+
 Relationships defined as having one or many will have references to the current
 model stored on other models. One common example would be a 'post -> sponsor'
 relationship. The sponsor's ID will be stored on one or many post objects.
 
 ```php
-class Sponsor extends Base_Post {
+class Sponsor extends Post {
   // ...
 
   public function posts() {
@@ -49,6 +46,7 @@ class Sponsor extends Base_Post {
 ```
 
 #### Storing
+
 The relationship can automatically setup the proper meta values to define a
 relationship.
 
@@ -59,6 +57,7 @@ $sponsor->remove( $post );
 ```
 
 ### Belongs To
+
 Relationships can be define as belong to another model will have the reference
 stored on the other model. In the example of a  `post -> sponsor` relationship,
 the sponsor's ID will be stored as meta on the post object.
@@ -75,6 +74,7 @@ class Post extends Base_Post {
 ```
 
 #### Storing
+
 The relationship can automatically setup the proper meta values on the model to
 define a relationship.
 
@@ -82,4 +82,30 @@ define a relationship.
 $sponsor->associate( $post );
 
 $sponsor->dissociate( $post );
+```
+
+### Post-to-Post Relationships
+
+Posts can define relationships between other posts using meta keys by default.
+However, this can result in poor query performance when querying against the
+relationship. Mantle supports defining relationships between posts using a
+internal taxonomy. This will result in better query performance when loading the
+post's relationships.
+
+```php
+class Sponsor extends Post {
+  public function posts() {
+    return $this->has_many( Post::class )->uses_terms();
+  }
+}
+```
+
+On the flip side, the belongs-to relationship needs to use terms as well.
+
+```php
+class Post extends Base_Post {
+  public function sponsor() {
+    return $this->belongs_to( Sponsor::class )->uses_terms();
+  }
+}
 ```
