@@ -66,4 +66,11 @@ module.exports = [
       'hooks',
     ]),
   },
+  {
+    title: 'Packages',
+    collapsable: false,
+    children: prefix('packages', [
+      'browser-testing',
+    ]),
+  },
 ]
