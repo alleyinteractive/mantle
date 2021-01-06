@@ -26,13 +26,9 @@ jobs:
     strategy:
       fail-fast: true
       matrix:
-        php: [7.3, 7.4]
+        php: [7.4]
         wp_version: ["latest"]
         can_fail: [false]
-        include:
-          - wp_version: "trunk"
-            php: 7.4
-            can_fail: true
 
     name: PHP ${{ matrix.php }} -- ${{ matrix.wp_version }}
     env:
