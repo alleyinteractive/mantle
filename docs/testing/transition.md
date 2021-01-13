@@ -3,8 +3,8 @@
 [[toc]]
 
 The Mantle Test Framework can be used outside of projects that started as a
-Mantle project such as normal WordPress sites, themes, and plugins. The
-framework can be added and loaded to your existing theme's unit test.
+Mantle project, such as normal WordPress sites, themes, and plugins. The
+framework can be added and loaded to your existing project's unit test.
 
 ## Getting Started
 
