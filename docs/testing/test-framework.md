@@ -3,9 +3,27 @@
 [[toc]]
 
 Mantle provides a PHPUnit test framework to make it easier to test your code
-with WordPress.
+with WordPress. It is focused on making testing your application faster and
+easier, allowing unit testing to become top of mind when building your site.
+Mantle includes many convenient helpers to allow you to expressively test your
+applications.
 
-## Setup
+With Mantle, your application's tests live in your `tests` directory. Tests
+should extend from the `App\Tests\Test_Case` test case, which include booting
+and the use of your Mantle application inside of your test case. Unit tests can
+be run using Composer:
+
+```bash
+composer run phpunit
+```
+
+Test cases can be generated using `wp-cli`:
+
+```bash
+wp mantle make:test <Namespace\Test_Name>
+```
+
+## Setting up the Test Framework
 
 Mantle's Test Framework provides a special bootstrapper and installer for
 WordPress. It is common in WordPress to use a _separate_ WordPress codebase when
