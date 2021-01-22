@@ -1,5 +1,9 @@
 #!/usr/bin/env bash
 
+if [ $SKIP_DISCOVERY = "true" ]; then
+	return
+fi
+
 # Run the Mantle package:discover command through wp-cli if it exists.
 #
 # Fails gracefully if wp-cli does not exist.
