@@ -71,7 +71,94 @@ can use the following YAML file as a starting point Buddy. It supports
 file](https://buddy.works/docs/yaml/yaml-gui#how-to-switch-the-config-mode-to-gui)
 so you can work in the GUI.
 
+With the below configuration, Mantle can run Unit Tests and Coding Standards
+tests on every Pull Request in under 30 seconds. This configuration is for
+testing a single plugin/theme/project.
 
 ```yaml
-TKTK
+- pipeline: "Test Pull Requests"
+  trigger_mode: "ON_EVERY_PUSH"
+  ref_name: "refs/pull/*"
+  ref_type: "WILDCARD"
+  priority: "NORMAL"
+  fail_on_prepare_env_warning: true
+  clone_depth: 1
+  trigger_condition: "ALWAYS"
+  actions:
+  - action: "Setup Composer"
+    type: "BUILD"
+    working_directory: "/buddy/mantle"
+    docker_image_name: "alleyops/ci-resources"
+    docker_image_tag: "latest"
+    execute_commands:
+    - "# Install Dependencies"
+    - "composer install"
+    cached_dirs:
+    - "/root/.composer/cache"
+    volume_mappings:
+    - "/:/buddy/mantle"
+    trigger_condition: "ALWAYS"
+    shell: "BASH"
+  - action: "Setup WordPress and Run Unit Tests"
+    type: "BUILD"
+    working_directory: "/buddy/mantle"
+    docker_image_name: "alleyops/ci-resources"
+    docker_image_tag: "latest"
+    execute_commands:
+    - "# Install WordPress"
+    - "bash bin/install-wp-tests.sh wordpress_unit_tests root root mysql $WP_VERSION"
+    - ""
+    - "# Go into the core directory and replace wp-content."
+    - "mkdir -p ${WP_CORE_DIR}/wp-content/plugins/mantle"
+    - "rsync -aWq --no-compress . ${WP_CORE_DIR}/wp-content/plugins/mantle"
+    - ""
+    - "# Run Unit Tests"
+    - "cd ${WP_CORE_DIR}/wp-content/plugins/mantle"
+    - "composer run phpunit"
+    services:
+    - type: "MYSQL"
+      version: "5.7"
+      connection:
+        host: "mysql"
+        port: 3306
+        user: "root"
+        password: "root"
+    cached_dirs:
+    - "/tmp/test-cache"
+    - "/tmp/wordpress"
+    volume_mappings:
+    - "/:/buddy/mantle"
+    trigger_condition: "ALWAYS"
+    shell: "BASH"
+    run_next_parallel: true
+  - action: "Run PHPCS"
+    type: "BUILD"
+    working_directory: "/buddy/mantle"
+    docker_image_name: "alleyops/ci-resources"
+    docker_image_tag: "latest"
+    execute_commands:
+    - "composer run phpcs"
+    volume_mappings:
+    - "/:/buddy/mantle"
+    trigger_condition: "ALWAYS"
+    shell: "BASH"
+  variables:
+  - key: "CACHEDIR"
+    value: "/tmp/test-cache"
+    description: "Cache folder for remote requests."
+  - key: "SKIP_DISCOVERY"
+    value: "true"
+  - key: "WP_CORE_DIR"
+    value: "/tmp/wordpress"
+    description: "WordPress checkout folder."
+  - key: "WP_VERSION"
+    value: "latest"
 ```
+
+::: tip If you are looking for a `/wp-content/`-rooted Buddy YAML, you can use
+this:
+
+```yaml
+tktk
+```
+:::
