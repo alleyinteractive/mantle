@@ -24,6 +24,14 @@ promotes additional caching. You can reference the [one included with Mantle](ht
 
 ## Environment Variables
 
+By default, no variables need to be set to run your tests. It is reccomended to
+set the following variables before running:
+
+- CACHEDIR: `/tmp/test-cache`
+- WP_CORE_DIR: `/tmp/wordpress`
+
+The `CACHEDIR` variable defines the location of the cache folder used for tests.
+If possible, cache that folder and use it across tests to improve performance.
 ## Caching
 
 ## Setting Up Continuous Integration
