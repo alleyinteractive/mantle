@@ -20,19 +20,30 @@ information.
 One difference to note is that Mantle uses a slimmed-down form of
 `bin/install-wp-tests.sh` to install WordPress during CI tests. Our version
 removes the unnecessary steps of installing the core unit tests and helps
-promotes additional caching. You can reference the [one included with Mantle](https://github.com/alleyinteractive/mantle/blob/main/bin/install-wp-tests.sh).
+promotes additional caching. You can reference the [one included with
+Mantle](https://github.com/alleyinteractive/mantle/blob/main/bin/install-wp-tests.sh).
+Using Mantle's install script can increase the performance of installing
+WordPress in your tests by 50% (1-2 seconds versus 4-5).
 
 ## Environment Variables
 
 By default, no variables need to be set to run your tests. It is reccomended to
 set the following variables before running:
 
-- CACHEDIR: `/tmp/test-cache`
-- WP_CORE_DIR: `/tmp/wordpress`
+- `CACHEDIR`: `/tmp/test-cache`
+- `WP_CORE_DIR`: `/tmp/wordpress`
 
 The `CACHEDIR` variable defines the location of the cache folder used for tests.
 If possible, cache that folder and use it across tests to improve performance.
+For tests using the mantle installation script, `WP_DEVELOP_DIR` and
+`WP_TESTS_DIR` are unused and do not need to be defined.
+
 ## Caching
+
+Caching can improve the performance of your tests by a great deal. Your tests
+should cache the dependencies installed using Composer and the remote files
+downloaded during testing (the `CACHEDIR` variable). The configurations included
+in this guide will use the recommended caching for testing.
 
 ## Setting Up Continuous Integration
 
@@ -46,11 +57,7 @@ application against PHPUnit and phpcs:
 
 These actions include best practices included in this guide to test your
 application. If you are working against a `wp-content/`-rooted application, you
-can use the GitHub Actions from `alleyinteractive/create-mantle-app`:
-
-TODO ADD
-- [GitHub Action for PHPUnit]()
-- [GitHub Action for phpcs]()
+can use the GitHub Actions from `alleyinteractive/create-mantle-app`.
 
 ### Buddy
 

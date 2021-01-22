@@ -65,9 +65,11 @@ fi
 set -e
 
 install_wp() {
-
 	if [ -d $WP_CORE_DIR ]; then
-		return
+		if [ -f $WP_CORE_DIR/wp-load.php ]; then
+			echo "WordPress already installed at [$WP_CORE_DIR]"
+			return
+		fi
 	fi
 
 	mkdir -p $WP_CORE_DIR
