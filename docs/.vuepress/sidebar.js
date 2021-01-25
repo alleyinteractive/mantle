@@ -64,6 +64,7 @@ module.exports = [
       'requests',
       'remote-requests',
       'hooks',
+      'continuous-integration',
     ]),
   },
   {
