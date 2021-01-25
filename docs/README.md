@@ -82,9 +82,9 @@ structures bringing WordPress into the 21st century.
 
 ### [Test Framework](./testing/testing.md)
 
-Use the independent Mantle Test Framework to make your code testable and unit tests simple
-to write. Supports a drop-in replacement for core testing framework that will
-run faster and allow IDE-friendly assertions.
+Use the independent Mantle Test Framework to make writing unit tests simpler
+than ever. Supports a drop-in replacement for WordPress core testing framework that will
+run faster and allow IDE-friendly assertions. Runs PHPUnit 9.5+ out of the box.
 
 </div>
 
