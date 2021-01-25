@@ -18,24 +18,25 @@ namespace App;
 define( 'MANTLE_BASE_DIR', __DIR__ ); // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedConstantFound
 
 // Check if Composer has been installed.
-if ( ! file_exists( __DIR__ . '/vendor/autoload.php' ) ) {
-	add_action(
-		'admin_notices',
-		function() {
-			printf(
-				'<div class="notice notice-error"><p>%s</p></div>',
-				esc_html__( 'Mantle requires a `composer install` to run properly.', 'mantle' )
-			);
-		}
-	);
+if ( ! function_exists( 'Mantle\Framework\generate_wp_autoloader' ) ) {
+	// Add an admin notice if the dependencies aren't installed.
+	if ( ! file_exists( __DIR__ . '/vendor/autoload.php' ) ) {
+		add_action(
+			'admin_notices',
+			function() {
+				printf(
+					'<div class="notice notice-error"><p>%s</p></div>',
+					esc_html__( 'Mantle requires a `composer install` to run properly.', 'mantle' )
+				);
+			}
+		);
 
-	return;
+		return;
+	} else {
+		// Load the Composer dependencies.
+		require_once __DIR__ . '/vendor/autoload.php';
+	}
 }
-
-/**
- * Load the Composer Dependencies
- */
-require_once __DIR__ . '/vendor/autoload.php';
 
 try {
 	spl_autoload_register(
