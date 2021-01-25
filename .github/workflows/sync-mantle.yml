@@ -20,7 +20,9 @@ jobs:
           dst_owner: alleyinteractive
           dst_path: /mu-plugins/mantle-app
           dst_repo_name: create-mantle-app
-          exclude: '.github/*'
+          exclude: |
+            .github/*
+            docs/*
           personal_token: ${{ secrets.PERSONAL_TOKEN }}
           src_branch: main
           src_path: /.
