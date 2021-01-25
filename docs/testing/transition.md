@@ -6,6 +6,12 @@ The Mantle Test Framework can be used outside of projects that started as a
 Mantle project, such as normal WordPress sites, themes, and plugins. The
 framework can be added and loaded to your existing project's unit test.
 
+::: tip Want to see a `/wp-content/`-rooted project that is using Mantle?
+
+If you're interested in seeing a `/wp-content/`-rooted project that is setup to
+use Mantle, checkout
+[`alleyinteractive/create-mantle-app`](https://github.com/alleyinteractive/create-mantle-app).
+:::
 ## Getting Started
 
 This guide assumes that we are in a `wp-content/` rooted WordPress project.

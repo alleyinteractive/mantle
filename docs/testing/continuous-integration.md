@@ -57,7 +57,10 @@ application against PHPUnit and phpcs:
 
 These actions include best practices included in this guide to test your
 application. If you are working against a `wp-content/`-rooted application, you
-can use the GitHub Actions from `alleyinteractive/create-mantle-app`.
+can use the GitHub Actions from `alleyinteractive/create-mantle-app`:
+
+- [GitHub Action for PHPUnit](https://github.com/alleyinteractive/create-mantle-app/blob/main/.github/workflows/tests.yml)
+- [GitHub Action for phpcs](https://github.com/alleyinteractive/create-mantle-app/blob/main/.github/workflows/coding-standards.yml)
 
 ### Buddy
 
@@ -155,10 +158,89 @@ testing a single plugin/theme/project.
     value: "latest"
 ```
 
-::: tip If you are looking for a `/wp-content/`-rooted Buddy YAML, you can use
-this:
+#### Buddy for a `/wp-content/`-rooted Project
+
+If you are looking for a `/wp-content/`-rooted Buddy YAML, you can use
+this configuration:
 
 ```yaml
-tktk
+- pipeline: "Test Pull Requests"
+  trigger_mode: "ON_EVERY_PUSH"
+  ref_name: "refs/pull/*"
+  ref_type: "WILDCARD"
+  priority: "NORMAL"
+  fail_on_prepare_env_warning: true
+  clone_depth: 1
+  trigger_condition: "ALWAYS"
+  actions:
+  - action: "Setup Composer"
+    type: "BUILD"
+    working_directory: "/buddy/mantle"
+    docker_image_name: "alleyops/ci-resources"
+    docker_image_tag: "7.4-fpm-wp"
+    execute_commands:
+    - "# Install Dependencies"
+    - "composer install"
+    cached_dirs:
+    - "/root/.composer/cache"
+    volume_mappings:
+    - "/:/buddy/mantle"
+    trigger_condition: "ALWAYS"
+    shell: "BASH"
+  - action: "Setup WordPress and Run Unit Tests"
+    type: "BUILD"
+    working_directory: "/buddy/mantle"
+    docker_image_name: "alleyops/ci-resources"
+    docker_image_tag: "7.4-fpm-wp"
+    execute_commands:
+    - "# Install WordPress"
+    - "bash bin/install-wp-tests.sh wordpress_unit_tests root root mysql $WP_VERSION"
+    - ""
+    - "# Go into the core directory and replace wp-content."
+    - "rm -rf ${WP_CORE_DIR}/wp-content"
+    - "mkdir -p ${WP_CORE_DIR}/wp-content/"
+    - "rsync -aWq --no-compress . ${WP_CORE_DIR}/wp-content/"
+    - ""
+    - "# Run Unit Tests"
+    - "cd ${WP_CORE_DIR}/wp-content/mu-plugins/mantle-app"
+    - "../../vendor/bin/phpunit"
+    services:
+    - type: "MYSQL"
+      version: "5.7"
+      connection:
+        host: "mysql"
+        port: 3306
+        user: "root"
+        password: "root"
+    cached_dirs:
+    - "/tmp/test-cache"
+    - "/tmp/wordpress"
+    volume_mappings:
+    - "/:/buddy/mantle"
+    trigger_condition: "ALWAYS"
+    shell: "BASH"
+    run_next_parallel: true
+  - action: "Run PHPCS"
+    type: "BUILD"
+    working_directory: "/buddy/mantle"
+    docker_image_name: "alleyops/ci-resources"
+    docker_image_tag: "7.4-fpm-wp"
+    execute_commands:
+    - "composer run phpcs"
+    volume_mappings:
+    - "/:/buddy/mantle"
+    trigger_condition: "ALWAYS"
+    shell: "BASH"
+  variables:
+  - key: "CACHEDIR"
+    value: "/tmp/test-cache"
+    description: "Cache folder for remote requests."
+  - key: "SKIP_DISCOVERY"
+    value: "true"
+  - key: "WP_CORE_DIR"
+    value: "/tmp/wordpress"
+    description: "WordPress checkout folder."
+  - key: "WP_VERSION"
+    value: "latest"
+
 ```
-:::
