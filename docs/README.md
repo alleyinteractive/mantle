@@ -80,7 +80,7 @@ structures bringing WordPress into the 21st century.
 
 <div>
 
-### [Test Framework](./testing/testing.md)
+### [Test Framework](./testing/test-framework.md)
 
 Use the independent Mantle Test Framework to make writing unit tests simpler
 than ever. Supports a drop-in replacement for WordPress core testing framework that will
