@@ -109,7 +109,7 @@ create "real" data quickly.
 namespace App\Factory;
 
 use Faker\Generator as Faker;
-use Mantle\Framework\Support\Str;
+use Mantle\Support\Str;
 use App\Models\Project;
 
 /**

@@ -361,7 +361,7 @@ Typically, you should call this method from a service provider's `boot` method:
 
 namespace App\Providers;
 
-use Mantle\Framework\Support\Service_Provider;
+use Mantle\Support\Service_Provider;
 use Mantle\Browser_Testing\Browser;
 
 class Browser_Testing_Service_Provider extends Service_Provider {
