@@ -12,7 +12,7 @@ model, a taxonomy for a taxonomy model).
 ```php
 namespace App\Models;
 
-use Mantle\Framework\Contracts\Database\Registrable;
+use Mantle\Contracts\Database\Registrable;
 use Mantle\Database\Model\Post;
 use Mantle\Database\Model\Registration\Register_Post_Type;
 
@@ -64,7 +64,7 @@ under the `register` property.
 ```php
 namespace App\Models;
 
-use Mantle\Framework\Contracts\Database\Registrable_Fields;
+use Mantle\Contracts\Database\Registrable_Fields;
 use Mantle\Database\Model\Post as Base_Post;
 use Mantle\Database\Model\Registration\Register_Rest_Fields;
 
@@ -101,7 +101,7 @@ object type in WordPress and the `product` object subtype.
 ```php
 namespace App\Models;
 
-use Mantle\Framework\Contracts\Database\Registrable_Meta;
+use Mantle\Contracts\Database\Registrable_Meta;
 use Mantle\Database\Model\Post;
 use Mantle\Database\Model\Registration\Register_Meta;
 

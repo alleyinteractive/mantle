@@ -7,8 +7,8 @@
 
 namespace App\Jobs;
 
-use Mantle\Framework\Contracts\Queue\Can_Queue;
-use Mantle\Framework\Contracts\Queue\Job;
+use Mantle\Contracts\Queue\Can_Queue;
+use Mantle\Contracts\Queue\Job;
 use Mantle\Queue\Dispatchable;
 use Mantle\Queue\Queueable;
 

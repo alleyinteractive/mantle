@@ -11,7 +11,7 @@ Array cache back-ends out of the box. Caching configuration is located in the
 
 The cache cache instance can be retrieved using the
 `Mantle\Facade\Cache` facade, or by type-hinting the
-`Mantle\Framework\Contracts\Cache\Factory` contract for your class'
+`Mantle\Contracts\Cache\Factory` contract for your class'
 dependencies.
 
 ### Retrieving Data from the Cache
@@ -95,7 +95,7 @@ cache( ['key' => 'value' ], $seconds );
 ```
 
 When the cache function is called without any arguments, it returns an instance
-of the `Mantle\Framework\Contracts\Cache\Factory` implementation, allowing you to call
+of the `Mantle\Contracts\Cache\Factory` implementation, allowing you to call
 other caching methods:
 
 ```php

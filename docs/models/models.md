@@ -167,7 +167,7 @@ $value = $model->meta->meta_key;
 
 ## Core Object
 To promote a uniform interface of data across models, all models implement
-`Mantle\Framework\Contracts\Database\Core_Object`. This provides a consistent
+`Mantle\Contracts\Database\Core_Object`. This provides a consistent
 set of methods to invoke on any model you may come across. A developer shouldn't
 have to check the model type before retrieving a field. This helps promote
 interoperability between model types in your application.
@@ -248,7 +248,7 @@ Global Scopes can also extend from a class to allow for reusability.
 
 ```php
 use App\Models\User;
-use Mantle\Framework\Contracts\Database\Scope;
+use Mantle\Contracts\Database\Scope;
 use Mantle\Database\Model\Model;
 
 class Admin extends User {
