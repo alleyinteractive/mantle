@@ -30,7 +30,7 @@ class App_Service_Provider extends Service_Provider {
 	/**
 	 * Schedule any commands for the Application
 	 *
-	 * @param \Mantle\Framework\Scheduling\Schedule $schedule Scheduler instance.
+	 * @param \Mantle\Scheduling\Schedule $schedule Scheduler instance.
 	 */
 	protected function schedule( $schedule ) {
 		// Schedule any commands, jobs, callbacks, etc. here.

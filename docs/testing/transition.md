@@ -33,7 +33,7 @@ Unit Tests should extend themselves from Mantle's `Framework_Test_Case` class
 in place of core's `WP_UnitTestCase` class.
 
 ```php
-use Mantle\Framework\Testing\Framework_Test_Case;
+use Mantle\Testing\Framework_Test_Case;
 
 class Test_Case extends Framework_Test_Case {
 
@@ -69,11 +69,11 @@ going to adjust a theme's unit test bootstrap file to load the test framework.
 namespace App\Tests;
 
 // Install the Mantle Test Framework.
-\Mantle\Framework\Testing\install(
+\Mantle\Testing\install(
 	function() {
 		// Setup any additional dependencies.
 
-		\Mantle\Framework\Testing\tests_add_filter(
+		\Mantle\Testing\tests_add_filter(
 			'muplugins_loaded',
 			function() {
 				// Setup any dependencies once WordPress is loaded, such as themes.

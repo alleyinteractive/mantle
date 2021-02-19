@@ -6,7 +6,7 @@
  */
 
 use Mantle\Framework;
-use Mantle\Framework\Http\Request;
+use Mantle\Http\Request;
 
 /**
  * Instantiate the application

@@ -7,7 +7,7 @@
 
 namespace App\Providers;
 
-use Mantle\Framework\Facade\Route;
+use Mantle\Facade\Route;
 use Mantle\Framework\Providers\Route_Service_Provider as Service_Provider;
 
 /**

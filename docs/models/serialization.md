@@ -37,7 +37,7 @@ methods on the model.
 ```php
 namespace App\Models;
 
-use Mantle\Framework\Database\Model\Post;
+use Mantle\Database\Model\Post;
 
 class Product extends Post {
 	/**
@@ -58,7 +58,7 @@ attribute is set visible, all other attributes will be hidden:
 ```php
 namespace App\Models;
 
-use Mantle\Framework\Database\Model\Post;
+use Mantle\Database\Model\Post;
 
 class Product extends Post {
 	/**
@@ -88,7 +88,7 @@ defining a custom accessor for the value and including it in the `appends`
 property on your model:
 
 ```php
-use Mantle\Framework\Database\Model\Post;
+use Mantle\Database\Model\Post;
 
 class Author extends Post {
 	protected $appends = [ 'avatar' ];

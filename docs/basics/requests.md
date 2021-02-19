@@ -57,7 +57,7 @@ A single-method controller is supported by defining a controller with an `__invo
 method.
 
 ```php
-use Mantle\Framework\Http\Controller;
+use Mantle\Http\Controller;
 
 class Invokable_Controller extends Controller {
 	/**
@@ -154,7 +154,7 @@ WordPress and bypass Mantle routing.
 
 namespace App\Providers;
 
-use Mantle\Framework\Facade\Request;
+use Mantle\Facade\Request;
 use Mantle\Framework\Providers\Route_Service_Provider as Service_Provider;
 
 /**
@@ -207,8 +207,8 @@ In the above example the `Product` model will have `/product/{slug}` and
 `/product` routes registered.
 
 ```php
-use Mantle\Framework\Database\Model\Post;
-use Mantle\Framework\Database\Model\Concerns\Custom_Post_Permalink;
+use Mantle\Database\Model\Post;
+use Mantle\Database\Model\Concerns\Custom_Post_Permalink;
 
 class Product extends Post {
 	use Custom_Post_Permalink;
@@ -342,7 +342,7 @@ response.
 namespace App\Middleware;
 
 use Closure;
-use Mantle\Framework\Http\Request;
+use Mantle\Http\Request;
 
 /**
  * Example Middleware
@@ -359,7 +359,7 @@ class Example_Middleware {
 		$request->setMethod( 'POST' );
 
 		/**
-		 * @var Mantle\Framework\Http\Response
+		 * @var Mantle\Http\Response
 		 */
 		$response = $next( $request );
 
@@ -520,7 +520,7 @@ For REST API requests it will include an array of information about the current
 matched route.
 
 ```php
-use Mantle\Framework\Http\Routing\Events\Route_Matched;
+use Mantle\Http\Routing\Events\Route_Matched;
 Event::listen(
 	Route_Matched::class,
 	function( Route_Matched $event ) {

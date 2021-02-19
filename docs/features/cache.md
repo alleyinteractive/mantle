@@ -10,7 +10,7 @@ Array cache back-ends out of the box. Caching configuration is located in the
 ## Cache Usage
 
 The cache cache instance can be retrieved using the
-`Mantle\Framework\Facade\Cache` facade, or by type-hinting the
+`Mantle\Facade\Cache` facade, or by type-hinting the
 `Mantle\Framework\Contracts\Cache\Factory` contract for your class'
 dependencies.
 

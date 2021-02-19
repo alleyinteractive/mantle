@@ -29,12 +29,12 @@ Mantle models were designed with uniformity and simplicity in mind.
 ## Supported Model Types
 Data Type | Model Class
 --------- | -----------
-Attachment | `Mantle\Framework\Database\Model\Attachment`
-Comment | `Mantle\Framework\Database\Model\Comment`
-Post | `Mantle\Framework\Database\Model\Post`
-Site | `Mantle\Framework\Database\Model\Site`
-Term | `Mantle\Framework\Database\Model\Term`
-User | `Mantle\Framework\Database\Model\User`
+Attachment | `Mantle\Database\Model\Attachment`
+Comment | `Mantle\Database\Model\Comment`
+Post | `Mantle\Database\Model\Post`
+Site | `Mantle\Database\Model\Site`
+Term | `Mantle\Database\Model\Term`
+User | `Mantle\Database\Model\User`
 
 ## Generating a Model
 Models can be generated through the command:
@@ -57,7 +57,7 @@ Models live in the `app/models` folder under the `App\Models` namespace.
 
 namespace App\Models;
 
-use Mantle\Framework\Database\Model\Post;
+use Mantle\Database\Model\Post;
 
 /**
  * Example_Model Model.
@@ -83,7 +83,7 @@ class Example_Model extends Post {
 
 namespace App\Models;
 
-use Mantle\Framework\Database\Model\Term;
+use Mantle\Database\Model\Term;
 
 /**
  * Example_Model Model.
@@ -193,7 +193,7 @@ events. Model events can be registered inside or outside a model.
 ```php
 namespace App\Models;
 
-use Mantle\Framework\Database\Model\Post as Base_Post;
+use Mantle\Database\Model\Post as Base_Post;
 
 class Post extends Base_Post {
   protected static function boot() {
@@ -230,7 +230,7 @@ a meta query in all requests to the model (`is_admin = 1`).
 
 ```php
 use App\Models\User;
-use Mantle\Framework\Database\Query\Post_Query_Builder;
+use Mantle\Database\Query\Post_Query_Builder;
 
 class Admin extends User {
   protected static function boot() {
@@ -249,7 +249,7 @@ Global Scopes can also extend from a class to allow for reusability.
 ```php
 use App\Models\User;
 use Mantle\Framework\Contracts\Database\Scope;
-use Mantle\Framework\Database\Model\Model;
+use Mantle\Database\Model\Model;
 
 class Admin extends User {
 
@@ -277,8 +277,8 @@ Scopes can also accept parameters passed to the scope method. The parameters
 will be passed down to the scope method after the query builder argument.
 
 ```php
-use Mantle\Framework\Database\Model\Post as Base_Post;
-use Mantle\Framework\Database\Query\Post_Query_Builder;
+use Mantle\Database\Model\Post as Base_Post;
+use Mantle\Database\Query\Post_Query_Builder;
 
 class Post extends Base_Post {
 	public function scopeActive( Post_Query_Builder $query ) {

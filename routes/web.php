@@ -5,7 +5,7 @@
  * @package Mantle
  */
 
-use Mantle\Framework\Facade\Route;
+use Mantle\Facade\Route;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,7 +18,7 @@ use Mantle\Framework\Facade\Route;
 |
 | Register a closure-based route:
 |
-| 	Route::get( '/closure-route', function( \Mantle\Framework\Http\Request $request ) {
+| 	Route::get( '/closure-route', function( \Mantle\Http\Request $request ) {
 | 		dd( $request->all() );
 | 	} );
 |

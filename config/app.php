@@ -29,16 +29,16 @@ return [
 	 */
 	'providers' => [
 		// Framework Providers.
-		Mantle\Framework\Filesystem\Filesystem_Service_Provider::class,
-		Mantle\Framework\Database\Factory_Service_Provider::class,
+		Mantle\Filesystem\Filesystem_Service_Provider::class,
+		Mantle\Database\Factory_Service_Provider::class,
 		Mantle\Framework\Providers\Console_Service_Provider::class,
 		Mantle\Framework\Providers\Error_Service_Provider::class,
 		Mantle\Framework\Providers\Model_Service_Provider::class,
 		Mantle\Framework\Providers\Queue_Service_Provider::class,
-		Mantle\Framework\Query_Monitor\Query_Monitor_Service_Provider::class,
+		Mantle\Query_Monitor\Query_Monitor_Service_Provider::class,
 		Mantle\Framework\Providers\New_Relic_Service_Provider::class,
-		Mantle\Framework\Database\Pagination\Paginator_Service_Provider::class,
-		Mantle\Framework\Cache\Cache_Service_Provider::class,
+		Mantle\Database\Pagination\Paginator_Service_Provider::class,
+		Mantle\Cache\Cache_Service_Provider::class,
 
 		// Application Providers.
 		App\Providers\App_Service_Provider::class,
@@ -55,16 +55,16 @@ return [
 	|
 	 */
 	'aliases'   => [
-		'App'     => Mantle\Framework\Facade\App::class,
-		'Cache'   => Mantle\Framework\Facade\Cache::class,
-		'Config'  => Mantle\Framework\Facade\Config::class,
-		'Event'   => Mantle\Framework\Facade\Event::class,
-		'Log'     => Mantle\Framework\Facade\Log::class,
-		'Queue'   => Mantle\Framework\Facade\Queue::class,
-		'Request' => Mantle\Framework\Facade\Request::class,
-		'Route'   => Mantle\Framework\Facade\Route::class,
-		'View'    => Mantle\Framework\Facade\View::class,
-		'Storage' => Mantle\Framework\Facade\Storage::class,
+		'App'     => Mantle\Facade\App::class,
+		'Cache'   => Mantle\Facade\Cache::class,
+		'Config'  => Mantle\Facade\Config::class,
+		'Event'   => Mantle\Facade\Event::class,
+		'Log'     => Mantle\Facade\Log::class,
+		'Queue'   => Mantle\Facade\Queue::class,
+		'Request' => Mantle\Facade\Request::class,
+		'Route'   => Mantle\Facade\Route::class,
+		'View'    => Mantle\Facade\View::class,
+		'Storage' => Mantle\Facade\Storage::class,
 	],
 
 	/*

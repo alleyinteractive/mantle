@@ -14,7 +14,7 @@ An invocation of `Caper` takes the form of "`<grant to|deny to>` `<these roles>`
 `Caper` can distribute primitive capabilities directly:
 
 ```php
-use Mantle\Framework\Caper;
+use Mantle\Caper;
 
 Caper::grant_to( 'editor' )->primitives( 'edit_theme_options' );
 Caper::deny_to( 'administrator' )->primitives( 'manage_options' );
@@ -26,7 +26,7 @@ Caper::deny_to( 'administrator' )->primitives( 'manage_options' );
 type or taxonomy. For example:
 
 ```php
-use Mantle\Framework\Caper;
+use Mantle\Caper;
 
 Caper::grant_to( 'author' )->caps_for( 'page' );
 Caper::deny_to( 'editor' )->caps_for( 'category' );
@@ -42,7 +42,7 @@ When granting capabilities to a post type or taxonomy, a subset of those
 capabilities can be denied, or vice versa. For example:
 
 ```php
-use Mantle\Framework\Caper;
+use Mantle\Caper;
 
 Caper::grant_to( 'author' )
   ->caps_for( 'page' )
@@ -62,7 +62,7 @@ Alternatively, an exclusive set of post type or taxonomy capabilities can be
 granted or denied:
 
 ```php
-use Mantle\Framework\Caper;
+use Mantle\Caper;
 
 Caper::deny_to( 'editor' )
   ->caps_for( 'category' )
@@ -83,7 +83,7 @@ will be granted or denied identically for all passed object types, including
 exceptions or exclusives:
 
 ```php
-use Mantle\Framework\Caper;
+use Mantle\Caper;
 
 Caper::grant_to( 'author' )
   ->caps_for( [ 'post', 'page' ] );
@@ -103,7 +103,7 @@ Caper::deny_to( 'administrator' )
 Capabilities also can be granted or denied to all roles in one shot:
 
 ```php
-use Mantle\Framework\Caper;
+use Mantle\Caper;
 
 Caper::grant_to_all()->primitives( 'moderate_comments' );
 Caper::deny_to_all()->primitives( 'activate_plugins' );
@@ -114,7 +114,7 @@ The `grant_to_all()` and `deny_to_all()` methods can be combined with the
 roles before systematically redistributing them. For example:
 
 ```php
-use Mantle\Framework\Caper;
+use Mantle\Caper;
 
 Caper::grant_to_all()
   ->caps_for( 'post' )
@@ -137,7 +137,7 @@ The priority of the `user_has_cap` filter for any `Caper` instance can be
 modified with the `at_priority` method:
 
 ```php
-use Mantle\Framework\Caper;
+use Mantle\Caper;
 
 Caper::grant_to( 'editor' )->primitives( 'manage_options' )->at_priority( 99 );
 ```
@@ -150,7 +150,7 @@ capabilities it distributes are unique to that object type.
 For example:
 
 ```php
-use Mantle\Framework\Caper;
+use Mantle\Caper;
 
 \register_post_type(
   'review',

@@ -7,7 +7,7 @@
 
 namespace App\Http;
 
-use Mantle\Framework\Http\Kernel as Http_Kernel;
+use Mantle\Http\Kernel as Http_Kernel;
 
 /**
  * Application HTTP Kernel
@@ -31,9 +31,9 @@ class Kernel extends Http_Kernel {
 	 */
 	protected $middleware_groups = [
 		'web'      => [
-			\Mantle\Framework\Http\Routing\Middleware\Setup_WordPress::class,
-			\Mantle\Framework\Http\Routing\Middleware\Substitute_Bindings::class,
-			\Mantle\Framework\Http\Routing\Middleware\Wrap_Template::class,
+			\Mantle\Http\Routing\Middleware\Setup_WordPress::class,
+			\Mantle\Http\Routing\Middleware\Substitute_Bindings::class,
+			\Mantle\Http\Routing\Middleware\Wrap_Template::class,
 		],
 		'rest-api' => [],
 	];
@@ -46,6 +46,6 @@ class Kernel extends Http_Kernel {
 	 * @var array
 	 */
 	protected $route_middleware = [
-		'can' => \Mantle\Framework\Auth\Middleware\Authorize::class,
+		'can' => \Mantle\Auth\Middleware\Authorize::class,
 	];
 }
