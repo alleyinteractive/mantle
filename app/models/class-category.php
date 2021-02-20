@@ -7,7 +7,7 @@
 
 namespace App\Models;
 
-use Mantle\Framework\Database\Model\Term;
+use Mantle\Database\Model\Term;
 
 /**
  * Category Model.

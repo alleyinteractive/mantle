@@ -12,9 +12,9 @@ model, a taxonomy for a taxonomy model).
 ```php
 namespace App\Models;
 
-use Mantle\Framework\Contracts\Database\Registrable;
-use Mantle\Framework\Database\Model\Post;
-use Mantle\Framework\Database\Model\Registration\Register_Post_Type;
+use Mantle\Contracts\Database\Registrable;
+use Mantle\Database\Model\Post;
+use Mantle\Database\Model\Registration\Register_Post_Type;
 
 /**
  * Example_Post Model.
@@ -64,9 +64,9 @@ under the `register` property.
 ```php
 namespace App\Models;
 
-use Mantle\Framework\Contracts\Database\Registrable_Fields;
-use Mantle\Framework\Database\Model\Post as Base_Post;
-use Mantle\Framework\Database\Model\Registration\Register_Rest_Fields;
+use Mantle\Contracts\Database\Registrable_Fields;
+use Mantle\Database\Model\Post as Base_Post;
+use Mantle\Database\Model\Registration\Register_Rest_Fields;
 
 class Post extends Base_Post implements Registrable_Fields {
   use Register_Rest_Fields;
@@ -101,9 +101,9 @@ object type in WordPress and the `product` object subtype.
 ```php
 namespace App\Models;
 
-use Mantle\Framework\Contracts\Database\Registrable_Meta;
-use Mantle\Framework\Database\Model\Post;
-use Mantle\Framework\Database\Model\Registration\Register_Meta;
+use Mantle\Contracts\Database\Registrable_Meta;
+use Mantle\Database\Model\Post;
+use Mantle\Database\Model\Registration\Register_Meta;
 
 class Product extends Post implements Registrable_Meta {
   use Register_Meta;
@@ -147,13 +147,13 @@ route, respectively. The model can define their own route by replacing the
 
 ::: tip
 For routes that don't use the registration traits the model can still have
-their routing handled by including `Mantle\Framework\Database\Model\Concerns\Custom_Post_Permalink` or
-`Mantle\Framework\Database\Model\Concerns\Custom_Term_Link` traits.
+their routing handled by including `Mantle\Database\Model\Concerns\Custom_Post_Permalink` or
+`Mantle\Database\Model\Concerns\Custom_Term_Link` traits.
 :::
 
 ```php
-use Mantle\Framework\Database\Model\Post;
-use Mantle\Framework\Database\Model\Registration\Register_Post_Type;
+use Mantle\Database\Model\Post;
+use Mantle\Database\Model\Registration\Register_Post_Type;
 
 class Product extends Post {
 	use Register_Post_Type;

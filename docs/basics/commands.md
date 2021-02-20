@@ -26,7 +26,7 @@ application.
 ```php
 namespace App\Console;
 
-use Mantle\Framework\Console\Kernel as Console_Kernel;
+use Mantle\Console\Kernel as Console_Kernel;
 
 /**
  * Application Console Kernel
@@ -56,7 +56,7 @@ mantle example_command`:
 ```php
 namespace App\Console;
 
-use Mantle\Framework\Console\Command;
+use Mantle\Console\Command;
 
 /**
  * Example_Command Controller

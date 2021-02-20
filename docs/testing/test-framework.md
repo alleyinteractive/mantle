@@ -36,7 +36,7 @@ The Mantle Test Framework will work out of the box defining a set of constants
 to install WordPress. The default set of constants can be overridden using a
 test config in your WordPress root directory, named `wp-tests-config.php`. See
 [the sample config in the Mantle
-Framework](https://github.com/alleyinteractive/mantle-framework/blob/main/src/mantle/framework/testing/wp-tests-config-sample.php)
+Framework](https://github.com/alleyinteractive/mantle-framework/blob/main/src/mantle/testing/wp-tests-config-sample.php)
 to get started. This config is similar to `wp-config.php` and defines many of
 the same constants. Most importantly, it defines the database information, which
 *must* be different from your environment's database. If you reuse the same
@@ -70,7 +70,7 @@ allows Mantle's Test Framework to use the latest versions of PHPUnit itself.
 The Mantle Test Framework supports legacy support for core's test suite methods,
 including `go_to()` and `factory()` among others. Projects are able to switch to
 the Mantle Test Framework without needing to rewrite any existing unit tests.
-The `Mantle\Framework\Testing\Framework_Test_Case` class should be extended from
+The `Mantle\Testing\Framework_Test_Case` class should be extended from
 for any non-Mantle based project. For more information, see [Transitioning to
 Test Framework](./1-transition.md).
 

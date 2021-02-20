@@ -18,7 +18,7 @@ trait Create_Application {
 	 *
 	 * @return \Mantle\Framework\Application
 	 */
-	public function create_application(): \Mantle\Framework\Contracts\Application {
+	public function create_application(): \Mantle\Contracts\Application {
 		// Allow non-mantle-site usage.
 		if ( ! file_exists( __DIR__ . '/../bootstrap/app.php' ) ) {
 			echo "Application bootstrap not found: creating new instance...";

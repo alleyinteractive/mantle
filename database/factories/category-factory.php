@@ -10,12 +10,12 @@
 namespace App\Factory;
 
 use Faker\Generator as Faker;
-use Mantle\Framework\Database\Model\Term;
+use Mantle\Database\Model\Term;
 
 /**
  * Factory definition.
  *
- * @var \Mantle\Framework\Database\Factory\Factory $factory
+ * @var \Mantle\Database\Factory\Factory $factory
  */
 $factory->define(
 	Term::class, // phpcs:ignore

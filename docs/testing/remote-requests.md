@@ -36,7 +36,7 @@ $this->fake_request( 'https://github.com/*' )
 You can also pass an array with a set of responses (or a callback):
 
 ```php
-use Mantle\Framework\Testing\Mock_Http_Response;
+use Mantle\Testing\Mock_Http_Response;
 $this->fake_request(
   [
     'https://github.com/*'  => Mock_Http_Response::create()->with_body( 'github' ),
@@ -63,11 +63,11 @@ $this->fake_request(
 
 ## Generating a Response
 
-`Mantle\Framework\Testing\Mock_Http_Response` exists to help you fluently build
+`Mantle\Testing\Mock_Http_Response` exists to help you fluently build
 a WordPress-style remote response.
 
 ```php
-use Mantle\Framework\Testing\Mock_Http_Response;
+use Mantle\Testing\Mock_Http_Response;
 
 // 404 response.
 Mock_Http_Response::create()

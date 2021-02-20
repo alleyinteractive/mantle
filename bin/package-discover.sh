@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-if [ $SKIP_DISCOVERY = "true" ]; then
+if [ -n "$SKIP_DISCOVERY" ]; then
 	exit 0
 fi
 

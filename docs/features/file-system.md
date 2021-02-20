@@ -77,7 +77,7 @@ the disk method, the method call will automatically be passed to the default
 disk:
 
 ```php
-use Mantle\Framework\Facade\Storage;
+use Mantle\Facade\Storage;
 
 Storage::put( 'avatars/1', $file_contents );
 ```
@@ -95,7 +95,7 @@ Files can be stored using the `put()` method by passing either file contents or
 a file stream.
 
 ```php
-use Mantle\Framework\Facade\Storage;
+use Mantle\Facade\Storage;
 
 Storage::put( 'avatars/1', $file_contents );
 ```
@@ -104,7 +104,7 @@ You can upload a local file with the `put_file()` method. Use the `put_file_as`
 to specify a name.
 
 ```php
-use Mantle\Framework\Facade\Storage;
+use Mantle\Facade\Storage;
 
 Storage::put_file( '/path/to/store', '/var/local.jpg' );
 ```
@@ -116,8 +116,8 @@ Files can be uploaded directly from HTTP requests to any storage disk.
 ```php
 namespace App\Http\Controller;
 
-use Mantle\Framework\Http\Controller;
-use Mantle\Framework\Http\Request;
+use Mantle\Http\Controller;
+use Mantle\Http\Request;
 
 class Photo_Controller extends Controller {
 	public function __invoke( Request $request ) {
@@ -131,7 +131,7 @@ class Photo_Controller extends Controller {
 You can also use the `Storage` facade directly.
 
 ```php
-use Mantle\Framework\Facade\Storage;
+use Mantle\Facade\Storage;
 
 Storage::put_file( 'avatars', $request->file( 'avatar' ) );
 ```
@@ -147,7 +147,7 @@ To add a private local disk, add a disk and specify a path to a private folder.
 :::
 
 ```php
-use Mantle\Framework\Facade\Storage;
+use Mantle\Facade\Storage;
 
 Storage::put( 'file.jpg', $contents, 'public' );
 ```
@@ -155,7 +155,7 @@ Storage::put( 'file.jpg', $contents, 'public' );
 You can store a private file by changing the third argument.
 
 ```php
-use Mantle\Framework\Facade\Storage;
+use Mantle\Facade\Storage;
 
 Storage::disk( 's3' )->put( 'file.jpg', $contents, 'private' );
 Storage::disk( 's3' )->put( 'file.jpg', $contents, [ 'visibility' => 'private' ] );
@@ -166,7 +166,7 @@ Storage::disk( 's3' )->put( 'file.jpg', $contents, [ 'visibility' => 'private' ]
 Files can be retrieved using the `Storage` facade.
 
 ```php
-use Mantle\Framework\Facade\Storage;
+use Mantle\Facade\Storage;
 
 $path = Storage::url( '/path/to/file.jpg' );
 ```

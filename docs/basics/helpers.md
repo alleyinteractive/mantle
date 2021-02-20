@@ -111,12 +111,12 @@ abort_unless( $value_to_check, 404 );
 ```
 
 ## Array Helpers
-The `Mantle\Framework\Support\Arr` class contains all the Laravel array helper
+The `Mantle\Support\Arr` class contains all the Laravel array helper
 methods you might be familiar with (some methods have been renamed to match
 WordPress coding standards). You can reference those
 [here](https://laravel.com/docs/7.x/helpers#arrays).
 
 ## String Helpers
-The `Mantle\Framework\Support\Str` class contains all the Laravel string helper
+The `Mantle\Support\Str` class contains all the Laravel string helper
 methods you might be familiar with. You can reference those
 [here](https://laravel.com/docs/7.x/helpers#strings).

@@ -109,13 +109,13 @@ create "real" data quickly.
 namespace App\Factory;
 
 use Faker\Generator as Faker;
-use Mantle\Framework\Support\Str;
+use Mantle\Support\Str;
 use App\Models\Project;
 
 /**
  * Factory definition.
  *
- * @var \Mantle\Framework\Database\Factory\Factory $factory
+ * @var \Mantle\Database\Factory\Factory $factory
  */
 $factory->define(
 	Project::class, // phpcs:ignore
@@ -153,7 +153,7 @@ Let's open that file up and include our new factory.
 namespace App\Database\Seeds;
 
 use App\Models\Project;
-use Mantle\Framework\Database\Seeder;
+use Mantle\Database\Seeder;
 use function Mantle\Framework\Helpers\factory;
 
 /**

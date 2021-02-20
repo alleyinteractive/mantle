@@ -7,10 +7,10 @@
 
 namespace App\Jobs;
 
-use Mantle\Framework\Contracts\Queue\Can_Queue;
-use Mantle\Framework\Contracts\Queue\Job;
-use Mantle\Framework\Queue\Dispatchable;
-use Mantle\Framework\Queue\Queueable;
+use Mantle\Contracts\Queue\Can_Queue;
+use Mantle\Contracts\Queue\Job;
+use Mantle\Queue\Dispatchable;
+use Mantle\Queue\Queueable;
 
 /**
  * Example Job that can be queued.

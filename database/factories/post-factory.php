@@ -15,7 +15,7 @@ use Faker\Generator as Faker;
 /**
  * Factory definition.
  *
- * @var \Mantle\Framework\Database\Factory\Factory $factory
+ * @var \Mantle\Database\Factory\Factory $factory
  */
 $factory->define(
 	Post::class, // phpcs:ignore

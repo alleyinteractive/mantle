@@ -5,7 +5,7 @@
  * @package Mantle
  */
 
-use Mantle\Framework\Facade\Route;
+use Mantle\Facade\Route;
 
 /*
 |--------------------------------------------------------------------------

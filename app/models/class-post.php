@@ -7,7 +7,7 @@
 
 namespace App\Models;
 
-use Mantle\Framework\Database\Model\Post as Base_Post;
+use Mantle\Database\Model\Post as Base_Post;
 
 /**
  * Post Model.

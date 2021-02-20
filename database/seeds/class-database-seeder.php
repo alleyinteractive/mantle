@@ -7,7 +7,7 @@
 
 namespace App\Database\Seeds;
 
-use Mantle\Framework\Database\Seeder;
+use Mantle\Database\Seeder;
 use function Mantle\Framework\Helpers\factory;
 
 /**

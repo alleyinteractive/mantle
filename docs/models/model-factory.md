@@ -20,7 +20,7 @@ A factory can be registered directly to a model.
 /**
  * Factory definition.
  *
- * @var \Mantle\Framework\Database\Factory\Factory $factory
+ * @var \Mantle\Database\Factory\Factory $factory
  */
 $factory->define(
   \App\Models\Post::class,

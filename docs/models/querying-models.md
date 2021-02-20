@@ -212,7 +212,7 @@ There are some limitations and features that cannot be used including query
 scopes.
 
 ```php
-use Mantle\Framework\Database\Query\Post_Query_Builder;
+use Mantle\Database\Query\Post_Query_Builder;
 
 use App\Models\Post;
 use App\Models\Another_Post;

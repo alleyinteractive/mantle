@@ -12,7 +12,7 @@ few configuration files in the `config/` folder.
 
 ## Getting Configuration
 Configuration is possible through the `config()` helper function, the `Config`
-alias, and `Mantle\Framework\Facade\Config` facade. Each method supports a "dot"
+alias, and `Mantle\Facade\Config` facade. Each method supports a "dot"
 syntax which includes the name of the file and the option you wish to access.
 
 ```php
@@ -20,7 +20,7 @@ config( 'app.providers' );
 
 Config::get( 'app.providers' );
 
-Mantle\Framework\Facade\Config::get( 'app.providers' );
+Mantle\Facade\Config::get( 'app.providers' );
 ```
 
 ## Environment-specific Configuration

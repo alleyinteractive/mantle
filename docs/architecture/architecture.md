@@ -44,7 +44,7 @@ all providers the application will initialize on each request.
 ```
 
 ## Writing a Service Provider
-Service providers extend the `Mantle\Framework\Service_Provider` class and
+Service providers extend the `Mantle\Support\Service_Provider` class and
 include a `register` and `boot` method. The `register` method is used to
 register application services with the application container. The `boot` method
 is used to boot provider, setup any classes, register any WordPress hooks, etc.
@@ -60,7 +60,7 @@ wp mantle make:provider <name>
 ```php
 namespace App;
 
-use Mantle\Framework\Service_Provider;
+use Mantle\Support\Service_Provider;
 
 /**
  * Example_Provider Service Provider
@@ -127,7 +127,7 @@ namespace App\Http\Controllers;
 
 use App\Shared_Object;
 
-class Example_Controller extends \Mantle\Framework\Http\Controller {
+class Example_Controller extends \Mantle\Http\Controller {
 	public function __construct( Shared_Object $object ) {
 		$this->object = $object;
 	}
@@ -148,12 +148,12 @@ the application, a facade will provide a single-line interface to call a
 singleton object from the container.
 
 ```php
-use Mantle\Framework\Facade\Config;
+use Mantle\Facade\Config;
 
 echo Config::get( 'app.attribute' );
 ```
 
-In this example, the config facade is a wrapper for the `config` singleton instance of `Mantle\Framework\Config\Repository` in the application's service container.
+In this example, the config facade is a wrapper for the `config` singleton instance of `Mantle\Config\Repository` in the application's service container.
 
 ## Aliases
 Aliases provide a root namespace level way of interfacing with classes in the

@@ -18,7 +18,7 @@ namespace App;
 define( 'MANTLE_BASE_DIR', __DIR__ ); // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedConstantFound
 
 // Check if Composer has been installed.
-if ( ! function_exists( 'Mantle\Framework\generate_wp_autoloader' ) ) {
+if ( ! function_exists( 'Mantle\generate_wp_autoloader' ) ) {
 	// Add an admin notice if the dependencies aren't installed.
 	if ( ! file_exists( __DIR__ . '/vendor/autoload.php' ) ) {
 		add_action(
@@ -40,11 +40,11 @@ if ( ! function_exists( 'Mantle\Framework\generate_wp_autoloader' ) ) {
 
 try {
 	spl_autoload_register(
-		\Mantle\Framework\generate_wp_autoloader( __NAMESPACE__, __DIR__ . '/app' )
+		\Mantle\generate_wp_autoloader( __NAMESPACE__, __DIR__ . '/app' )
 	);
 
 	spl_autoload_register(
-		\Mantle\Framework\generate_wp_autoloader( __NAMESPACE__ . '\Database', __DIR__ . '/database' )
+		\Mantle\generate_wp_autoloader( __NAMESPACE__ . '\Database', __DIR__ . '/database' )
 	);
 } catch ( \Exception $e ) {
 	\wp_die( $e->getMessage() ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
