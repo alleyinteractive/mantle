@@ -15,7 +15,7 @@ jobs:
         uses: andstor/copycat-action@v3
         with:
           commit_message: "Syncing from alleyinteractive/mantle"
-          clean: true
+          clean: false
           dst_branch: main
           dst_owner: alleyinteractive
           dst_path: /mu-plugins/mantle-app
@@ -23,6 +23,7 @@ jobs:
           exclude: |
             .github/*
             docs/*
+            bin/install-wp-tests.sh
           personal_token: ${{ secrets.PERSONAL_TOKEN }}
           src_branch: main
           src_path: /.
