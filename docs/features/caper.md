@@ -20,7 +20,7 @@ Caper::grant_to( 'editor' )->primitives( 'edit_theme_options' );
 Caper::deny_to( 'administrator' )->primitives( 'manage_options' );
 ```
 
-## Granding/Denying Capabilities for Post Types or Taxonomies
+## Granting/Denying Capabilities for Post Types or Taxonomies
 
 `Caper` can also distribute the primitive capabilities associated with a post
 type or taxonomy. For example:
