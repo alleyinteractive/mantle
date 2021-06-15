@@ -21,7 +21,7 @@ footer: Copyright © 2020-present Alley
     <h2>Modern Toolkit</h2>
     <p>
       Includes a <a href="/models/models/">powerful ORM</a>, simple to use <a href="/basics/requests/">routing</a>,
-			<a href="/basics/templating/">blade-powered templating</a>, and a <a href="/testing/testing/">fast independent testing library for WordPress</a> out of the box.
+			<a href="/basics/templating/">blade-powered templating</a>, and a <a href="/testing/test-framework/">fast independent testing library for WordPress</a> out of the box.
     </p>
   </div>
 </div>
