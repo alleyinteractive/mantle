@@ -16,5 +16,5 @@ return [
 	| stored for your application.
 	*/
 
-	'compiled' => storage_path( 'framework/views' ),
+	'compiled' => environment( 'APP_VIEW_STORAGE', storage_path( 'framework/views' ) ),
 ];

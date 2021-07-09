@@ -15,7 +15,7 @@ return [
 	| Define the queue provider used in the application.
 	|
 	*/
-	'default' => 'wordpress',
+	'default' => environment( 'APP_QUEUE_PROVIDER', 'wordpress' ),
 
 	/*
 	|--------------------------------------------------------------------------

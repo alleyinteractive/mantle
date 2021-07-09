@@ -32,5 +32,14 @@
     ],
     "phpcs": "phpcs --standard=./phpcs.xml .",
     "phpunit": "phpunit"
+  },
+  "repositories": {
+    "mantle-framework": {
+      "type": "path",
+      "url": "../mantle-framework",
+      "options": {
+        "symlink": true
+      }
+    }
   }
 }
