@@ -27,7 +27,7 @@ class Route_Service_Provider extends Service_Provider {
 	 * Define routes for the application.
 	 */
 	public function map() {
-		Route::middleware( 'web' )->group( mantle_base_path( 'routes/web.php' ) );
-		Route::middleware( 'rest-api' )->group( mantle_base_path( 'routes/rest-api.php' ) );
+		Route::middleware( 'web' )->group( base_path( 'routes/web.php' ) );
+		Route::middleware( 'rest-api' )->group( base_path( 'routes/rest-api.php' ) );
 	}
 }
