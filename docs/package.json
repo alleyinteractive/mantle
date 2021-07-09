@@ -14,9 +14,9 @@
   },
   "license": "GPL",
   "devDependencies": {
-    "@vuepress/plugin-google-analytics": "^1.7.1",
+    "@vuepress/plugin-google-analytics": "^1.8.2",
     "node-forge": ">=0.10.0",
-    "vuepress": "^1.5.3",
+    "vuepress": "^1.8.2",
     "vuepress-plugin-clean-urls": "^1.1.2"
   },
   "dependencies": {
