@@ -7,7 +7,12 @@
 	<exclude-pattern>tests/</exclude-pattern>
 	<exclude-pattern>bootstrap/cache</exclude-pattern>
 
-	<rule ref="Alley-Interactive" />
+	<rule ref="Alley-Interactive">
+		<!-- todo: port to alley coding standards -->
+		<exclude name="PEAR.Functions.FunctionCallSignature.ContentAfterOpenBracket" />
+		<exclude name="PEAR.Functions.FunctionCallSignature.MultipleArguments" />
+		<exclude name="PEAR.Functions.FunctionCallSignature.CloseBracketLine" />
+	</rule>
 
 	<rule ref="WordPress">
 		<exclude name="WordPress.NamingConventions.ValidPostTypeSlug.NotStringLiteral" />
