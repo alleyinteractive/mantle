@@ -16,7 +16,7 @@ return [
 	| "array".
 	|
 	*/
-	'default' => 'wordpress',
+	'default' => environment( 'APP_CACHE', 'wordpress' ),
 
 	/*
 	|--------------------------------------------------------------------------
@@ -35,8 +35,8 @@ return [
 		],
 		'redis'     => [
 			'driver' => 'redis',
-			'host'   => '127.0.0.1',
-			'scheme' => 'tcp',
+			'host'   => environment( 'REDIS_HOST', '' ),
+			'scheme' => environment( 'REDIS_SCHEME', '' ),
 		],
 	],
 ];

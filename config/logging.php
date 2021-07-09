@@ -15,7 +15,7 @@ return [
 	| The default log channel that is used when calling the `Log` class.
 	|
 	*/
-	'default' => 'stack',
+	'default' => environment( 'APP_LOGGING_CHANNEL', 'stack' ),
 
 	/*
 	|--------------------------------------------------------------------------
@@ -59,8 +59,8 @@ return [
 		 */
 		'slack' => [
 			'driver'   => 'slack',
-			'url'      => '',
-			'username' => 'Mantle Log',
+			'url'      => environment( 'SLACK_URL', '' ),
+			'username' => environment( 'SLACK_USERNAME', 'Mantle Log' ),
 			'emoji'    => ':boom:',
 			'level'    => 'critical',
 		],

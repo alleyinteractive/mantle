@@ -17,7 +17,7 @@ return [
 	| is shown.
 	|
 	*/
-	'debug' => defined( 'WP_DEBUG' ) && WP_DEBUG,
+	'debug' => environment( 'APP_DEBUG', defined( 'WP_DEBUG' ) && WP_DEBUG ),
 
 	/*
 	|--------------------------------------------------------------------------

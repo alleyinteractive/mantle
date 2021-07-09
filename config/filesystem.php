@@ -17,7 +17,7 @@ return [
 	| based disks are available to your application. Just store away!
 	|
 	*/
-	'default' => 'local',
+	'default' => environment( 'APP_FILESYSTEM', 'local' ),
 
 	/*
 	|--------------------------------------------------------------------------
@@ -38,10 +38,10 @@ return [
 
 		's3' => [
 			'driver'   => 's3',
-			'key'      => '',
-			'secret'   => '',
-			'region'   => 'us-east-2',
-			'bucket'   => '',
+			'key'      => environment( 'S3_KEY', '' ),
+			'secret'   => environment( 'S3_SECRET', '' ),
+			'region'   => environment( 'S3_REGION', 'us-east-2' ),
+			'bucket'   => environment( 'S3_BUCKET', '' ),
 		],
 	],
 ];
