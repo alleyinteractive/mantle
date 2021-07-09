@@ -41,7 +41,7 @@ return [
 			'key'      => environment( 'S3_KEY', '' ),
 			'secret'   => environment( 'S3_SECRET', '' ),
 			'region'   => environment( 'S3_REGION', 'us-east-2' ),
-			'bucket'   => environment( 'S3_BUCKET', '' ),,
+			'bucket'   => environment( 'S3_BUCKET', '' ),
 		],
 	],
 ];
