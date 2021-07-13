@@ -16,7 +16,7 @@ return [
 	| "array".
 	|
 	*/
-	'default' => environment( 'APP_CACHE', 'wordpress' ),
+	'default' => environment( 'CACHE_DRIVER', 'wordpress' ),
 
 	/*
 	|--------------------------------------------------------------------------
@@ -34,9 +34,11 @@ return [
 			'driver' => 'array',
 		],
 		'redis'     => [
-			'driver' => 'redis',
-			'host'   => environment( 'REDIS_HOST', '' ),
-			'scheme' => environment( 'REDIS_SCHEME', '' ),
+			'driver'   => 'redis',
+			'host'     => environment( 'REDIS_HOST', '127.0.0.1' ),
+			'password' => environment( 'REDIS_PASSWORD', '' ),
+			'port'     => environment( 'REDIS_PORT', 6379 ),
+			'scheme'   => environment( 'REDIS_SCHEME', 'tcp' ),
 		],
 	],
 ];

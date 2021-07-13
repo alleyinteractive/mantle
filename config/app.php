@@ -42,6 +42,7 @@ return [
 
 		// Application Providers.
 		App\Providers\App_Service_Provider::class,
+		App\Providers\Asset_Service_Provider::class,
 		App\Providers\Route_Service_Provider::class,
 	],
 
@@ -75,5 +76,5 @@ return [
 	| Used to provide a configurable namespace for class generation.
 	|
 	*/
-	'namespace' => 'App',
+	'namespace' => environment( 'app.namespace', 'App' ),
 ];

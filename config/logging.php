@@ -15,7 +15,7 @@ return [
 	| The default log channel that is used when calling the `Log` class.
 	|
 	*/
-	'default' => environment( 'APP_LOGGING_CHANNEL', 'stack' ),
+	'default' => environment( 'LOG_CHANNEL', 'stack' ),
 
 	/*
 	|--------------------------------------------------------------------------
