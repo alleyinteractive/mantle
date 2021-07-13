@@ -45,6 +45,11 @@
 
 	<rule ref="Squiz.PHP.CommentedOutCode.Found">
 		<exclude-pattern>routes/</exclude-pattern>
+		<exclude-pattern>app/</exclude-pattern>
+	</rule>
+
+	<rule ref="Squiz.Commenting.InlineComment.InvalidEndChar">
+		<exclude-pattern>app/providers</exclude-pattern>
 	</rule>
 
 	<rule ref="Squiz.Commenting.InlineComment">

@@ -76,5 +76,5 @@ return [
 	| Used to provide a configurable namespace for class generation.
 	|
 	*/
-	'namespace' => 'App',
+	'namespace' => environment( 'app.namespace', 'App' ),
 ];
