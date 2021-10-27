@@ -22,7 +22,7 @@ class Asset_Service_Provider extends Service_Provider {
 	 * @return void
 	 */
 	public function boot() {
-		// Asset::script( 'example-handle', mix( '/js/app.js' ) );
+		// asset()->script( 'example-handle', mix( '/js/app.js' ) );
 	}
 
 	/**
