@@ -1,11 +1,10 @@
 function prefix(prefix, children) {
-  return children.map(child => `${prefix}/${child}`)
+  return children.map(child => `/${prefix}/${child}.md`)
 }
 
 module.exports = [
   {
-    title: 'Getting Started',
-    collapsable: false,
+    text: 'Getting Started',
     children: prefix('getting-started', [
       'installation',
       'directory-structure',
@@ -13,16 +12,14 @@ module.exports = [
     ]),
   },
   {
-    title: 'Architecture',
-    collapsable: false,
+    text: 'Architecture',
     children: prefix('architecture', [
       'architecture',
       'configuration',
     ]),
   },
   {
-    title: 'Basics',
-    collapsable: false,
+    text: 'Basics',
     children: prefix('basics', [
       'requests',
       'templating',
@@ -31,7 +28,7 @@ module.exports = [
     ]),
   },
   {
-    title: 'Models',
+    text: 'Models',
     collapsable: false,
     children: prefix('models', [
       'models',

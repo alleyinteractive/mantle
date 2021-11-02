@@ -10,26 +10,22 @@ module.exports = {
     ['meta', { name: 'apple-mobile-web-app-status-bar-style', content: 'black' }],
     ['meta', { property: 'og:image', content: 'https://repository-images.githubusercontent.com/261240189/e61bc280-2d73-11eb-92d0-249447854ca0' }],
   ],
-  theme: 'default-prefers-color-scheme',
   themeConfig: {
     activeHeaderLinks: false,
+    contributors: false,
     displayAllHeaders: false,
     docsBranch: 'main',
     docsDir: 'docs',
-    editLinks: false,
     editLinks: true,
     editLinkText: 'Help us improve this page!',
     lastUpdated: false,
     repo: 'alleyinteractive/mantle',
-    nav: [
+    navbar: [
       { text: 'Home', link: '/', target: '_self', },
       { text: 'Alley', link: 'https://alley.co/', },
     ],
     sidebar: require('./sidebar'),
-    algolia: {
-      apiKey: 'f4cbda59264a3b8e945405e83fc6d685',
-      indexName: 'mantle'
-    },
+    sidebarDepth: 3,
   },
   markdown: {
     toc: {
@@ -39,27 +35,23 @@ module.exports = {
   plugins: [
     '@vuepress/plugin-back-to-top',
     '@vuepress/plugin-medium-zoom',
-    'check-md',
-    [
-      'vuepress-plugin-clean-urls',
-      {
-        normalSuffix: '/',
-        indexSuffix: '/',
-        notFoundPath: '/404.html',
-      },
-    ],
     [
       '@vuepress/google-analytics',
       {
-        'ga': 'G-G4HGJSHN3S',
+        id: 'G-G4HGJSHN3S',
       }
     ],
     [
-      'sitemap',
+      '@vuepress/docsearch',
       {
-        hostname: 'https://mantle.alley.co',
-        exclude: ['/404.html'],
-      }
+        apiKey: 'f4cbda59264a3b8e945405e83fc6d685',
+        indexName: 'mantle',
+        locales: {
+          '/': {
+            placeholder: 'Search Documentation',
+          },
+        },
+      },
     ],
   ]
 }
