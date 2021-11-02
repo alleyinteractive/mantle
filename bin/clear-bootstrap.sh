@@ -8,3 +8,5 @@ rm -rf $CWD/../bootstrap/cache/*
 # Ensure the directory exists.
 [ ! -d $CWD/../bootstrap/cache ] && mkdir $CWD/../bootstrap/cache
 [ ! -f $CWD/../bootstrap/cache/.gitkeep ] && touch $CWD/../bootstrap/cache/.gitkeep
+
+exit 0
