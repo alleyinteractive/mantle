@@ -27,6 +27,8 @@
   "minimum-stability": "dev",
   "prefer-stable": true,
   "scripts": {
+    "pre-update-cmd": "./bin/clear-bootstrap.sh",
+    "pre-install-cmd": "./bin/clear-bootstrap.sh",
     "post-autoload-dump": [
       "./bin/package-discover.sh"
     ],
