@@ -3,9 +3,15 @@ home: true
 heroText: Mantle
 heroImage: /logo.jpg
 tagline: Mantle is a framework for building large, robust websites and applications with WordPress
-actionText: Get Started →
-actionLink: /getting-started/installation/
 footer: Copyright © 2020-present Alley
+actions:
+  - text: Get Started →
+    link: /getting-started/installation/
+    type: primary
+  - text: GitHub
+    link: https://github.com/alleyinteractive/mantle/
+    type: secondary
+
 ---
 
 <div class="features">

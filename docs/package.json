@@ -20,7 +20,5 @@
     "@vuepress/plugin-medium-zoom": "^2.0.0-beta.27",
     "node-forge": ">=0.10.0",
     "vuepress": "^2.0.0-beta.27"
-  },
-  "devDependencies": {
   }
 }

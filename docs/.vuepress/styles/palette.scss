@@ -1,0 +1,22 @@
+/**
+ * Custom palette here.
+ *
+ * ref：https://v1.vuepress.vuejs.org/config/#palette-styl
+ */
+
+:root {
+	--c-brand: #234568;
+	--c-text-accent: #234568;
+}
+
+html.dark {
+  --c-brand: #74a1d0;
+  --c-brand-light: #74a1d0;
+  --c-text-accent: #74a1d0;
+  --c-border: #3e4c5a;
+  --c-border-dark: #3e4c5a;
+
+  header.navbar {
+    box-shadow: inset 0 -1px var(--c-border);
+  }
+}
