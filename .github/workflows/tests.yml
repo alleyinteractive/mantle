@@ -95,4 +95,4 @@ jobs:
         shell: bash
         run: |
           cd ${WP_CORE_DIR}/wp-content/plugins/mantle
-          composer run phpunit
+          composer run test:unit

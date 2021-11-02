@@ -32,7 +32,11 @@
     "post-autoload-dump": [
       "./bin/package-discover.sh"
     ],
-    "phpcs": "phpcs --standard=./phpcs.xml .",
-    "phpunit": "phpunit"
+    "test:lint": "phpcs --standard=./phpcs.xml .",
+    "test:unit": "phpunit",
+    "test": [
+      "@test:lint",
+      "@test:unit"
+    ]
   }
 }

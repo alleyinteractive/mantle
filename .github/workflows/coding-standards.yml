@@ -53,4 +53,4 @@ jobs:
           command: composer install
 
       - name: Run phpcs
-        run: composer run phpcs
+        run: composer run test:lint
