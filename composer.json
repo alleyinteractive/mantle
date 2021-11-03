@@ -16,8 +16,8 @@
   },
   "require-dev": {
     "alleyinteractive/alley-coding-standards": "^0.2",
-    "phpunit/phpunit": "^8.5.8|^9.3.3",
-    "nunomaduro/collision": "^5.0"
+    "nunomaduro/collision": "^5.0",
+    "phpunit/phpunit": "^8.5.8 || ^9.3.3"
   },
   "config": {
     "apcu-autoloader": true,
@@ -27,10 +27,16 @@
   "minimum-stability": "dev",
   "prefer-stable": true,
   "scripts": {
+    "pre-install-cmd": "./bin/clear-bootstrap.sh",
+    "pre-update-cmd": "./bin/clear-bootstrap.sh",
     "post-autoload-dump": [
       "./bin/package-discover.sh"
     ],
-    "phpcs": "phpcs --standard=./phpcs.xml .",
-    "phpunit": "phpunit"
+    "test:lint": "phpcs --standard=./phpcs.xml .",
+    "test:unit": "phpunit",
+    "test": [
+      "@test:lint",
+      "@test:unit"
+    ]
   }
 }
