@@ -35,6 +35,9 @@ jobs:
       CACHEDIR: /tmp/test-cache
       WP_CORE_DIR: /tmp/wordpress
       WP_VERSION: ${{ matrix.wp_version }}
+      WP_DB_HOST: 127.0.0.1
+      WP_DB_USER: root
+      WP_DB_PASSWORD: '""'
 
     steps:
       - name: Cancel previous runs of this workflow (pull requests only)
@@ -81,18 +84,6 @@ jobs:
           max_attempts: 5
           command: composer install
 
-      - name: Install WordPress and Copy Project
-        shell: bash
-        run: |
-          bash bin/install-wp-tests.sh wordpress_unit_tests root '' 127.0.0.1 $WP_VERSION
-
-          # Go into the core directory and replace wp-content.
-          # mkdir -p ${WP_CORE_DIR}/wp-content/plugins/mantle
-          rm -rf ${WP_CORE_DIR}/wp-content/plugins/mantle
-          rsync -aWq --no-compress . ${WP_CORE_DIR}/wp-content/plugins/mantle
-
       - name: Test Mantle
         shell: bash
-        run: |
-          cd ${WP_CORE_DIR}/wp-content/plugins/mantle
-          composer run test:unit
+        run: composer run test:unit
