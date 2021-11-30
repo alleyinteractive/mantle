@@ -14,3 +14,4 @@ if ! type "wp" > /dev/null 2>&1; then
 fi
 
 wp mantle package:discover
+wp mantle model:discover
