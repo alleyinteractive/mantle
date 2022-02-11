@@ -11,7 +11,7 @@
   ],
   "require": {
     "alleyinteractive/composer-wordpress-autoloader": "dev-test-exception",
-    "alleyinteractive/mantle-framework": "dev-main",
+    "alleyinteractive/mantle-framework": "dev-autoload",
     "fakerphp/faker": "^1.9",
     "symfony/mime": "^5.1"
   },
@@ -29,15 +29,15 @@
     "optimize-autoloader": true,
     "sort-packages": true
   },
-  "autoload": {
-    "wordpress": {
-      "App\\": "app/",
-      "App\\Database\\": "database/"
-    }
-  },
-  "autoload-dev": {
-    "wordpress": {
-      "App\\Tests\\": "tests/"
+  "extra": {
+    "wordpress-autoloader": {
+      "autoload": {
+        "App\\": "app/",
+        "App\\Database\\": "database/"
+      },
+      "autoload-dev": {
+        "App\\Tests\\": "tests/"
+      }
     }
   },
   "minimum-stability": "dev",

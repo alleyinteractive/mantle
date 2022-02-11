@@ -74,6 +74,9 @@ jobs:
           tools: composer:v2
           coverage: none
 
+      - name: Validate Composer
+        run: composer validate --strict
+
       - name: Install dependencies
         uses: nick-invision/retry@v1
         with:
