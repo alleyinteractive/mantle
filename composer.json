@@ -9,13 +9,25 @@
       "email": "info@alley.co"
     }
   ],
+  "autoload": {
+    "wordpress": {
+      "App\\": "app/",
+      "App\\Database\\": "database/"
+    }
+  },
+  "autoload-dev": {
+    "wordpress": {
+      "App\\Tests\\": "tests/"
+    }
+  },
   "require": {
+    "alleyinteractive/composer-wordpress-autoloader": "dev-test-exception",
     "alleyinteractive/mantle-framework": "dev-main",
     "fakerphp/faker": "^1.9",
     "symfony/mime": "^5.1"
   },
   "require-dev": {
-    "alleyinteractive/alley-coding-standards": "^0.2",
+    "alleyinteractive/alley-coding-standards": "^0.3",
     "nunomaduro/collision": "^5.0",
     "phpunit/phpunit": "^8.5.8 || ^9.3.3"
   },
@@ -32,11 +44,14 @@
     "post-autoload-dump": [
       "./bin/package-discover.sh"
     ],
-    "test:lint": "phpcs --standard=./phpcs.xml .",
-    "test:unit": "phpunit",
+    "lint:fix": "@phpcbf",
+    "lint": "@phpcs",
+    "phpcbf": "phpcbf --standard=./phpcs.xml .",
+    "phpcs": "phpcs --standard=./phpcs.xml .",
+    "phpunit": "phpunit",
     "test": [
-      "@test:lint",
-      "@test:unit"
+      "@lint",
+      "@phpunit"
     ]
   }
 }
