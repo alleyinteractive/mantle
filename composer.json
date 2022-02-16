@@ -10,19 +10,35 @@
     }
   ],
   "require": {
+    "alleyinteractive/composer-wordpress-autoloader": "^0.2",
     "alleyinteractive/mantle-framework": "dev-main",
     "fakerphp/faker": "^1.9",
     "symfony/mime": "^5.1"
   },
   "require-dev": {
-    "alleyinteractive/alley-coding-standards": "^0.2",
+    "alleyinteractive/alley-coding-standards": "^0.3",
     "nunomaduro/collision": "^5.0",
     "phpunit/phpunit": "^8.5.8 || ^9.3.3"
   },
   "config": {
+    "allow-plugins": {
+      "alleyinteractive/composer-wordpress-autoloader": true,
+      "dealerdirect/phpcodesniffer-composer-installer": true
+    },
     "apcu-autoloader": true,
     "optimize-autoloader": true,
     "sort-packages": true
+  },
+  "extra": {
+    "wordpress-autoloader": {
+      "autoload": {
+        "App\\": "app/",
+        "App\\Database\\": "database/"
+      },
+      "autoload-dev": {
+        "App\\Tests\\": "tests/"
+      }
+    }
   },
   "minimum-stability": "dev",
   "prefer-stable": true,
@@ -32,11 +48,14 @@
     "post-autoload-dump": [
       "./bin/package-discover.sh"
     ],
-    "test:lint": "phpcs --standard=./phpcs.xml .",
-    "test:unit": "phpunit",
+    "lint": "@phpcs",
+    "lint:fix": "@phpcbf",
+    "phpcbf": "phpcbf --standard=./phpcs.xml .",
+    "phpcs": "phpcs --standard=./phpcs.xml .",
+    "phpunit": "phpunit",
     "test": [
-      "@test:lint",
-      "@test:unit"
+      "@lint",
+      "@phpunit"
     ]
   }
 }

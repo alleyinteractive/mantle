@@ -18,7 +18,3 @@ namespace App\Tests;
 		);
 	}
 );
-
-spl_autoload_register(
-	\Mantle\generate_wp_autoloader( __NAMESPACE__, __DIR__ )
-);
