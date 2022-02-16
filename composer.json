@@ -10,8 +10,8 @@
     }
   ],
   "require": {
-    "alleyinteractive/composer-wordpress-autoloader": "dev-test-exception",
-    "alleyinteractive/mantle-framework": "dev-autoload",
+    "alleyinteractive/composer-wordpress-autoloader": "^0.2",
+    "alleyinteractive/mantle-framework": "dev-main",
     "fakerphp/faker": "^1.9",
     "symfony/mime": "^5.1"
   },
