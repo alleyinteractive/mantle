@@ -5,6 +5,7 @@
  * @package Mantle
  */
 
+use Mantle\Facade\Http;
 use Mantle\Facade\Route;
 
 /*

@@ -7,7 +7,7 @@
 
 namespace App\Console;
 
-use Mantle\Console\Kernel as Console_Kernel;
+use Mantle\Framework\Console\Kernel as Console_Kernel;
 
 /**
  * Application Console Kernel

@@ -7,7 +7,7 @@
 
 namespace App\Http;
 
-use Mantle\Http\Kernel as Http_Kernel;
+use Mantle\Framework\Http\Kernel as Http_Kernel;
 
 /**
  * Application HTTP Kernel
