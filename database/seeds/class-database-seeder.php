@@ -8,7 +8,7 @@
 namespace App\Database\Seeds;
 
 use Mantle\Database\Seeder;
-use function Mantle\Framework\Helpers\factory;
+use function Mantle\Support\Helpers\factory;
 
 /**
  * Application Seeder
