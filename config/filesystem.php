@@ -37,11 +37,12 @@ return [
 		],
 
 		's3' => [
-			'driver'   => 's3',
-			'key'      => environment( 'S3_KEY', '' ),
-			'secret'   => environment( 'S3_SECRET', '' ),
-			'region'   => environment( 'S3_REGION', 'us-east-2' ),
-			'bucket'   => environment( 'S3_BUCKET', '' ),
+			'driver'                   => 's3',
+			'key'                      => environment( 'S3_KEY', '' ),
+			'secret'                   => environment( 'S3_SECRET', '' ),
+			'region'                   => environment( 'S3_REGION', 'us-east-2' ),
+			'bucket'                   => environment( 'S3_BUCKET', '' ),
+			'temporary_url_expiration' => environment( 'S3_TEMPORARY_URL_EXPIRATION', 3600 ),
 		],
 	],
 ];
