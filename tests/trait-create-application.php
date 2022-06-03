@@ -7,6 +7,7 @@
 
 namespace App\Tests;
 
+use App\Http\Kernel;
 use Mantle\Framework\Application;
 
 /**
@@ -25,6 +26,10 @@ trait Create_Application {
 			return new Application( __DIR__ . '/../', home_url( '/' ) );
 		}
 
-		return require __DIR__ . '/../bootstrap/app.php';
+		$app = require __DIR__ . '/../bootstrap/app.php';
+
+		$app->make( Kernel::class )->bootstrap();
+
+		return $app;
 	}
 }
