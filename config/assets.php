@@ -26,5 +26,5 @@ return [
 	|
 	| This URL is used to properly generate the URL to built assets.
 	*/
-	'url'  => env( 'ASSET_BUILD_URL', null ),
+	'url'  => env( 'ASSET_BUILD_URL', \plugin_dir_url( __DIR__ ) ),
 ];
