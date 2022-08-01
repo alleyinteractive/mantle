@@ -10,15 +10,15 @@
     }
   ],
   "require": {
-    "alleyinteractive/composer-wordpress-autoloader": "^0.4",
-    "alleyinteractive/mantle-framework": "^0.4",
+    "alleyinteractive/composer-wordpress-autoloader": "^0.6",
+    "alleyinteractive/mantle-framework": "^0.5",
     "fakerphp/faker": "^1.9",
     "symfony/mime": "^5.1"
   },
   "require-dev": {
     "alleyinteractive/alley-coding-standards": "^0.3",
     "nunomaduro/collision": "^5.0",
-    "phpunit/phpunit": "^8.5.8 || ^9.3.3"
+    "phpunit/phpunit": "^9.3.3"
   },
   "config": {
     "allow-plugins": {
