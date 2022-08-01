@@ -33,10 +33,10 @@ use Mantle\Http\Request;
  *
  * @var string
  */
-define( 'MANTLE_BASE_DIR', __DIR__ ); // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedConstantFound
+defined( 'MANTLE_BASE_DIR' ) || define( 'MANTLE_BASE_DIR', __DIR__ ); // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedConstantFound
 
 // Check if Composer has been installed.
-if ( ! file_exists( __DIR__ . '/vendor/wordpress-autoload.php' ) ) {
+if ( ! file_exists( __DIR__ . '/vendor/autoload.php' ) ) {
 	add_action(
 		'admin_notices',
 		function() {
@@ -50,7 +50,7 @@ if ( ! file_exists( __DIR__ . '/vendor/wordpress-autoload.php' ) ) {
 	return;
 } else {
 	// Load the Composer dependencies.
-	require_once __DIR__ . '/vendor/wordpress-autoload.php';
+	require_once __DIR__ . '/vendor/autoload.php';
 }
 
 /**
