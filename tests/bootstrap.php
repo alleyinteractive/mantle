@@ -8,13 +8,6 @@
 namespace App\Tests;
 
 // Install the Mantle Test Framework.
-\Mantle\Testing\install(
-	function() {
-		\Mantle\Testing\tests_add_filter(
-			'muplugins_loaded',
-			function() {
-				require_once __DIR__ . '/../mantle.php';
-			}
-		);
-	}
-);
+\Mantle\Testing\manager()
+	->loaded( fn () => require_once __DIR__ . '/../mantle.php' )
+	->install();
