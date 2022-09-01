@@ -25,7 +25,7 @@ return [
 	| The amount of items handled in one run of the queue.
 	|
 	*/
-	'batch_size' => 5,
+	'batch_size' => environment( 'QUEUE_BATCH_SIZE', 5 ),
 
 	/*
 	|--------------------------------------------------------------------------
@@ -37,6 +37,6 @@ return [
 	*/
 	'wordpress' => [
 		// Delay between queue runs in seconds.
-		'delay' => 300,
+		'delay' => environment( 'QUEUE_DELAY', 0 ),
 	],
 ];
