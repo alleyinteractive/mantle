@@ -35,22 +35,31 @@ use Mantle\Http\Request;
  */
 defined( 'MANTLE_BASE_DIR' ) || define( 'MANTLE_BASE_DIR', __DIR__ ); // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedConstantFound
 
-// Check if Composer has been installed.
-if ( ! file_exists( __DIR__ . '/vendor/wordpress-autoload.php' ) ) {
-	add_action(
-		'admin_notices',
-		function() {
-			printf(
-				'<div class="notice notice-error"><p>%s</p></div>',
-				esc_html__( 'Mantle requires a `composer install` to run properly.', 'mantle' )
-			);
-		}
-	);
+/*
+|--------------------------------------------------------------------------
+| Load Composer
+|--------------------------------------------------------------------------
+|
+| Check if Composer has been installed and attempt to load it. You can remove
+| this block of code if Composer is being loaded outside of the plugin.
+|
+*/
+if ( ! getenv( 'MANTLE_SKIP_COMPOSER_INSTALL' ) ) {
+	if ( ! file_exists( __DIR__ . '/vendor/wordpress-autoload.php' ) ) {
+		add_action(
+			'admin_notices',
+			function() {
+				printf(
+					'<div class="notice notice-error"><p>%s</p></div>',
+					esc_html__( 'Mantle requires a `composer install` to run properly.', 'mantle' )
+				);
+			}
+		);
 
-	return;
-} else {
-	// Load the Composer dependencies.
-	require_once __DIR__ . '/vendor/wordpress-autoload.php';
+		return;
+	} else {
+		require_once __DIR__ . '/vendor/wordpress-autoload.php';
+	}
 }
 
 /**
