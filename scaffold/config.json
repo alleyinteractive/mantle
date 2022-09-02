@@ -1,0 +1,7 @@
+{
+  "core_term_meta": true,
+  "domain": "create-wordpress-plugin",
+  "folder": "src",
+  "namespace": "Create_WordPress_Plugin",
+  "require_path": "__DIR__"
+}
