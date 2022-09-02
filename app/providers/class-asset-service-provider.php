@@ -22,7 +22,29 @@ class Asset_Service_Provider extends Service_Provider {
 	 * @return void
 	 */
 	public function boot() {
-		// asset()->script( 'example-handle', mix( '/js/app.js' ) );
+		/*
+		|--------------------------------------------------------------------------
+		| Enqueue Assets
+		|--------------------------------------------------------------------------
+		|
+		| Enqueue a raw asset using the asset() helper:
+		|
+		| 	 asset()->script( 'example-entry' )->async()->src( 'https://example.org/script.js' );
+		| 	 asset()->style( 'example-entry' )->condition( 'single' )->src( 'https://example.org/style.css' );
+		|
+		| Enqueue an asset from the asset map using the asset_map() helper:
+		|
+		|     asset_map()->enqueue( 'example-entry.js' )->async();
+		|     asset_map()->enqueue( 'example-entry.css' )->condition( 'single' );
+		|
+		| Retrieve information about an asset from the asset map using the asset_map() helper:
+		|
+		|     asset_map()->path( 'example-entry.js' );
+		|     asset_map()->hash( 'example-entry.js' );
+		|
+		| Get cookin'!
+		|
+		*/
 	}
 
 	/**

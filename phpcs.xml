@@ -6,6 +6,7 @@
 
 	<exclude-pattern>tests/</exclude-pattern>
 	<exclude-pattern>bootstrap/cache</exclude-pattern>
+	<exclude-pattern>build</exclude-pattern>
 
 	<rule ref="Alley-Interactive">
 		<!-- todo: port to alley coding standards -->
