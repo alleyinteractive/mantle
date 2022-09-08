@@ -22,3 +22,5 @@ Thumbs.db
 *.code-workspace
 .idea
 .vscode
+
+package-lock.json
