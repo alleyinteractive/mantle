@@ -6,6 +6,7 @@
 
 	<exclude-pattern>tests/</exclude-pattern>
 	<exclude-pattern>bootstrap/cache</exclude-pattern>
+	<exclude-pattern>storage/framework/views</exclude-pattern>
 
 	<rule ref="Alley-Interactive">
 		<!-- todo: port to alley coding standards -->
@@ -54,5 +55,9 @@
 
 	<rule ref="Squiz.Commenting.InlineComment">
 		<exclude-pattern>routes/</exclude-pattern>
+	</rule>
+
+	<rule ref="Internal.NoCodeFound">
+		<exclude-pattern>views/**/*.blade.php</exclude-pattern>
 	</rule>
 </ruleset>
