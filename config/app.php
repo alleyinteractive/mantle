@@ -35,6 +35,7 @@ return [
 		Mantle\Framework\Providers\Error_Service_Provider::class,
 		Mantle\Framework\Providers\Model_Service_Provider::class,
 		Mantle\Framework\Providers\Queue_Service_Provider::class,
+		Mantle\Framework\Providers\Block_Service_Provider::class,
 		Mantle\Query_Monitor\Query_Monitor_Service_Provider::class,
 		Mantle\Framework\Providers\New_Relic_Service_Provider::class,
 		Mantle\Database\Pagination\Paginator_Service_Provider::class,
