@@ -1,8 +1,9 @@
+const glob = require('glob');
 const mix = require('laravel-mix');
 const path = require('path');
-const DependencyExtractionWebpackPlugin = require('@wordpress/dependency-extraction-webpack-plugin');
 
 require('laravel-mix-polyfill');
+require('./src/webpack/discover-entries');
 
 /*
  |--------------------------------------------------------------------------
@@ -26,6 +27,19 @@ require('laravel-mix-polyfill');
 |
 */
 mix.setPublicPath(process.env.APP_BUILD_PATH || 'build');
+
+/*
+| --------------------------------------------------------------------------
+| Discover Entries
+| --------------------------------------------------------------------------
+|
+| Discover entries in the 'entries' directory and automatically compile them.
+| index.js files that live within a folder inside entries will automatically be
+| compiled.
+|
+*/
+
+mix.discover('entries');
 
 /*
 | --------------------------------------------------------------------------
