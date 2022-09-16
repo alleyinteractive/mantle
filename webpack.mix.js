@@ -18,6 +18,17 @@ require('laravel-mix-polyfill');
 
 /*
 | --------------------------------------------------------------------------
+| Public Path
+| --------------------------------------------------------------------------
+|
+| Define the public path used by the build process. This must be called before
+| compiling any entries.
+|
+*/
+mix.setPublicPath(process.env.APP_BUILD_PATH || 'build');
+
+/*
+| --------------------------------------------------------------------------
 | Entries to be built
 | --------------------------------------------------------------------------
 |
@@ -25,8 +36,8 @@ require('laravel-mix-polyfill');
 |
 */
 mix
-  .js('src/js/app.js', 'build/js')
-  .sass('src/scss/app.scss', 'build/css');
+  .js('src/js/app.js', 'build')
+  .sass('src/scss/app.scss', 'build');
 
 /*
 | --------------------------------------------------------------------------
@@ -40,16 +51,6 @@ mix
 mix.alias({
   '@': path.join(__dirname),
 });
-
-/*
-| --------------------------------------------------------------------------
-| Public Path
-| --------------------------------------------------------------------------
-|
-| Define the public path used by the build process.
-|
-*/
-mix.setPublicPath(process.env.APP_BUILD_PATH || 'build');
 
 /*
 | --------------------------------------------------------------------------
