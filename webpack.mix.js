@@ -26,6 +26,7 @@ require('./src/webpack/discover-entries');
 | compiling any entries.
 |
 */
+
 mix.setPublicPath(process.env.APP_BUILD_PATH || 'build');
 
 /*
@@ -49,6 +50,7 @@ mix.discover('entries');
 | Define the entries you need built with mix.
 |
 */
+
 mix
   .js('src/js/app.js', 'build')
   .js('slotfills/index.js', 'build/slotfills.js')
@@ -63,6 +65,7 @@ mix
 | @ is registered to reference the root of your application.
 |
 */
+
 mix.alias({
   '@': path.join(__dirname),
 });
@@ -77,6 +80,7 @@ mix.alias({
 | https://laravel-mix.com/extensions/polyfill
 |
 */
+
 mix.polyfill({
   enabled: true,
   useBuiltIns: 'usage',
