@@ -1,0 +1,8 @@
+name: Node Tests
+
+on:
+  pull_request:
+
+jobs:
+  node-tests:
+    uses: alleyinteractive/.github/.github/workflows/node-tests.yml@main
