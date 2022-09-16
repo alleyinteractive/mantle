@@ -38,6 +38,9 @@ class DiscoverEntries {
     this.discoverEntries();
   }
 
+  /**
+   * Discover entries in the specified directory.
+   */
   discoverEntries() {
     const entries = glob
       .sync(`${rootPath}/${this.entryPath}/**/index.js*`)

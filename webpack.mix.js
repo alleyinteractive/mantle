@@ -51,6 +51,7 @@ mix.discover('entries');
 */
 mix
   .js('src/js/app.js', 'build')
+  .js('slotfills/index.js', 'build/slotfills.js')
   .sass('src/scss/app.scss', 'build');
 
 /*
