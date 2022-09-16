@@ -8,3 +8,4 @@ jobs:
     uses: alleyinteractive/.github/.github/workflows/node-tests.yml@main
     with:
       run-lint: false
+      ci: true
