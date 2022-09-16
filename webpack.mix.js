@@ -68,22 +68,6 @@ mix.polyfill({
   targets: 'defaults, not IE 11',
 });
 
-/*
-| --------------------------------------------------------------------------
-| Webpack Plugins
-| --------------------------------------------------------------------------
-|
-| Here you may register any webpack plugins that your application requires. By
-| default the @wordpress/dependency-extraction-webpack-plugin is registered to
-| improve performance with Gutenberg.
-|
-*/
-mix.webpackConfig((webpack) => ({
-  plugins: [
-    new DependencyExtractionWebpackPlugin({ useDefaults: true }),
-  ],
-}));
-
 if (mix.inProduction()) {
   mix.version();
 } else {
