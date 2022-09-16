@@ -10,8 +10,8 @@
     }
   ],
   "require": {
-    "alleyinteractive/composer-wordpress-autoloader": "^0.6",
-    "alleyinteractive/mantle-framework": "^0.5",
+    "alleyinteractive/composer-wordpress-autoloader": "^1.0",
+    "alleyinteractive/mantle-framework": "^0.6",
     "fakerphp/faker": "^1.9",
     "symfony/mime": "^5.1"
   },
