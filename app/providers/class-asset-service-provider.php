@@ -35,10 +35,6 @@ class Asset_Service_Provider extends Service_Provider {
 		| Get cookin'!
 		|
 		*/
-
-		// asset()->script( 'example-entry' )->async()->src( mix( '/entries-app.js' ) );
-		asset()->script( 'example-entry' )->sync()->src( mix( '/entries-app.js' ) );
-		// asset()->style( 'example-entry' )->condition( 'single' )->src( mix( '/app.css' ) );
 	}
 
 	/**
