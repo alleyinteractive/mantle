@@ -20,19 +20,19 @@
 	Mantle is a framework for building large, robust websites and applications with WordPress.
 </p>
 
-# Background
+## Background
 
 Mantle is a framework designed to make WordPress development simpler with a more
 delightful syntax. It is built for enterprise-level WordPress plugins and themes
 and is inspired largely by Laravel. Mantle is designed to be a standalone plugin
 that integrates well with your theme, allowing your theme to focus on the styles
-and layout and leaving the rest of the functionality to be built withing the
+and layout and leaving the rest of the functionality to be built within the
 Mantle plugin.
 
 For more information about the framework and how to get started using it, check
 out the [Mantle Documentation Site](https://mantle.alley.co/).
 
-# Installation
+## Installation
 
 Mantle plugins should live in `wp-content/plugins/{site-slug}/` within a
 WordPress installation. You can add a copy of Mantle to your existing WordPress
