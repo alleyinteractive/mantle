@@ -53,7 +53,10 @@ WordPress optionally) automatically:
 mantle new my-site
 ```
 
-For more information, see
+You can also use a our
+[create-mantle-app](https://github.com/alleyinteractive/create-mantle-app)
+starter kit to get a fully scaffolded `wp-content`-rooted WordPress project out
+of the box. For more information, see
 [Installation](https://mantle.alley.co/getting-started/installation.html).
 
 ## Maintainers
