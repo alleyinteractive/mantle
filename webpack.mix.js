@@ -3,6 +3,7 @@ const mix = require('laravel-mix');
 const path = require('path');
 
 require('laravel-mix-polyfill');
+require('@tinypixelco/laravel-mix-wp-blocks');
 require('./src/webpack/discover-entries');
 
 /*
@@ -38,9 +39,21 @@ mix.setPublicPath(process.env.APP_BUILD_PATH || 'build');
 | index.js files that live within a folder inside entries will automatically be
 | compiled.
 |
+| Discover index.js files within a specific directory:
+|
+|   mix.discover('entries');
+|
+| Discover index.ts files within a specific directory using Typescript:
+|
+|  mix.discover('entries', { type: 'ts' });
+|
+| Discover WordPress blocks within /blocks/:
+|
+|   mix.discover('blocks', { type: 'block' });
 */
 
 mix.discover('entries');
+mix.discover('blocks', { type: 'block' });
 
 /*
 | --------------------------------------------------------------------------

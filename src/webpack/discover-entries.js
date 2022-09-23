@@ -20,15 +20,18 @@ class DiscoverEntries {
    * @param {String} entryPath Entry path to discover.
    * @param {Object} options Options for the plugin.
    * @param {String} options.prefix Folder prefix to use for the built path, optional.
+   * @param {String} options.type Type of asset to discover (js/ts/block), optional.
    */
   register(
     entryPath,
     {
-      prefix = null
+      prefix = null,
+      type = 'js',
     } = {},
   ) {
     this.entryPath = entryPath;
     this.prefix = prefix || path.basename(entryPath);
+    this.type = type;
 
     // Check if the folder exists.
     if (!fs.existsSync(`${rootPath}/${entryPath}`)) {
@@ -43,7 +46,7 @@ class DiscoverEntries {
    */
   discoverEntries() {
     const entries = glob
-      .sync(`${rootPath}/${this.entryPath}/**/index.js*`)
+      .sync(`${rootPath}/${this.entryPath}/**/index.?(j|t)s*`)
       .reduce((acc, item) => {
         const entry = item
           .replace(`${rootPath}/${this.entryPath}/`, '')
@@ -55,7 +58,11 @@ class DiscoverEntries {
 
     // Automatically load the entries in the 'entries' directory.
     Object.keys(entries).forEach((entry) => {
-      mix.js(entries[entry], `build/${entry}.js`);
+      if ('undefined' === typeof mix[this.type]) {
+        throw new Error(`The method of registering of asset to discover is not supported: [${this.type}]`);
+      }
+
+      mix[this.type](entries[entry], `build/${entry}.js`);
     });
   }
 }
