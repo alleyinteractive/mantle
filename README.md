@@ -46,7 +46,8 @@ composer create-project alleyinteractive/mantle my-site \
   --no-interaction
 ```
 
-Alternatively, you can use the `Mantle Installer` package and install Mantle and WordPress automatically:
+Alternatively, you can use the Mantle Installer package and install Mantle (and
+WordPress optionally) automatically:
 
 ```bash
 mantle new my-site
