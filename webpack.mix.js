@@ -65,6 +65,7 @@ mix.discover('blocks', { type: 'block' });
 */
 
 mix
+  .ts('src/example.ts', 'build')
   .js('src/js/app.js', 'build')
   .js('slotfills/index.js', 'build/slotfills.js')
   .sass('src/scss/app.scss', 'build');
