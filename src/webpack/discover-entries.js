@@ -26,7 +26,7 @@ class DiscoverEntries {
     entryPath,
     {
       prefix = null,
-      type = 'js',
+      type = 'ts',
     } = {},
   ) {
     this.entryPath = entryPath;
@@ -50,7 +50,7 @@ class DiscoverEntries {
       .reduce((acc, item) => {
         const entry = item
           .replace(`${rootPath}/${this.entryPath}/`, '')
-          .replace(/\/index\.jsx?/, '');
+          .replace(/\/index\.(j|t)sx?/, '');
 
         acc[`${this.prefix}-${entry}`] = item;
         return acc;

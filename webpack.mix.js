@@ -39,13 +39,10 @@ mix.setPublicPath(process.env.APP_BUILD_PATH || 'build');
 | index.js files that live within a folder inside entries will automatically be
 | compiled.
 |
-| Discover index.js files within a specific directory:
+| Discover index.js/index.ts files within a specific directory (uses Typescript
+| by default):
 |
 |   mix.discover('entries');
-|
-| Discover index.ts files within a specific directory using Typescript:
-|
-|  mix.discover('entries', { type: 'ts' });
 |
 | Discover WordPress blocks within /blocks/:
 |
@@ -65,7 +62,6 @@ mix.discover('blocks', { type: 'block' });
 */
 
 mix
-  .ts('src/example.ts', 'build')
   .js('src/js/app.js', 'build')
   .js('slotfills/index.js', 'build/slotfills.js')
   .sass('src/scss/app.scss', 'build');
