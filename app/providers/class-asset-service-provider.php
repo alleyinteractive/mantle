@@ -22,7 +22,23 @@ class Asset_Service_Provider extends Service_Provider {
 	 * @return void
 	 */
 	public function boot() {
-		// asset()->script( 'example-handle', mix( '/js/app.js' ) );
+		/*
+		|--------------------------------------------------------------------------
+		| Enqueue Assets
+		|--------------------------------------------------------------------------
+		|
+		| Enqueue a raw asset using the asset() helper:
+		|
+		| 	 asset()->script( 'example-entry' )->async()->src( mix( '/app.js' ) );
+		| 	 asset()->style( 'example-entry' )->condition( 'single' )->src( mix( '/app.css' ) );
+		|
+		| Enqueue an asset with dependencies from @wordpress/dependency-extraction-webpack-plugin:
+		|
+		| 	 asset()->script( 'example-block' )->src( mix( '/example-block.js' ) )->dependencies( mix()->dependencies( '/example-block.js' ) );
+		|
+		| Get cookin'!
+		|
+		*/
 	}
 
 	/**
