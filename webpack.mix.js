@@ -1,4 +1,3 @@
-const glob = require('glob');
 const mix = require('laravel-mix');
 const path = require('path');
 

@@ -1,0 +1,40 @@
+{
+  // Extend the AirBnb lint config
+  "extends": ["airbnb", "airbnb-typescript", "airbnb/hooks"],
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaVersion": 6,
+    "ecmaFeatures": {
+      "globalReturn": true,
+      "impliedStrict": true,
+      "jsx": true
+    },
+    "project": "./tsconfig.json",
+    "sourceType": "module"
+  },
+  "env": {
+    "es6": true,
+    "browser": true,
+    "node": true,
+    "jest":  true
+  },
+  "globals": {
+    "wp": true
+  },
+  "settings": {
+    "import/resolver": "webpack"
+  },
+  "plugins": [
+    "react-hooks"
+  ],
+  "rules": {
+    "react-hooks/rules-of-hooks": "error",
+    "react-hooks/exhaustive-deps": "warn",
+    "import/prefer-default-export": "off",
+    "import/no-unresolved": [0],
+    "import/no-cycle": [0],
+    "import/extensions": [0],
+    "react/react-in-jsx-scope": "off",
+    "react/require-default-props": "off"
+  }
+}
