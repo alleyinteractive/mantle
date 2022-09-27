@@ -4,7 +4,7 @@ module.exports = {
     '^@/(.*)$': '<rootDir>/$1',
   },
   modulePathIgnorePatterns: [
-    ".buddy-tests",
+    '.buddy-tests',
   ],
   preset: 'ts-jest/presets/js-with-ts',
   testEnvironment: 'jsdom',
