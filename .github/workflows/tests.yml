@@ -12,7 +12,7 @@ jobs:
   php-tests:
     strategy:
       matrix:
-        php: [7.4, 8.0]
+        php: [8.0]
         wordpress: ["latest"]
         multisite: [true, false]
     uses: alleyinteractive/.github/.github/workflows/php-tests.yml@main
