@@ -1,0 +1,31 @@
+#!/usr/bin/env php
+<?php
+
+use Symfony\Component\Console\Application;
+
+require __DIR__ . '/../vendor/autoload.php';
+
+defined( 'MANTLE_BASE_DIR' ) || define( 'MANTLE_BASE_DIR', dirname( __DIR__ ) );
+
+function trailingslashit( $string ) {
+	return rtrim( $string, '/\\' ) . '/';
+}
+
+function untrailingslashit( $string ) {
+	return rtrim( $string, '/\\' );
+}
+
+// Create the Mantle Application.
+$app = require_once __DIR__ . '/../bootstrap/app.php';
+
+$kernel = $app->make( Mantle\Contracts\Console\Kernel::class );
+
+$status = $kernel->handle(
+	$input = new Symfony\Component\Console\Input\ArgvInput,
+	new Symfony\Component\Console\Output\ConsoleOutput(),
+);
+
+
+// todo: add terminate actions.
+
+exit( $status );
