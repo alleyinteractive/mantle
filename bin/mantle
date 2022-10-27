@@ -5,6 +5,7 @@ use Symfony\Component\Console\Application;
 
 require __DIR__ . '/../vendor/autoload.php';
 
+define( 'MANTLE_ISOLATION_MODE', true );
 defined( 'MANTLE_BASE_DIR' ) || define( 'MANTLE_BASE_DIR', dirname( __DIR__ ) );
 
 function trailingslashit( $string ) {
