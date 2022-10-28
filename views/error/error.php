@@ -3,6 +3,8 @@
  * Error Template: Generic
  * Props to Laravel for a great error template.
  *
+ * phpcs:disable WordPress.WP.EnqueuedResources.NonEnqueuedStylesheet
+ *
  * @package Mantle
  */
 
