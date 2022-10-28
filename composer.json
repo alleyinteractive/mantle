@@ -43,10 +43,15 @@
   "minimum-stability": "dev",
   "prefer-stable": true,
   "scripts": {
-    "pre-install-cmd": "./bin/clear-bootstrap.sh",
-    "pre-update-cmd": "./bin/clear-bootstrap.sh",
+    "pre-install-cmd": [
+      "bin/mantle cache:clear"
+    ],
+    "pre-update-cmd": [
+      "bin/mantle cache:clear"
+    ],
     "post-autoload-dump": [
-      "./bin/package-discover.sh"
+      "bin/mantle package:discover",
+      "bin/mantle model:discover"
     ],
     "lint": "@phpcs",
     "lint:fix": "@phpcbf",

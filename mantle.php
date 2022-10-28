@@ -72,9 +72,10 @@ $app = require_once __DIR__ . '/bootstrap/app.php';
  */
 // Load the Application's Kernel depending on the context it was called.
 if ( defined( 'WP_CLI' ) && \WP_CLI ) {
-	$app_kernel = $app->make( Contracts\Console\Kernel::class );
+	$kernel = $app->make( Contracts\Console\Kernel::class );
+	// dd($kernel);
 } else {
 	// Boot up the HTTP Kernel.
-	$app_kernel = $app->make( Contracts\Http\Kernel::class );
-	$app_kernel->handle( Request::capture() );
+	$kernel = $app->make( Contracts\Http\Kernel::class );
+	$kernel->handle( Request::capture() );
 }
