@@ -43,10 +43,10 @@
   "minimum-stability": "dev",
   "prefer-stable": true,
   "scripts": {
-    "pre-install-cmd": [
+    "post-install-cmd": [
       "bin/mantle cache:clear"
     ],
-    "pre-update-cmd": [
+    "post-update-cmd": [
       "bin/mantle cache:clear"
     ],
     "post-autoload-dump": [
