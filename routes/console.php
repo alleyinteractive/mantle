@@ -1,4 +1,9 @@
 <?php
+/**
+ * Console Commands
+ *
+ * @package Mantle
+ */
 
 use Mantle\Facade\Console;
 

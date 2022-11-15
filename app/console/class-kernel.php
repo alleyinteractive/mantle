@@ -34,6 +34,6 @@ class Kernel extends Console_Kernel {
 	public function commands(): void {
 		$this->load( __DIR__ );
 
-		require base_path( 'routes/console.php' );
+		require base_path( 'routes/console.php' ); // phpcs:ignore WordPressVIPMinimum.Files.IncludingFile.UsingCustomFunction
 	}
 }
