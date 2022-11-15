@@ -17,7 +17,7 @@ defined( 'MANTLE_BASE_DIR' ) || define( 'MANTLE_BASE_DIR', dirname( __DIR__ ) );
 if ( file_exists( __DIR__ . '/../vendor/autoload.php' ) ) {
 	require __DIR__ . '/../vendor/autoload.php';
 } elseif ( ! class_exists( Mantle\Contracts\Console\Kernel::class ) ) {
-	echo 'You need to run `composer install` to use bin/mantle.' . PHP_EOL;
+	echo 'You need to run `composer install` to use bin/mantle. If your `vendor/autoload.php` file is in a different location, you must modify `bin/mantle` to load it.' . PHP_EOL;
 	exit( 1 );
 }
 
