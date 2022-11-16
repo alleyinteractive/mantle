@@ -2,6 +2,8 @@
 /**
  * Error Template: 404
  *
+ * phpcs:disable WordPress.WP.EnqueuedResources.NonEnqueuedStylesheet
+ *
  * @package Mantle
  */
 

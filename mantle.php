@@ -62,18 +62,28 @@ if ( ! getenv( 'MANTLE_SKIP_COMPOSER_INSTALL' ) ) {
 	}
 }
 
-/**
- * Load the Mantle Application
- */
+/*
+|--------------------------------------------------------------------------
+| Load the Application
+|--------------------------------------------------------------------------
+|
+| Load the Mantle application from the bootstrap file.
+|
+*/
 $app = require_once __DIR__ . '/bootstrap/app.php';
 
 /*
- * Run the application.
- */
-// Load the Application's Kernel depending on the context it was called.
+|--------------------------------------------------------------------------
+| Run the Mantle Application
+|--------------------------------------------------------------------------
+|
+| Once we have the application, we can handle the incoming request and send it
+| the application's kernel (which depends on the context upon which it was
+| called). For the console, the kernel's `handle` method is not called intentionally.
+|
+*/
 if ( defined( 'WP_CLI' ) && \WP_CLI ) {
 	$app_kernel = $app->make( Contracts\Console\Kernel::class );
-	$app_kernel->handle();
 } else {
 	// Boot up the HTTP Kernel.
 	$app_kernel = $app->make( Contracts\Http\Kernel::class );

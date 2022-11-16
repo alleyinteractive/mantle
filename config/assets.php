@@ -26,5 +26,8 @@ return [
 	|
 	| This URL is used to properly generate the URL to built assets.
 	*/
-	'url'  => env( 'ASSET_BUILD_URL', \plugin_dir_url( __DIR__ ) ),
+	'url'  => env(
+		'ASSET_BUILD_URL',
+		function_exists( 'plugin_dir_url' ) ? \plugin_dir_url( __DIR__ ) : '', // todo: replace with a framework helper method.
+	),
 ];

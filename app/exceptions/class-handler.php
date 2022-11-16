@@ -18,9 +18,11 @@ class Handler extends ExceptionHandler {
 	/**
 	 * A list of the exception types that are not reported.
 	 *
-	 * @var array
+	 * @var string[]
 	 */
-	protected $dont_report = [];
+	protected $dont_report = [
+		// ...
+	];
 
 	/**
 	 * Report or log an exception.

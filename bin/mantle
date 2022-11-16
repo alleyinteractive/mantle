@@ -1,0 +1,56 @@
+#!/usr/bin/env php
+<?php
+
+define( 'MANTLE_ISOLATION_MODE', true );
+defined( 'MANTLE_BASE_DIR' ) || define( 'MANTLE_BASE_DIR', dirname( __DIR__ ) );
+
+/*
+|--------------------------------------------------------------------------
+| Load Composer
+|--------------------------------------------------------------------------
+|
+| Check if Composer has been installed and attempt to load it. You can remove
+| this block of code if Composer is being loaded outside of the plugin.
+|
+*/
+
+if ( file_exists( __DIR__ . '/../vendor/autoload.php' ) ) {
+	require __DIR__ . '/../vendor/autoload.php';
+} elseif ( ! class_exists( Mantle\Contracts\Console\Kernel::class ) ) {
+	echo 'You need to run `composer install` to use bin/mantle. If your `vendor/autoload.php` file is in a different location, you must modify `bin/mantle` to load it.' . PHP_EOL;
+	exit( 1 );
+}
+
+$app = require_once __DIR__ . '/../bootstrap/app.php';
+
+/*
+|--------------------------------------------------------------------------
+| Run the Console Mantle Application
+|--------------------------------------------------------------------------
+|
+| Load the Mantle application and run the console application. With isolation
+| mode enabled, we shouldn't have a dependency on WordPress.
+|
+*/
+
+$kernel = $app->make( Mantle\Contracts\Console\Kernel::class );
+
+$status = $kernel->handle(
+	$input = new Symfony\Component\Console\Input\ArgvInput,
+	new Symfony\Component\Console\Output\ConsoleOutput(),
+);
+
+/*
+|--------------------------------------------------------------------------
+| Shutdown The Application
+|--------------------------------------------------------------------------
+|
+| Once the application has finished running, we will fire off the shutdown
+| events so that any final work may be done by the application before it
+| is shut down gracefully.
+|
+*/
+
+$kernel->terminate( $input, $status );
+
+exit( $status );

@@ -11,7 +11,7 @@
   ],
   "require": {
     "alleyinteractive/composer-wordpress-autoloader": "^1.0",
-    "alleyinteractive/mantle-framework": "^0.7",
+    "alleyinteractive/mantle-framework": "^0.9",
     "fakerphp/faker": "^1.9",
     "symfony/mime": "^5.1"
   },
@@ -43,10 +43,15 @@
   "minimum-stability": "dev",
   "prefer-stable": true,
   "scripts": {
-    "pre-install-cmd": "./bin/clear-bootstrap.sh",
-    "pre-update-cmd": "./bin/clear-bootstrap.sh",
+    "post-install-cmd": [
+      "bin/mantle cache:clear"
+    ],
+    "post-update-cmd": [
+      "bin/mantle cache:clear"
+    ],
     "post-autoload-dump": [
-      "./bin/package-discover.sh"
+      "bin/mantle package:discover",
+      "bin/mantle model:discover"
     ],
     "lint": "@phpcs",
     "lint:fix": "@phpcbf",
