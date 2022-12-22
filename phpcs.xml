@@ -21,13 +21,10 @@
 	<exclude-pattern>storage/framework/views</exclude-pattern>
 
 	<rule ref="Alley-Interactive">
-		<!-- todo: port to alley coding standards -->
 		<exclude name="PEAR.Functions.FunctionCallSignature.ContentAfterOpenBracket" />
 		<exclude name="PEAR.Functions.FunctionCallSignature.MultipleArguments" />
 		<exclude name="PEAR.Functions.FunctionCallSignature.CloseBracketLine" />
-	</rule>
-
-	<rule ref="WordPress">
+		<exclude name="PHPCompatibility.FunctionDeclarations.NewClosure.ThisFoundOutsideClass" />
 		<exclude name="WordPress.NamingConventions.ValidPostTypeSlug.NotStringLiteral" />
 	</rule>
 

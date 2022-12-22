@@ -15,7 +15,7 @@
     "fakerphp/faker": "^1.9"
   },
   "require-dev": {
-    "alleyinteractive/alley-coding-standards": "^0.3",
+    "alleyinteractive/alley-coding-standards": "^1.0",
     "nunomaduro/collision": "^5.0",
     "phpunit/phpunit": "^9.3.3"
   },
