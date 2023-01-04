@@ -7,13 +7,13 @@
 
 namespace App\Exceptions;
 
-use Mantle\Framework\Exceptions\Handler as ExceptionHandler;
+use Mantle\Framework\Exceptions\Handler as Base_Handler;
 use Throwable;
 
 /**
  * Application Error Handler
  */
-class Handler extends ExceptionHandler {
+class Handler extends Base_Handler {
 
 	/**
 	 * A list of the exception types that are not reported.
