@@ -7,7 +7,7 @@
 
 namespace App\Providers;
 
-use Mantle\Framework\Providers\App_Service_Provider as Service_Provider;
+use Mantle\Application\App_Service_Provider as Service_Provider;
 
 /**
  * Application Service Provider
