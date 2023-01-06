@@ -6,12 +6,12 @@
   "authors": [
     {
       "name": "Alley",
-      "email": "info@alley.co"
+      "email": "mantle@alley.com"
     }
   ],
   "require": {
     "alleyinteractive/composer-wordpress-autoloader": "^1.0",
-    "alleyinteractive/mantle-framework": "^0.9",
+    "alleyinteractive/mantle-framework": "^0.10",
     "fakerphp/faker": "^1.9"
   },
   "require-dev": {

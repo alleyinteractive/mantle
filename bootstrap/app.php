@@ -6,7 +6,7 @@
  */
 
 use Mantle\Contracts;
-use Mantle\Framework\Application;
+use Mantle\Application\Application;
 
 /**
  * Instantiate the application
