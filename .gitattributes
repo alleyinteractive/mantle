@@ -8,7 +8,6 @@
 /.phpcs.xml.dist export-ignore
 /phpunit.xml.dist export-ignore
 /.github export-ignore
-/bin export-ignore
 
 #
 # Auto detect text files and perform LF normalization
