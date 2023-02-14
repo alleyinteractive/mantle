@@ -8,7 +8,7 @@
 namespace App\Tests;
 
 use App\Http\Kernel;
-use Mantle\Framework\Application;
+use Mantle\Application\Application;
 
 /**
  * Concern for creating the application instance.
@@ -17,7 +17,7 @@ trait Create_Application {
 	/**
 	 * Creates the application from the application instance.
 	 *
-	 * @return \Mantle\Framework\Application
+	 * @return \Mantle\Application\Application
 	 */
 	public function create_application(): \Mantle\Contracts\Application {
 		// Allow non-mantle-site usage.
