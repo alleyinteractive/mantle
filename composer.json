@@ -42,12 +42,6 @@
   "minimum-stability": "dev",
   "prefer-stable": true,
   "scripts": {
-    "post-install-cmd": [
-      "bin/mantle cache:clear"
-    ],
-    "post-update-cmd": [
-      "bin/mantle cache:clear"
-    ],
     "post-autoload-dump": [
       "bin/mantle package:discover",
       "bin/mantle model:discover"
