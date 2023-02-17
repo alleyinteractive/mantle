@@ -6,7 +6,7 @@ const path = require('path');
  */
 module.exports = {
   defaultValues: {
-    namespace: 'create-wordpress-plugin',
+    namespace: 'mantle',
     plugin: false,
     description: '',
     dashicon: 'palmtree',
