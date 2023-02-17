@@ -1,5 +1,3 @@
-webpack
-src/webpack
 build
 vendor
-webpack.mix.js
+webpack.config.js

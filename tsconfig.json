@@ -4,22 +4,21 @@
     "allowSyntheticDefaultImports": true,
     "baseUrl": ".",
     "forceConsistentCasingInFileNames": true,
+    "isolatedModules": true,
     "jsx": "react-jsx",
-    "module": "esnext",
+    "module": "es6",
     "moduleResolution": "node",
+    "resolveJsonModule": true,
     "noImplicitAny": true,
     "outDir": "build",
     "paths": {
       "@/*": ["*"]
     },
-    "resolveJsonModule": true,
-    "target": "es6"
+    "target": "es5"
   },
   "exclude": [
+    "vendor",
     "node_modules",
-    "build",
-    "*.spec.jsx",
-    "*.spec.tsx",
-    "vendor"
-  ],
+    "build/**/*"
+  ]
 }
