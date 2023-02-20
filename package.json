@@ -17,7 +17,6 @@
     "dev": "webpack --mode=development --watch",
     "lint:fix": "eslint --ext .jsx --ext .js --ext .ts --ext .tsx . --fix",
     "lint": "eslint --ext .jsx --ext .js --ext .ts --ext .tsx .",
-    "packages-update": "wp-scripts packages-update",
     "postinstall": "rm -rf node_modules/.cache/babel-loader && rm -rf node_modules/.cache/webpack",
     "prebuild": "check-node-version --package",
     "predev": "check-node-version --package",
