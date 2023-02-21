@@ -14,7 +14,7 @@
   "scripts": {
     "build": "wp-scripts build --webpack-copy-php --webpack-src-dir=blocks",
     "create-block": "cd blocks && npx @wordpress/create-block --template ../bin/create-block --no-plugin",
-    "dev": "webpack --mode=development --watch",
+    "dev": "npm run start",
     "lint:fix": "eslint --ext .jsx --ext .js --ext .ts --ext .tsx . --fix",
     "lint": "eslint --ext .jsx --ext .js --ext .ts --ext .tsx .",
     "postinstall": "rm -rf node_modules/.cache/babel-loader && rm -rf node_modules/.cache/webpack",
