@@ -1,0 +1,19 @@
+name: Update WordPress Plugin
+
+on:
+  schedule:
+    - cron: '0 */6 * * *'
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  update-plugin:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - uses: alleyinteractive/action-update-wordpress-plugin@v1.1.0
+      with:
+        plugin-file: 'plugin.php'
+        upgrade-npm-dependencies: "true"

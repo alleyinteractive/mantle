@@ -13,8 +13,7 @@ return [
 	|--------------------------------------------------------------------------
 	|
 	| Specify the folder that built assets live in. This defaults to `build/` but
-	| can be customized to any other path. Updates here need to match the
-	| `setPublicPath()` configuration in `webpack.mix.js`.
+	| can be customized to any other path.
 	|
 	*/
 	'path' => env( 'ASSET_BUILD_PATH', 'build' ),
@@ -28,6 +27,6 @@ return [
 	*/
 	'url'  => env(
 		'ASSET_BUILD_URL',
-		function_exists( 'plugin_dir_url' ) ? \plugin_dir_url( __DIR__ ) : '', // todo: replace with a framework helper method.
+		function_exists( 'plugin_dir_url' ) ? \plugin_dir_url( __DIR__ ) . 'build' : '', // todo: replace with a framework helper method.
 	),
 ];

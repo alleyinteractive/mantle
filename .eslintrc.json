@@ -1,9 +1,13 @@
 {
-  // Extend the AirBnb lint config
+  "env": {
+    "browser": true,
+    "es2021": true,
+    "jest": true,
+    "node": true
+  },
   "extends": ["airbnb", "airbnb-typescript", "airbnb/hooks"],
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
-    "ecmaVersion": 6,
     "ecmaFeatures": {
       "globalReturn": true,
       "impliedStrict": true,
@@ -12,29 +16,23 @@
     "project": "./tsconfig.json",
     "sourceType": "module"
   },
-  "env": {
-    "es6": true,
-    "browser": true,
-    "node": true,
-    "jest":  true
-  },
-  "globals": {
-    "wp": true
+  "rules": {
+    "no-restricted-syntax": [
+      "error",
+      {
+        "message": "Ternaries must be used instead of && in JSX expressions to avoid the potential for accidental output. Use, for example, {condition ? <Element /> : null}.",
+        "selector": ":matches(JSXElement, JSXFragment) > JSXExpressionContainer > LogicalExpression[operator='&&']"
+      },
+      {
+        "message": "Ternaries must be used instead of || in JSX expressions to avoid the potential for accidental output. Use, for example, {thing1 ? thing1 : thing2}.",
+        "selector": ":matches(JSXElement, JSXFragment) > JSXExpressionContainer > LogicalExpression[operator='||']"
+      }
+    ],
+    "react/jsx-props-no-spreading": "off",
+    "react/react-in-jsx-scope": "off",
+    "react/require-default-props": "off"
   },
   "settings": {
     "import/resolver": "webpack"
-  },
-  "plugins": [
-    "react-hooks"
-  ],
-  "rules": {
-    "react-hooks/rules-of-hooks": "error",
-    "react-hooks/exhaustive-deps": "warn",
-    "import/prefer-default-export": "off",
-    "import/no-unresolved": [0],
-    "import/no-cycle": [0],
-    "import/extensions": [0],
-    "react/react-in-jsx-scope": "off",
-    "react/require-default-props": "off"
   }
 }
