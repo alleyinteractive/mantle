@@ -6,19 +6,27 @@ const path = require('path');
  */
 module.exports = {
   defaultValues: {
-    namespace: 'mantle',
+    namespace: 'create-wordpress-plugin',
     plugin: false,
     description: '',
     dashicon: 'palmtree',
     category: 'widgets',
-    editorScript: 'file:index.js',
+    editorScript: 'file:index.ts',
     editorStyle: 'file:index.css',
     style: ['file:style-index.css'],
-    render: 'file:render.php',
   },
   variants: {
     static: {},
-    dynamic: {},
+    'static-javascript': {
+      blockTemplatesPath: path.join(__dirname, 'templates', 'block', 'javascript'),
+    },
+    dynamic: {
+      render: 'file:render.php',
+    },
+    'dynamic-javascript': {
+      blockTemplatesPath: path.join(__dirname, 'templates', 'block', 'javascript'),
+      render: 'file:render.php',
+    },
   },
-  blockTemplatesPath: path.join(__dirname, 'templates', 'block'),
+  blockTemplatesPath: path.join(__dirname, 'templates', 'block', 'typescript'),
 };
