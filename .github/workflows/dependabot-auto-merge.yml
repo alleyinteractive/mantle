@@ -1,0 +1,10 @@
+name: dependabot-auto-merge
+on: pull_request_target
+
+permissions:
+  pull-requests: write
+  contents: write
+
+jobs:
+  dependabot:
+    uses: alleyinteractive/.github/.github/workflows/dependabot-auto-merge.yml@main
