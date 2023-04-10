@@ -77,4 +77,15 @@ return [
 	|
 	*/
 	'namespace' => environment( 'APP_NAMESPACE', 'App' ),
+
+	/*
+	|--------------------------------------------------------------------------
+	| Application Text Domain
+	|--------------------------------------------------------------------------
+	|
+	| The text domain used by Mantle when scaffolding files with translatable
+	| strings.
+	|
+	*/
+	'i18n_domain' => environment( 'APP_I18N_DOMAIN', 'mantle' ),
 ];
