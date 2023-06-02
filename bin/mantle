@@ -1,7 +1,7 @@
 #!/usr/bin/env php
 <?php
 
-use Mantle\Framework\Boot_Manager;
+use Mantle\Framework\Bootloader;
 
 define( 'MANTLE_ISOLATION_MODE', true );
 defined( 'MANTLE_BASE_DIR' ) || define( 'MANTLE_BASE_DIR', dirname( __DIR__ ) );
@@ -33,6 +33,6 @@ if ( file_exists( __DIR__ . '/../vendor/autoload.php' ) ) {
 |
 */
 
-Boot_Manager::instance()
+Bootloader::instance()
 	->set_base_path( MANTLE_BASE_DIR )
 	->boot();

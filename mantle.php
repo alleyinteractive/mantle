@@ -25,15 +25,20 @@
 
 namespace App;
 
-use Mantle\Contracts;
-use Mantle\Framework\Boot_Manager;
-use Mantle\Http\Request;
+use Mantle\Framework\Bootloader;
 
-/**
- * Mantle Application Base Directory
- *
- * @var string
- */
+/*
+|--------------------------------------------------------------------------
+| Mantle Application Base Directory
+|--------------------------------------------------------------------------
+|
+| This constant defines the base directory of the Mantle application. Mantle
+| will use this location to base the storage and bootstrap paths for the
+| application. By default, this will be `./storage/` and `./bootstrap/` but that
+| can be configured.
+|
+*/
+
 defined( 'MANTLE_BASE_DIR' ) || define( 'MANTLE_BASE_DIR', __DIR__ ); // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedConstantFound
 
 /*
@@ -45,7 +50,7 @@ defined( 'MANTLE_BASE_DIR' ) || define( 'MANTLE_BASE_DIR', __DIR__ ); // phpcs:i
 | this block of code if Composer is being loaded outside of the plugin.
 |
 */
-if ( ! class_exists( Boot_Manager::class ) ) {
+if ( ! class_exists( Bootloader::class ) ) {
 	if ( ! file_exists( __DIR__ . '/vendor/wordpress-autoload.php' ) ) {
 		add_action(
 			'admin_notices',
@@ -87,4 +92,4 @@ $app = require_once __DIR__ . '/bootstrap/app.php';
 |
 */
 
-Boot_Manager::instance( $app )->boot();
+bootloader( $app )->boot();
