@@ -26,6 +26,7 @@
 namespace App;
 
 use Mantle\Contracts;
+use Mantle\Framework\Boot_Manager;
 use Mantle\Http\Request;
 
 /**
@@ -44,7 +45,7 @@ defined( 'MANTLE_BASE_DIR' ) || define( 'MANTLE_BASE_DIR', __DIR__ ); // phpcs:i
 | this block of code if Composer is being loaded outside of the plugin.
 |
 */
-if ( ! getenv( 'MANTLE_SKIP_COMPOSER_INSTALL' ) ) {
+if ( ! class_exists( Boot_Manager::class ) ) {
 	if ( ! file_exists( __DIR__ . '/vendor/wordpress-autoload.php' ) ) {
 		add_action(
 			'admin_notices',
@@ -67,25 +68,23 @@ if ( ! getenv( 'MANTLE_SKIP_COMPOSER_INSTALL' ) ) {
 | Load the Application
 |--------------------------------------------------------------------------
 |
-| Load the Mantle application from the bootstrap file.
+| Load the Mantle application from the bootstrap file. This step is actually
+| optional as Mantle can operate without any application kernel or configuration.
+| This will allow you greater control over the application and make it feel more
+| like a Laravel-esque application.
 |
 */
+
 $app = require_once __DIR__ . '/bootstrap/app.php';
 
 /*
 |--------------------------------------------------------------------------
-| Run the Mantle Application
+| Boot the Mantle Application
 |--------------------------------------------------------------------------
 |
-| Once we have the application, we can handle the incoming request and send it
-| the application's kernel (which depends on the context upon which it was
-| called). For the console, the kernel's `handle` method is not called intentionally.
+| Once we have the application, we can boot the application given the current
+| context and let Mantle take it from here.
 |
 */
-if ( defined( 'WP_CLI' ) && \WP_CLI ) {
-	$app_kernel = $app->make( Contracts\Console\Kernel::class );
-} else {
-	// Boot up the HTTP Kernel.
-	$app_kernel = $app->make( Contracts\Http\Kernel::class );
-	$app_kernel->handle( Request::capture() );
-}
+
+Boot_Manager::instance( $app )->boot();
