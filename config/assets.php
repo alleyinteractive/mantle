@@ -27,6 +27,6 @@ return [
 	*/
 	'url'  => env(
 		'ASSET_BUILD_URL',
-		function_exists( 'plugin_dir_url' ) ? \plugin_dir_url( __DIR__ ) . 'build' : '', // todo: replace with a framework helper method.
+		function_exists( 'plugin_dir_url' ) ? \plugin_dir_url( __DIR__ ) . 'build' : '',
 	),
 ];
