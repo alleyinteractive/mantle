@@ -11,3 +11,5 @@ on:
 jobs:
   coding-standards:
     uses: alleyinteractive/.github/.github/workflows/php-coding-standards.yml@main
+    with:
+      php: '8.1'
