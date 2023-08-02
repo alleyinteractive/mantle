@@ -73,7 +73,10 @@ if ( ! class_exists( Bootloader::class ) ) {
 | Load the Application
 |--------------------------------------------------------------------------
 |
-| Load the Mantle application from the bootstrap file.
+| Load the Mantle application from the bootstrap file. This step is actually
+| optional as Mantle can operate without any application kernel or configuration.
+| This will allow you greater control over the application and make it feel more
+| like a Laravel-esque application.
 |
 */
 
