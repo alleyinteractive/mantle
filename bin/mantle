@@ -1,8 +1,6 @@
 #!/usr/bin/env php
 <?php
 
-use Mantle\Framework\Bootloader;
-
 define( 'MANTLE_ISOLATION_MODE', true );
 defined( 'MANTLE_BASE_DIR' ) || define( 'MANTLE_BASE_DIR', dirname( __DIR__ ) );
 
@@ -25,6 +23,20 @@ if ( file_exists( __DIR__ . '/../vendor/autoload.php' ) ) {
 
 /*
 |--------------------------------------------------------------------------
+| Load the Application
+|--------------------------------------------------------------------------
+|
+| Load the Mantle application from the bootstrap file. This step is actually
+| optional as Mantle can operate without any application kernel or configuration.
+| This will allow you greater control over the application and make it feel more
+| like a Laravel-esque application.
+|
+*/
+
+$app = require_once MANTLE_BASE_DIR . '/bootstrap/app.php';
+
+/*
+|--------------------------------------------------------------------------
 | Run the Mantle Console Application
 |--------------------------------------------------------------------------
 |
@@ -33,6 +45,6 @@ if ( file_exists( __DIR__ . '/../vendor/autoload.php' ) ) {
 |
 */
 
-Bootloader::instance()
+bootloader( $app )
 	->set_base_path( MANTLE_BASE_DIR )
 	->boot();
