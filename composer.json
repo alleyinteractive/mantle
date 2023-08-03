@@ -16,7 +16,7 @@
   },
   "require-dev": {
     "alleyinteractive/alley-coding-standards": "^1.0",
-    "nunomaduro/collision": "^5.0",
+    "nunomaduro/collision": "^6.0",
     "phpunit/phpunit": "^9.3.3"
   },
   "config": {
