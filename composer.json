@@ -17,7 +17,8 @@
   "require-dev": {
     "alleyinteractive/alley-coding-standards": "^1.0",
     "nunomaduro/collision": "^6.0",
-    "phpunit/phpunit": "^9.3.3"
+    "phpunit/phpunit": "^9.3.3",
+    "wp-coding-standards/wpcs": "dev-php-8-1 as 2.3.x-dev"
   },
   "config": {
     "allow-plugins": {
@@ -41,6 +42,12 @@
   },
   "minimum-stability": "dev",
   "prefer-stable": true,
+  "repositories": [
+    {
+        "type": "vcs",
+        "url": "https://github.com/alleyinteractive/WordPress-Coding-Standards"
+    }
+  ],
   "scripts": {
     "post-autoload-dump": [
       "bin/mantle package:discover",
