@@ -4,7 +4,7 @@
  * Plugin URI:  https://github.com/alleyinteractive/mantle
  * Description: A framework for powerful WordPress development
  * Author:      Alley
- * Author URI:  https://alley.co/
+ * Author URI:  https://alley.com/
  * Text Domain: mantle
  * Domain Path: /languages
  * Version:     0.1
