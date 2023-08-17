@@ -21,36 +21,27 @@ if ( file_exists( __DIR__ . '/../vendor/autoload.php' ) ) {
 	exit( 1 );
 }
 
-$app = require_once __DIR__ . '/../bootstrap/app.php';
-
 /*
 |--------------------------------------------------------------------------
-| Run the Console Mantle Application
+| Load the Application
 |--------------------------------------------------------------------------
 |
-| Load the Mantle application and run the console application. With isolation
-| mode enabled, we shouldn't have a dependency on WordPress.
+| Load the Mantle application from the bootstrap file.
 |
 */
 
-$kernel = $app->make( Mantle\Contracts\Console\Kernel::class );
-
-$status = $kernel->handle(
-	$input = new Symfony\Component\Console\Input\ArgvInput,
-	new Symfony\Component\Console\Output\ConsoleOutput(),
-);
+$app = require_once MANTLE_BASE_DIR . '/bootstrap/app.php';
 
 /*
 |--------------------------------------------------------------------------
-| Shutdown The Application
+| Run the Mantle Console Application
 |--------------------------------------------------------------------------
 |
-| Once the application has finished running, we will fire off the shutdown
-| events so that any final work may be done by the application before it
-| is shut down gracefully.
+| Load the application with the base configuration and boot it. Booting it will
+| cause the console application to run and exit with the status code.
 |
 */
 
-$kernel->terminate( $input, $status );
-
-exit( $status );
+bootloader( $app )
+	->set_base_path( MANTLE_BASE_DIR )
+	->boot();

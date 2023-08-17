@@ -4,19 +4,20 @@ on:
   push:
     branches:
       - main
+      - '*.*.x'
   pull_request:
   schedule:
-    - cron: '0 0 * * *'
+    - cron: '0 0 * * 0'
 
 jobs:
   php-tests:
     strategy:
       matrix:
-        php: [8.0]
+        php: [8.0, 8.1, 8.2]
         wordpress: ["latest"]
         multisite: [true, false]
     uses: alleyinteractive/.github/.github/workflows/php-tests.yml@main
     with:
+      multisite: ${{ matrix.multisite }}
       php: ${{ matrix.php }}
       wordpress: ${{ matrix.wordpress }}
-      multisite: ${{ matrix.multisite }}
