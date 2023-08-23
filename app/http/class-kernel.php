@@ -20,14 +20,14 @@ class Kernel extends Http_Kernel {
 	 *
 	 * These middleware are run during every request to your application.
 	 *
-	 * @var array
+	 * @var array<int, callable|class-string>
 	 */
 	protected $middleware = [];
 
 	/**
 	 * The application's route middleware groups.
 	 *
-	 * @var array
+	 * @var array<string, array<int, callable|class-string>>
 	 */
 	protected $middleware_groups = [
 		'web'      => [
@@ -43,7 +43,7 @@ class Kernel extends Http_Kernel {
 	 *
 	 * These middleware may be assigned to groups or used individually.
 	 *
-	 * @var array
+	 * @var array<string, callable|class-string>
 	 */
 	protected $route_middleware = [
 		'can' => \Mantle\Auth\Middleware\Authorize::class,

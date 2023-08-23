@@ -18,7 +18,7 @@ class Handler extends Base_Handler {
 	/**
 	 * A list of the exception types that are not reported.
 	 *
-	 * @var string[]
+	 * @var array<int, class-string<\Throwable>>
 	 */
 	protected $dont_report = [
 		// ...
@@ -29,7 +29,7 @@ class Handler extends Base_Handler {
 	 *
 	 * @param Throwable $exception Exception thrown.
 	 */
-	public function report( Throwable $exception ) {
+	public function report( Throwable $exception ): void {
 		parent::report( $exception );
 	}
 
@@ -38,9 +38,9 @@ class Handler extends Base_Handler {
 	 *
 	 * @param  \Mantle\Http\Request $request Request object.
 	 * @param  \Throwable           $exception Exception thrown.
-	 * @return \Symfony\Component\HttpFoundation\Response
+	 * @return mixed
 	 */
-	public function render( $request, Throwable $exception ) {
+	public function render( $request, Throwable $exception ): mixed {
 		return parent::render( $request, $exception );
 	}
 }

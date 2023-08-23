@@ -17,7 +17,7 @@ class Route_Service_Provider extends Service_Provider {
 	/**
 	 * Bootstrap any application services.
 	 */
-	public function boot() {
+	public function boot(): void {
 		parent::boot();
 
 		$this->allow_pass_through_requests();
@@ -26,7 +26,7 @@ class Route_Service_Provider extends Service_Provider {
 	/**
 	 * Define routes for the application.
 	 */
-	public function map() {
+	public function map(): void {
 		Route::middleware( 'web' )->group( base_path( 'routes/web.php' ) );
 		Route::middleware( 'rest-api' )->group( base_path( 'routes/rest-api.php' ) );
 	}

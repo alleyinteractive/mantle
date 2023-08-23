@@ -21,5 +21,5 @@ use Mantle\Facade\Console;
 */
 
 Console::command( 'hello {name}', function ( $name ) {
-	$this->info( "Hello, {$name}!" );
+	$this->info( "Hello, {$name}!" ); // @phpstan-ignore-line Undefined variable
 } )->describe( 'Greet a user by name' );

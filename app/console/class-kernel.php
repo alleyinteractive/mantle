@@ -20,7 +20,7 @@ class Kernel extends Console_Kernel {
 	/**
 	 * The commands provided by the application.
 	 *
-	 * @var array
+	 * @var array<int, class-string<\Mantle\Console\Command>>
 	 */
 	protected $commands = [
 		// ...
