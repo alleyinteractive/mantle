@@ -21,7 +21,7 @@ class Example_Job implements Job, Can_Queue {
 	/**
 	 * Handle the job.
 	 */
-	public function handle() {
+	public function handle(): void {
 		// Handle it here!
 	}
 }

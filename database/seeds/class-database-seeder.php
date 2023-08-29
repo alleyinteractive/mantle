@@ -16,7 +16,7 @@ class Database_Seeder extends Seeder {
 	/**
 	 * Run the seeder.
 	 */
-	public function run() {
+	public function run(): void {
 		// Call additional seeders...
 	}
 }

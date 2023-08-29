@@ -60,8 +60,8 @@ class Asset_Service_Provider extends Service_Provider {
 	/**
 	 * Filter the asset conditions for the site.
 	 *
-	 * @param array $conditions Conditions to filter.
-	 * @return array
+	 * @param array<string, boolean> $conditions Conditions to filter.
+	 * @return array<string, boolean>
 	 */
 	public function on_am_asset_conditions( array $conditions ): array {
 		// Perform any modifications here.

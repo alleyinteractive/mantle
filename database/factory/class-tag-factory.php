@@ -21,14 +21,14 @@ class Tag_Factory extends \Mantle\Database\Factory\Term_Factory {
 	/**
 	 * Model to use when creating objects.
 	 *
-	 * @var class-string
+	 * @var class-string<\Mantle\Database\Model\Model>
 	 */
 	protected string $model = Tag::class;
 
 	/**
 	 * Define the model's default state.
 	 *
-	 * @return array
+	 * @return array<string, mixed>
 	 */
 	public function definition(): array {
 		return [
