@@ -32,8 +32,8 @@ class Category_Factory extends \Mantle\Database\Factory\Term_Factory {
 	 */
 	public function definition(): array {
 		return [
-			'name'        => $this->faker->sentence,
-			'description' => $this->faker->paragraph,
+			'description' => trim( $this->faker->paragraph( 2 ) ),
+			'name'        => $this->faker->sentence(),
 			'taxonomy'    => 'category',
 		];
 	}

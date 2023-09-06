@@ -32,8 +32,8 @@ class Post_Factory extends \Mantle\Database\Factory\Post_Factory {
 	 */
 	public function definition(): array {
 		return [
-			'post_title'   => $this->faker->sentence,
-			'post_content' => $this->faker->paragraph,
+			'post_title'   => $this->faker->sentence(),
+			'post_content' => trim( $this->faker->paragraph_blocks( 3 ) ),
 			'post_status'  => 'publish',
 			'post_type'    => 'post',
 		];
