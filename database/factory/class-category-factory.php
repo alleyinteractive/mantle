@@ -15,13 +15,13 @@ use App\Models\Category;
 /**
  * Category Factory
  *
- * @extends \Mantle\Database\Factory\Term_Factory<\App\Models\Category>
+ * @extends \Mantle\Database\Factory\Term_Factory<\App\Models\Category, \WP_Term, \App\Models\Category>
  */
 class Category_Factory extends \Mantle\Database\Factory\Term_Factory {
 	/**
 	 * Model to use when creating objects.
 	 *
-	 * @var class-string<\Mantle\Database\Model\Model>
+	 * @var class-string<\App\Models\Category>
 	 */
 	protected string $model = Category::class;
 

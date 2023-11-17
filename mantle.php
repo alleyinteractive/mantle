@@ -54,7 +54,7 @@ if ( ! class_exists( Bootloader::class ) ) {
 	if ( ! file_exists( __DIR__ . '/vendor/wordpress-autoload.php' ) ) {
 		add_action(
 			'admin_notices',
-			function() {
+			function () {
 				printf(
 					'<div class="notice notice-error"><p>%s</p></div>',
 					esc_html__( 'Mantle requires a `composer install` to run properly.', 'mantle' )
