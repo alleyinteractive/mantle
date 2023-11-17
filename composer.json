@@ -15,12 +15,11 @@
     "fakerphp/faker": "^1.23"
   },
   "require-dev": {
-    "alleyinteractive/alley-coding-standards": "^1.0",
+    "alleyinteractive/alley-coding-standards": "^2.0",
     "nunomaduro/collision": "^6.4",
     "phpstan/phpstan": "1.10.15",
     "phpunit/phpunit": "^9.6.10",
-    "szepeviktor/phpstan-wordpress": "^1.3",
-    "wp-coding-standards/wpcs": "dev-php-8-1 as 2.3.x-dev"
+    "szepeviktor/phpstan-wordpress": "^1.3"
   },
   "config": {
     "allow-plugins": {
@@ -44,12 +43,6 @@
   },
   "minimum-stability": "dev",
   "prefer-stable": true,
-  "repositories": [
-    {
-        "type": "vcs",
-        "url": "https://github.com/alleyinteractive/WordPress-Coding-Standards"
-    }
-  ],
   "scripts": {
     "post-autoload-dump": [
       "bin/mantle package:discover",

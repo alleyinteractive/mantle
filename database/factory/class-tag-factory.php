@@ -15,13 +15,13 @@ use App\Models\Tag;
 /**
  * Tag Factory
  *
- * @extends \Mantle\Database\Factory\Term_Factory<\App\Models\Tag>
+ * @extends \Mantle\Database\Factory\Term_Factory<\App\Models\Tag, \WP_Term, \App\Models\Tag>
  */
 class Tag_Factory extends \Mantle\Database\Factory\Term_Factory {
 	/**
 	 * Model to use when creating objects.
 	 *
-	 * @var class-string<\Mantle\Database\Model\Model>
+	 * @var class-string<\App\Models\Tag>
 	 */
 	protected string $model = Tag::class;
 
