@@ -17,7 +17,7 @@ class Event_Service_Provider extends Service_Provider {
 	/**
 	 * The event listener mappings for the application.
 	 *
-	 * @var array
+	 * @var array<string, array<int, class-string>>
 	 */
 	protected $listen = [
 		/**
@@ -35,10 +35,8 @@ class Event_Service_Provider extends Service_Provider {
 
 	/**
 	 * Register any other events for your application.
-	 *
-	 * @return void
 	 */
-	public function boot() {
+	public function boot(): void {
 		// ...
 	}
 

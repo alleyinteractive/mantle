@@ -11,13 +11,15 @@
   ],
   "require": {
     "alleyinteractive/composer-wordpress-autoloader": "^1.0",
-    "alleyinteractive/mantle-framework": "^0.10",
-    "fakerphp/faker": "^1.9"
+    "alleyinteractive/mantle-framework": "^0.12",
+    "fakerphp/faker": "^1.23"
   },
   "require-dev": {
-    "alleyinteractive/alley-coding-standards": "^1.0",
-    "nunomaduro/collision": "^5.0",
-    "phpunit/phpunit": "^9.3.3"
+    "alleyinteractive/alley-coding-standards": "^2.0",
+    "nunomaduro/collision": "^6.4",
+    "phpstan/phpstan": "1.10.15",
+    "phpunit/phpunit": "^9.6.10",
+    "szepeviktor/phpstan-wordpress": "^1.3"
   },
   "config": {
     "allow-plugins": {
@@ -46,10 +48,14 @@
       "bin/mantle package:discover",
       "bin/mantle model:discover"
     ],
-    "lint": "@phpcs",
+    "lint": [
+      "@phpcs",
+      "@phpstan"
+    ],
     "lint:fix": "@phpcbf",
     "phpcbf": "phpcbf --standard=./phpcs.xml .",
     "phpcs": "phpcs --standard=./phpcs.xml .",
+    "phpstan": "phpstan --memory-limit=512M",
     "phpunit": "phpunit",
     "test": [
       "@lint",

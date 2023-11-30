@@ -30,7 +30,7 @@ and layout and leaving the rest of the functionality to be built within the
 Mantle plugin.
 
 For more information about the framework and how to get started using it, check
-out the [Mantle Documentation Site](https://mantle.alley.co/).
+out the [Mantle Documentation Site](https://mantle.alley.com/).
 
 ## Installation
 
@@ -57,13 +57,13 @@ You can also use a our
 [create-mantle-app](https://github.com/alleyinteractive/create-mantle-app)
 starter kit to get a fully scaffolded `wp-content`-rooted WordPress project out
 of the box. For more information, see
-[Installation](https://mantle.alley.co/getting-started/installation.html).
+[Installation](https://mantle.alley.com/getting-started/installation.html).
 
 ## Maintainers
 
 This project is actively maintained by [Alley
 Interactive](https://github.com/alleyinteractive). Like what you see? [Come work
-with us](https://alley.co/careers/).
+with us](https://alley.com/careers/).
 
 ![Alley logo](https://avatars.githubusercontent.com/u/1733454?s=200&v=4)
 

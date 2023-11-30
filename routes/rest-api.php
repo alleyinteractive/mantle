@@ -14,12 +14,12 @@ use Mantle\Facade\Route;
 |
 | Register a closure-based route:
 |
-| 	Route::get( '/closure-route', function( \WP_REST_Request $request ) {
-| 		dd( $request );
-| 	} );
+|   Route::get( '/closure-route', function( \WP_REST_Request $request ) {
+|       dd( $request );
+|   } );
 |
 */
 
-Route::rest_api( '/example-namespace', function() {
+Route::rest_api( '/example-namespace', function () {
 	//
 } );

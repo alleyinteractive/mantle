@@ -16,12 +16,13 @@ use Mantle\Queue\Queueable;
  * Example Job that can be queued.
  */
 class Example_Job implements Job, Can_Queue {
-	use Queueable, Dispatchable;
+	use Queueable;
+	use Dispatchable;
 
 	/**
 	 * Handle the job.
 	 */
-	public function handle() {
+	public function handle(): void {
 		// Handle it here!
 	}
 }

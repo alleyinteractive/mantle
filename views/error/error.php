@@ -64,7 +64,7 @@ $exception = $exception instanceof Throwable ? $exception->getMessage() : __( 'A
 	<body>
 		<div class="flex-center position-ref full-height">
 			<div class="code">
-				<?php echo (int) mantle_get_var( 'code' ); ?>
+				<?php echo esc_html( mantle_get_var( 'code' ) ); ?>
 			</div>
 
 			<div class="message" style="padding: 10px;">

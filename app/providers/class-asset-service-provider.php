@@ -45,12 +45,12 @@ class Asset_Service_Provider extends Service_Provider {
 		|
 		| Enqueue a raw asset using the asset() helper:
 		|
-		| 	 asset()->script( 'example-entry' )->async()->src( asset_loader( '/app.js' ) );
-		| 	 asset()->style( 'example-entry' )->condition( 'single' )->src( asset_loader( '/app.css' ) );
+		|    asset()->script( 'example-entry' )->async()->src( asset_loader( '/app.js' ) );
+		|    asset()->style( 'example-entry' )->condition( 'single' )->src( asset_loader( '/app.css' ) );
 		|
 		| Enqueue an asset with dependencies from @wordpress/dependency-extraction-webpack-plugin:
 		|
-		| 	 asset()->script( 'example-block' )->src( asset_loader( '/example-block.js' ) )->dependencies( asset_loader()->dependencies( '/example-block.js' ) );
+		|    asset()->script( 'example-block' )->src( asset_loader( '/example-block.js' ) )->dependencies( asset_loader()->dependencies( '/example-block.js' ) );
 		|
 		| Get cookin'!
 		|
@@ -60,8 +60,8 @@ class Asset_Service_Provider extends Service_Provider {
 	/**
 	 * Filter the asset conditions for the site.
 	 *
-	 * @param array $conditions Conditions to filter.
-	 * @return array
+	 * @param array<string, boolean> $conditions Conditions to filter.
+	 * @return array<string, boolean>
 	 */
 	public function on_am_asset_conditions( array $conditions ): array {
 		// Perform any modifications here.
