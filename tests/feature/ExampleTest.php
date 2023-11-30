@@ -7,12 +7,12 @@
 
 namespace App\Tests\Feature;
 
-use App\Tests\Test_Case;
+use App\Tests\TestCase;
 
 /**
  * Base Test Case that each Test Case should extend.
  */
-class Test_Example extends Test_Case {
+class ExampleTest extends TestCase {
   public function test_example() {
     $this->assertTrue( true );
 	}
