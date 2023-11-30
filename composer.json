@@ -55,11 +55,5 @@
       "@lint",
       "@phpunit"
     ]
-  },
-  "repositories": {
-    "local": {
-      "type": "path",
-      "url": "../mantle-browser-testing"
-    }
   }
 }
