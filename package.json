@@ -91,7 +91,7 @@
     "@wordpress/warning": "^2.22.0",
     "@wordpress/widgets": "^2.20.0",
     "@wordpress/wordcount": "^3.22.0",
-    "dompurify": "^2.4.3",
+    "dompurify": "^3.0.8",
     "prop-types": "^15.8.1",
     "react": "17.0.2",
     "react-dom": "17.0.2"
@@ -106,7 +106,7 @@
     "check-node-version": "^4.2.1",
     "clean-webpack-plugin": "^4.0.0",
     "copy-webpack-plugin": "^11.0.0",
-    "eslint": "^8.28.0",
+    "eslint": "^8.54.0",
     "eslint-config-airbnb": "^19.0.4",
     "eslint-config-airbnb-typescript": "^17.0.0",
     "eslint-import-resolver-webpack": "^0.13.2",
