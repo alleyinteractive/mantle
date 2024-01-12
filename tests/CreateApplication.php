@@ -13,7 +13,7 @@ use Mantle\Application\Application;
 /**
  * Concern for creating the application instance.
  */
-trait Create_Application {
+trait CreateApplication {
 	/**
 	 * Creates the application from the application instance.
 	 *
