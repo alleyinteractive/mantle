@@ -34,7 +34,7 @@
     "test": "jest --passWithNoTests"
   },
   "dependencies": {
-    "@alleyinteractive/block-editor-tools": "^0.1.1",
+    "@alleyinteractive/block-editor-tools": "^0.4.1",
     "@types/jest": "^29.4.0",
     "@types/wordpress__block-editor": "^7.0.0",
     "@wordpress/a11y": "^3.22.0",
@@ -99,7 +99,7 @@
   "devDependencies": {
     "@alleyinteractive/stylelint-config": "^0.0.1",
     "@babel/preset-env": "^7.20.2",
-    "@typescript-eslint/eslint-plugin": "^5.51.0",
+    "@typescript-eslint/eslint-plugin": "^5.62.0",
     "@typescript-eslint/parser": "^5.52.0",
     "@wordpress/babel-preset-default": "^7.6.0",
     "babel-jest": "^29.4.1",
@@ -108,8 +108,8 @@
     "copy-webpack-plugin": "^11.0.0",
     "eslint": "^8.54.0",
     "eslint-config-airbnb": "^19.0.4",
-    "eslint-config-airbnb-typescript": "^17.0.0",
-    "eslint-import-resolver-webpack": "^0.13.2",
+    "eslint-config-airbnb-typescript": "^17.1.0",
+    "eslint-import-resolver-webpack": "^0.13.8",
     "eslint-plugin-import": "^2.27.5",
     "eslint-plugin-jsx-a11y": "^6.7.1",
     "eslint-plugin-react": "^7.32.2",
