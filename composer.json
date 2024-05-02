@@ -11,7 +11,7 @@
   ],
   "require": {
     "alleyinteractive/composer-wordpress-autoloader": "^1.0",
-    "alleyinteractive/mantle-framework": "^1.0",
+    "alleyinteractive/mantle-framework": "*",
     "fakerphp/faker": "^1.23"
   },
   "require-dev": {
@@ -64,5 +64,11 @@
       "@lint",
       "@phpunit"
     ]
+  },
+  "repositories": {
+    "local": {
+      "type": "path",
+      "url": "../mantle-framework/"
+    }
   }
 }

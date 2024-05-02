@@ -5,30 +5,17 @@
  * @package Mantle
  */
 
-use Mantle\Contracts;
-use Mantle\Application\Application;
+use Mantle\Framework\Bootloader;
 
-/**
- * Instantiate the application
- */
-$app = new Application();
-
-/**
- * Register the main contracts that power the application.
- */
-$app->singleton(
-	Contracts\Console\Kernel::class,
-	App\Console\Kernel::class,
-);
-
-$app->singleton(
-	Contracts\Http\Kernel::class,
-	App\Http\Kernel::class,
-);
-
-$app->singleton(
-	Contracts\Exceptions\Handler::class,
-	App\Exceptions\Handler::class
-);
-
-return $app;
+return Bootloader::instance()
+	->with_base_path( dirname( __DIR__ ) )
+	->with_kernels(
+		console: App\Console\Kernel::class,
+		http: App\Http\Kernel::class,
+	)
+	->with_exception_handler( App\Exceptions\Handler::class )
+	->with_routing(
+		web: __DIR__ . '/../routes/web.php',
+		rest_api: __DIR__ . '/../routes/rest-api.php',
+		pass_through: true,
+	);
