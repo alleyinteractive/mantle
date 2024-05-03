@@ -7,7 +7,7 @@
 
 use Mantle\Framework\Bootloader;
 
-return Bootloader::instance()
+return Bootloader::create()
 	->with_kernels(
 		console: App\Console\Kernel::class,
 		http: App\Http\Kernel::class,

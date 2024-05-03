@@ -17,6 +17,7 @@
   "require-dev": {
     "alleyinteractive/alley-coding-standards": "^2.0",
     "phpstan/phpstan": "1.10.67",
+    "phpunit/phpunit": "^10.0.7",
     "szepeviktor/phpstan-wordpress": "^1.3"
   },
   "minimum-stability": "dev",
