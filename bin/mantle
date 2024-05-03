@@ -43,6 +43,3 @@ $bootloader = require_once MANTLE_BASE_DIR . '/bootstrap/app.php';
 */
 
 $bootloader->boot();
-// bootloader( $bootloader )
-// 	->set_base_path( MANTLE_BASE_DIR )
-// 	->boot();

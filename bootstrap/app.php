@@ -8,7 +8,6 @@
 use Mantle\Framework\Bootloader;
 
 return Bootloader::instance()
-	->with_base_path( dirname( __DIR__ ) )
 	->with_kernels(
 		console: App\Console\Kernel::class,
 		http: App\Http\Kernel::class,
