@@ -25,25 +25,13 @@ return [
 	|--------------------------------------------------------------------------
 	|
 	| Providers listed here will be autoloaded for every request on the application.
+	| The providers listed here will be merged with the default framework providers.
 	|
 	 */
 	'providers' => [
-		// Framework Providers.
-		Mantle\Filesystem\Filesystem_Service_Provider::class,
-		Mantle\Database\Factory_Service_Provider::class,
-		Mantle\Framework\Providers\Error_Service_Provider::class,
-		Mantle\Database\Model_Service_Provider::class,
-		Mantle\Queue\Queue_Service_Provider::class,
-		Mantle\Query_Monitor\Query_Monitor_Service_Provider::class,
-		Mantle\New_Relic\New_Relic_Service_Provider::class,
-		Mantle\Database\Pagination\Paginator_Service_Provider::class,
-		Mantle\Cache\Cache_Service_Provider::class,
-
-		// Application Providers.
 		App\Providers\App_Service_Provider::class,
 		App\Providers\Asset_Service_Provider::class,
 		App\Providers\Event_Service_Provider::class,
-		App\Providers\Route_Service_Provider::class,
 	],
 
 	/*

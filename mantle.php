@@ -80,7 +80,7 @@ if ( ! class_exists( Bootloader::class ) ) {
 |
 */
 
-$app = require_once __DIR__ . '/bootstrap/app.php';
+$bootloader = require_once __DIR__ . '/bootstrap/app.php';
 
 /*
 |--------------------------------------------------------------------------
@@ -92,4 +92,4 @@ $app = require_once __DIR__ . '/bootstrap/app.php';
 |
 */
 
-bootloader( $app )->boot();
+$bootloader->boot();
