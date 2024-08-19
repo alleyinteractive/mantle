@@ -82,7 +82,7 @@
     "@wordpress/redux-routine": "^4.22.0",
     "@wordpress/reusable-blocks": "^3.20.0",
     "@wordpress/rich-text": "^5.20.0",
-    "@wordpress/scripts": "^24.6.0",
+    "@wordpress/scripts": "^28.5.0",
     "@wordpress/server-side-render": "^3.20.0",
     "@wordpress/shortcode": "^3.22.0",
     "@wordpress/token-list": "^2.22.0",
