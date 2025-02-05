@@ -11,8 +11,9 @@
   ],
   "require": {
     "alleyinteractive/composer-wordpress-autoloader": "^1.0",
-    "alleyinteractive/mantle-framework": "^1.1",
-    "fakerphp/faker": "^1.23"
+    "alleyinteractive/mantle-framework": "^1.4",
+    "illuminate/view": "^11.38",
+    "fakerphp/faker": "^1.24"
   },
   "require-dev": {
     "alleyinteractive/alley-coding-standards": "^2.0",
