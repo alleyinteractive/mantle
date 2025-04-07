@@ -41,8 +41,6 @@ jobs:
           rsync -av \
             source/.editorconfig \
             source/.github/workflows/all-pr-tests.yml \
-            source/.github/workflows/built-release.yml \
-            source/.github/workflows/lint.yml \
             source/.nvmrc \
             source/.stylelintrc.json \
             source/babel.config.js \
