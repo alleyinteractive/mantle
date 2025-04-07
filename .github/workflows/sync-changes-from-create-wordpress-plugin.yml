@@ -51,6 +51,8 @@ jobs:
             source/jsconfig.json \
             source/package-lock.json \
             source/package.json \
+            source/phpstan.neon \
+            source/phpunit.xml \
             source/tsconfig.eslint.json \
             source/tsconfig.json \
             ./
