@@ -1,0 +1,94 @@
+name: Sync from create-wordpress-plugin
+
+on:
+  schedule:
+    - cron: '0 4 * * *'
+  workflow_dispatch:
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    env:
+      SOURCE_REPO: "alleyinteractive/create-wordpress-plugin"
+      TARGET_REPO: "alleyinteractive/mantle"
+      BRANCH_NAME: "sync/create-wordpress-plugin"
+    steps:
+      - name: Checkout target repo (mantle)
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.PERSONAL_TOKEN }}
+          fetch-depth: 0
+
+      - name: Checkout source repo (create-wordpress-plugin)
+        uses: actions/checkout@v4
+        with:
+          repository: ${{ env.SOURCE_REPO }}
+          path: source
+          token: ${{ secrets.PERSONAL_TOKEN }}
+          fetch-depth: 1
+
+      - name: Configure Git
+        run: |
+          git config user.name "mantle-bot"
+          git config user.email "actions@github.com"
+
+      - name: Create sync branch
+        run: |
+          git checkout -B $BRANCH_NAME
+
+      - name: Copy selected files
+        run: |
+          rsync -av \
+            source/.editorconfig \
+            source/.github/workflows/all-pr-tests.yml \
+            source/.github/workflows/built-release.yml \
+            source/.github/workflows/lint.yml \
+            source/.nvmrc \
+            source/.stylelintrc.json \
+            source/babel.config.js \
+            source/blocks/README.md \
+            source/entries/README.md \
+            source/jest.config.js \
+            source/jsconfig.json \
+            source/package-lock.json \
+            source/package.json \
+            source/tsconfig.eslint.json \
+            source/tsconfig.json \
+            ./
+
+      - name: Modify package.json
+        run: |
+          sed -i 's/create-wordpress-plugin/mantle/g' package.json
+          sed -i 's/create-wordpress-plugin/mantle/g' package-lock.json
+
+      - name: Commit changes
+        run: |
+          git add -N .
+          if ! git diff --quiet; then
+            git add .
+            git commit -m "chore(sync): update files from create-wordpress-plugin"
+            git push --force --set-upstream origin $BRANCH_NAME
+          else
+            echo "No changes to commit."
+          fi
+
+      - name: Check if PR already exists
+        id: check_pr
+        run: |
+          gh pr list --repo "$TARGET_REPO" --head "$BRANCH_NAME" --json number --jq '.[0].number' > pr_number.txt || echo ""
+          PR_NUMBER=$(cat pr_number.txt)
+          echo "pr_number=$PR_NUMBER" >> "$GITHUB_OUTPUT"
+        env:
+          GH_TOKEN: ${{ secrets.PERSONAL_TOKEN }}
+
+      - name: Create Pull Request (only if not exists)
+        if: steps.check_pr.outputs.pr_number == ''
+        uses: peter-evans/create-pull-request@v5
+        with:
+          token: ${{ secrets.PERSONAL_TOKEN }}
+          commit-message: "chore(sync): update files from create-wordpress-plugin"
+          branch: ${{ env.BRANCH_NAME }}
+          title: "chore(sync): update files from create-wordpress-plugin"
+          body: |
+            This PR updates selected files from the `create-wordpress-plugin` template repo.
+            It was generated automatically by a GitHub Actions workflow.
