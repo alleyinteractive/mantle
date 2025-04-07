@@ -43,6 +43,7 @@ jobs:
             source/.github/workflows/all-pr-tests.yml \
             source/.nvmrc \
             source/.stylelintrc.json \
+            source/.stylelintrc.json \
             source/babel.config.js \
             source/blocks/README.md \
             source/entries/README.md \
