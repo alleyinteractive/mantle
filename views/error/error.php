@@ -8,6 +8,8 @@
  * @package Mantle
  */
 
+use function Mantle\Support\Helpers\mixed;
+
 $exception = mantle_get_var( 'exception' );
 $exception = $exception instanceof Throwable ? $exception->getMessage() : __( 'An error has occurred.', 'mantle' );
 ?>
@@ -64,7 +66,7 @@ $exception = $exception instanceof Throwable ? $exception->getMessage() : __( 'A
 	<body>
 		<div class="flex-center position-ref full-height">
 			<div class="code">
-				<?php echo esc_html( mantle_get_var( 'code' ) ); ?>
+				<?php echo esc_html( mixed( mantle_get_var( 'code' ) )->string() ); ?>
 			</div>
 
 			<div class="message" style="padding: 10px;">

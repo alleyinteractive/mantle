@@ -6,7 +6,8 @@ vendor
 
 .env
 composer.lock
-bootstrap/cache
+bootstrap/cache/*
+!bootstrap/cache/.gitkeep
 .phpunit.result.cache
 .phpunit.cache/*
 .phpcs/*.json

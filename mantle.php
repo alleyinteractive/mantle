@@ -84,6 +84,13 @@ $bootloader = require_once __DIR__ . '/bootstrap/app.php';
 
 /*
 |--------------------------------------------------------------------------
+| Ensure the Bootloader is an instance of the Mantle Bootloader
+|--------------------------------------------------------------------------
+*/
+assert( $bootloader instanceof Bootloader );
+
+/*
+|--------------------------------------------------------------------------
 | Boot the Mantle Application
 |--------------------------------------------------------------------------
 |

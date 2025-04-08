@@ -1,3 +1,3 @@
-import '@/src/scss/app.scss';
+import '../scss/app.scss';
 
 // Good luck!
