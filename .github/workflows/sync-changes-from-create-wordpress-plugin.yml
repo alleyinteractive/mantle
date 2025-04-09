@@ -54,7 +54,7 @@ jobs:
 
           for file in "${files_to_copy[@]}"; do
             if [[ ! -f "create-wordpress-plugin/$file" ]]; then
-              echo "$file does not exist, deleting from source...
+              echo "$file does not exist, deleting from source..."
               rm -rf "$file" || true
             else
               dir=$(dirname "$file")
