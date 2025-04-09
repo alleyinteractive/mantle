@@ -71,24 +71,14 @@ jobs:
             echo "No changes to commit."
           fi
 
-      - name: Check if PR already exists
-        id: check_pr
+      - name: Create PR if it doesn't exist
         run: |
-          gh pr list --repo "$TARGET_REPO" --head "$BRANCH_NAME" --json number --jq '.[0].number' > pr_number.txt || echo ""
-          PR_NUMBER=$(cat pr_number.txt)
-          echo "pr_number=$PR_NUMBER" >> "$GITHUB_OUTPUT"
+          if gh pr list --base main --head "$BRANCH_NAME" --repo "$TARGET_REPO" | grep -q "No pull requests found"; then
+            echo "Creating a new PR..."
+            gh pr create --repo "$TARGET_REPO" --base main --head "$BRANCH_NAME" --title "chore(sync): update files from create-wordpress-plugin" --body "This PR syncs changes from the create-wordpress-plugin repository."
+          else
+            echo "PR already exists."
+            exit 0
+          fi
         env:
           GH_TOKEN: ${{ secrets.PERSONAL_TOKEN }}
-
-      - name: Create Pull Request (only if not exists)
-        if: steps.check_pr.outputs.pr_number == ''
-        uses: peter-evans/create-pull-request@v5
-        with:
-          token: ${{ secrets.PERSONAL_TOKEN }}
-          commit-message: "chore(sync): update files from create-wordpress-plugin"
-          base: main
-          branch: ${{ env.BRANCH_NAME }}
-          title: "chore(sync): update files from create-wordpress-plugin"
-          body: |
-            This PR updates selected files from the `create-wordpress-plugin` template repo.
-            It was generated automatically by a GitHub Actions workflow.
