@@ -1,4 +1,4 @@
-name: "All Pull Request Tests"
+name: "All Pull Request Tests Modify"
 
 on:
   pull_request:
