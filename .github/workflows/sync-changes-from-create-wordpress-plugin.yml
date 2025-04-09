@@ -13,22 +13,24 @@ jobs:
       TARGET_REPO: "alleyinteractive/mantle"
       BRANCH_NAME: "sync/create-wordpress-plugin"
     steps:
-      - name: Checkout target repo (mantle)
+      - name: Checkout mantle repo
         uses: actions/checkout@v4
         with:
           token: ${{ secrets.PERSONAL_TOKEN }}
+          path: mantle
           fetch-depth: 0
 
-      - name: Checkout source repo (create-wordpress-plugin)
+      - name: Checkout create-wordpress-plugin repo
         uses: actions/checkout@v4
         with:
           repository: ${{ env.SOURCE_REPO }}
-          path: source
+          path: create-wordpress-plugin
           token: ${{ secrets.PERSONAL_TOKEN }}
           fetch-depth: 1
 
       - name: Configure Git
         run: |
+          cd mantle
           git config user.name "mantle-bot"
           git config user.email "actions@github.com"
 
@@ -39,22 +41,21 @@ jobs:
       - name: Copy selected files
         run: |
           rsync -av \
-            source/.editorconfig \
-            source/.github/workflows/all-pr-tests.yml \
-            source/.nvmrc \
-            source/.stylelintrc.json \
-            source/.stylelintrc.json \
-            source/babel.config.js \
-            source/blocks/README.md \
-            source/entries/README.md \
-            source/jest.config.js \
-            source/jsconfig.json \
-            source/package-lock.json \
-            source/package.json \
-            source/phpstan.neon \
-            source/phpunit.xml \
-            source/tsconfig.eslint.json \
-            source/tsconfig.json \
+            ../create-wordpress-plugin/.editorconfig \
+            ../create-wordpress-plugin/.github/workflows/all-pr-tests.yml \
+            ../create-wordpress-plugin/.nvmrc \
+            ../create-wordpress-plugin/.stylelintrc.json \
+            ../create-wordpress-plugin/.stylelintrc.json \
+            ../create-wordpress-plugin/babel.config.js \
+            ../create-wordpress-plugin/blocks/README.md \
+            ../create-wordpress-plugin/entries/README.md \
+            ../create-wordpress-plugin/jest.config.js \
+            ../create-wordpress-plugin/jsconfig.json \
+            ../create-wordpress-plugin/package-lock.json \
+            ../create-wordpress-plugin/package.json \
+            ../create-wordpress-plugin/phpunit.xml \
+            ../create-wordpress-plugin/tsconfig.eslint.json \
+            ../create-wordpress-plugin/tsconfig.json \
             ./
 
       - name: Modify package.json
