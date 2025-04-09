@@ -73,7 +73,7 @@ jobs:
 
       - name: Create PR if it doesn't exist
         run: |
-            if [[ ! gh pr view --base main --repo "$TARGET_REPO" --head "$BRANCH_NAME" > /dev/null 2>&1 ]]; then
+            if ! gh pr view --base main --repo "$TARGET_REPO" --head "$BRANCH_NAME" > /dev/null 2>&1; then
               gh pr create \
                 --repo "$TARGET_REPO" \
                 --base main \
