@@ -88,6 +88,7 @@ jobs:
         with:
           token: ${{ secrets.PERSONAL_TOKEN }}
           commit-message: "chore(sync): update files from create-wordpress-plugin"
+          base: main
           branch: ${{ env.BRANCH_NAME }}
           title: "chore(sync): update files from create-wordpress-plugin"
           body: |
