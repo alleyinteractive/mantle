@@ -35,23 +35,28 @@ jobs:
 
       - name: Copy selected files
         run: |
-            rsync -av --relative \
-            ./create-wordpress-plugin/.editorconfig \
-            ./create-wordpress-plugin/.github/workflows/all-pr-tests.yml \
-            ./create-wordpress-plugin/.nvmrc \
-            ./create-wordpress-plugin/.stylelintrc.json \
-            ./create-wordpress-plugin/babel.config.js \
-            ./create-wordpress-plugin/blocks/README.md \
-            ./create-wordpress-plugin/entries/README.md \
-            ./create-wordpress-plugin/jest.config.js \
-            ./create-wordpress-plugin/jsconfig.json \
-            ./create-wordpress-plugin/package-lock.json \
-            ./create-wordpress-plugin/package.json \
-            ./create-wordpress-plugin/phpunit.xml \
-            ./create-wordpress-plugin/tsconfig.eslint.json \
-            ./create-wordpress-plugin/tsconfig.json \
-            ./ \
-            --prune-empty-dirs
+          files_to_copy=(
+            ".editorconfig"
+            ".github/workflows/all-pr-tests.yml"
+            ".nvmrc"
+            ".stylelintrc.json"
+            "babel.config.js"
+            "blocks/README.md"
+            "entries/README.md"
+            "jest.config.js"
+            "jsconfig.json"
+            "package-lock.json"
+            "package.json"
+            "phpunit.xml"
+            "tsconfig.eslint.json"
+            "tsconfig.json"
+          )
+
+          for file in "${files_to_copy[@]}"; do
+            dir=$(dirname "$file")
+            mkdir -p "$dir"
+            cp "create-wordpress-plugin/$file" "$file"
+          done
 
       - name: Modify package.json
         run: |
