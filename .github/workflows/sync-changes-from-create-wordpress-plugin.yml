@@ -5,14 +5,12 @@ on:
     - cron: '0 4 * * *'
   workflow_dispatch:
 
-permissions:
-  contents: write
-
 jobs:
   sync:
     runs-on: ubuntu-latest
     env:
       BRANCH_NAME: "sync/create-wordpress-plugin"
+      GH_TOKEN: ${{ secrets.PERSONAL_TOKEN }}
       GITHUB_TOKEN: ${{ secrets.PERSONAL_TOKEN }}
       SOURCE_REPO: "alleyinteractive/create-wordpress-plugin"
       TARGET_REPO: "alleyinteractive/mantle"
