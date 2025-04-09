@@ -73,7 +73,7 @@ jobs:
 
       - name: Create PR if it doesn't exist
         run: |
-          if gh pr list --base main --head "$BRANCH_NAME" --repo "$TARGET_REPO" | grep -q "No pull requests found"; then
+          if gh pr list --base main --head "$BRANCH_NAME" --repo "$TARGET_REPO" --state open | grep -q "No pull requests found"; then
             echo "Creating a new PR..."
             gh pr create --repo "$TARGET_REPO" --base main --head "$BRANCH_NAME" --title "chore(sync): update files from create-wordpress-plugin" --body "This PR syncs changes from the create-wordpress-plugin repository."
           else
