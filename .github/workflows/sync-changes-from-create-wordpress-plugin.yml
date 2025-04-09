@@ -35,11 +35,10 @@ jobs:
 
       - name: Copy selected files
         run: |
-          rsync -av \
+            rsync -av --relative \
             ./create-wordpress-plugin/.editorconfig \
             ./create-wordpress-plugin/.github/workflows/all-pr-tests.yml \
             ./create-wordpress-plugin/.nvmrc \
-            ./create-wordpress-plugin/.stylelintrc.json \
             ./create-wordpress-plugin/.stylelintrc.json \
             ./create-wordpress-plugin/babel.config.js \
             ./create-wordpress-plugin/blocks/README.md \
@@ -51,7 +50,8 @@ jobs:
             ./create-wordpress-plugin/phpunit.xml \
             ./create-wordpress-plugin/tsconfig.eslint.json \
             ./create-wordpress-plugin/tsconfig.json \
-            ./
+            ./ \
+            --prune-empty-dirs
 
       - name: Modify package.json
         run: |
