@@ -53,9 +53,14 @@ jobs:
           )
 
           for file in "${files_to_copy[@]}"; do
-            dir=$(dirname "$file")
-            mkdir -p "$dir"
-            cp "create-wordpress-plugin/$file" "$file"
+            if [[ ! -f "create-wordpress-plugin/$file" ]]; then
+              echo "$file does not exist, deleting from source...
+              rm -rf "$file" || true
+            else
+              dir=$(dirname "$file")
+              mkdir -p "$dir"
+              cp "create-wordpress-plugin/$file" "$file"
+            fi
           done
 
       - name: Modify package.json
