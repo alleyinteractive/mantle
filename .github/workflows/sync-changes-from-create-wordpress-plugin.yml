@@ -17,7 +17,6 @@ jobs:
         uses: actions/checkout@v4
         with:
           token: ${{ secrets.PERSONAL_TOKEN }}
-          path: mantle
           fetch-depth: 0
 
       - name: Checkout create-wordpress-plugin repo
@@ -30,32 +29,28 @@ jobs:
 
       - name: Configure Git
         run: |
-          cd mantle
           git config user.name "mantle-bot"
           git config user.email "actions@github.com"
-
-      - name: Create sync branch
-        run: |
           git checkout -B $BRANCH_NAME
 
       - name: Copy selected files
         run: |
           rsync -av \
-            ../create-wordpress-plugin/.editorconfig \
-            ../create-wordpress-plugin/.github/workflows/all-pr-tests.yml \
-            ../create-wordpress-plugin/.nvmrc \
-            ../create-wordpress-plugin/.stylelintrc.json \
-            ../create-wordpress-plugin/.stylelintrc.json \
-            ../create-wordpress-plugin/babel.config.js \
-            ../create-wordpress-plugin/blocks/README.md \
-            ../create-wordpress-plugin/entries/README.md \
-            ../create-wordpress-plugin/jest.config.js \
-            ../create-wordpress-plugin/jsconfig.json \
-            ../create-wordpress-plugin/package-lock.json \
-            ../create-wordpress-plugin/package.json \
-            ../create-wordpress-plugin/phpunit.xml \
-            ../create-wordpress-plugin/tsconfig.eslint.json \
-            ../create-wordpress-plugin/tsconfig.json \
+            ./create-wordpress-plugin/.editorconfig \
+            ./create-wordpress-plugin/.github/workflows/all-pr-tests.yml \
+            ./create-wordpress-plugin/.nvmrc \
+            ./create-wordpress-plugin/.stylelintrc.json \
+            ./create-wordpress-plugin/.stylelintrc.json \
+            ./create-wordpress-plugin/babel.config.js \
+            ./create-wordpress-plugin/blocks/README.md \
+            ./create-wordpress-plugin/entries/README.md \
+            ./create-wordpress-plugin/jest.config.js \
+            ./create-wordpress-plugin/jsconfig.json \
+            ./create-wordpress-plugin/package-lock.json \
+            ./create-wordpress-plugin/package.json \
+            ./create-wordpress-plugin/phpunit.xml \
+            ./create-wordpress-plugin/tsconfig.eslint.json \
+            ./create-wordpress-plugin/tsconfig.json \
             ./
 
       - name: Modify package.json
@@ -65,6 +60,8 @@ jobs:
 
       - name: Commit changes
         run: |
+          rm -rf create-wordpress-plugin
+
           git add -N .
           if ! git diff --quiet; then
             git add .
