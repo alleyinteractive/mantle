@@ -73,12 +73,15 @@ jobs:
 
       - name: Create PR if it doesn't exist
         run: |
-          if gh pr list --base main --head "$BRANCH_NAME" --repo "$TARGET_REPO" --state open | grep -q "No pull requests found"; then
-            echo "Creating a new PR..."
-            gh pr create --repo "$TARGET_REPO" --base main --head "$BRANCH_NAME" --title "chore(sync): update files from create-wordpress-plugin" --body "This PR syncs changes from the create-wordpress-plugin repository."
-          else
-            echo "PR already exists."
-            exit 0
-          fi
+            if [[ ! gh pr view --base main --repo "$TARGET_REPO" --head "$BRANCH_NAME" > /dev/null 2>&1 ]]; then
+              gh pr create \
+                --repo "$TARGET_REPO" \
+                --base main \
+                --head "$BRANCH_NAME" \
+                --title "chore(sync): update files from create-wordpress-plugin" \
+                --body "This PR syncs changes from the create-wordpress-plugin repository."
+            else
+              echo "PR already exists for branch $BRANCH_NAME."
+            fi
         env:
           GH_TOKEN: ${{ secrets.PERSONAL_TOKEN }}
