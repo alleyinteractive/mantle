@@ -9,9 +9,10 @@ jobs:
   sync:
     runs-on: ubuntu-latest
     env:
+      BRANCH_NAME: "sync/create-wordpress-plugin"
+      GITHUB_TOKEN: ${{ secrets.PERSONAL_TOKEN }}
       SOURCE_REPO: "alleyinteractive/create-wordpress-plugin"
       TARGET_REPO: "alleyinteractive/mantle"
-      BRANCH_NAME: "sync/create-wordpress-plugin"
     steps:
       - name: Checkout mantle repo
         uses: actions/checkout@v4
