@@ -1,5 +1,5 @@
 {
-  "name": "create-wordpress-plugin",
+  "name": "mantle",
   "license": "GPL-2.0-or-later",
   "main": "plugin.php",
   "engines": {
@@ -8,9 +8,9 @@
   },
   "scripts": {
     "build": "alley-build build",
-    "create-block": "npx @alleyinteractive/create-block@latest -n create-wordpress-plugin",
-    "create-entry": "npx @alleyinteractive/create-entry@latest -n create-wordpress-plugin -t create-wordpress-plugin",
-    "create-slotfill": "npx @alleyinteractive/create-entry -s -n create-wordpress-plugin -t create-wordpress-plugin",
+    "create-block": "npx @alleyinteractive/create-block@latest -n mantle",
+    "create-entry": "npx @alleyinteractive/create-entry@latest -n mantle -t mantle",
+    "create-slotfill": "npx @alleyinteractive/create-entry -s -n mantle -t mantle",
     "check-types": "tsc --noEmit",
     "eslint": "eslint --ext .jsx --ext .js --ext .ts --ext .tsx .",
     "eslint:fix": "eslint --ext .jsx --ext .js --ext .ts --ext .tsx . --fix",
