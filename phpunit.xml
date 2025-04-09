@@ -1,15 +1,22 @@
 <?xml version="1.0"?>
 <phpunit
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	bootstrap="tests/bootstrap.php"
-	backupGlobals="false"
-	colors="true"
-	xsi:noNamespaceSchemaLocation="https://schema.phpunit.de/10.4/phpunit.xsd"
-	cacheDirectory=".phpunit.cache"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:noNamespaceSchemaLocation="./vendor/phpunit/phpunit/phpunit.xsd"
+  bootstrap="tests/bootstrap.php"
+  backupGlobals="false"
+  colors="true"
+  cacheDirectory=".phpunit.result.cache"
 >
   <testsuites>
-    <testsuite name="general">
-      <directory suffix="Test.php">tests</directory>
+    <testsuite name="Feature">
+      <directory suffix=".php">tests/Feature</directory>
+    </testsuite>
+    <testsuite name="Unit">
+      <directory suffix=".php">tests/Unit</directory>
     </testsuite>
   </testsuites>
+  <php>
+    <!-- <env name="MANTLE_USE_SQLITE" value="true" /> -->
+    <!-- <env name="WP_SKIP_DB_CREATE" value="true" /> -->
+  </php>
 </phpunit>
