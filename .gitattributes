@@ -7,7 +7,6 @@
 /.phpcs.xml.dist export-ignore
 /phpunit.xml.dist export-ignore
 /.github/workflows/sync-changes-from-create-wordpress-plugin.yml export-ignore
-/.github/workflows/sync-mantle.yml export-ignore
 
 #
 # Auto detect text files and perform LF normalization
