@@ -13,7 +13,7 @@
     "alleyinteractive/composer-wordpress-autoloader": "^1.0",
     "alleyinteractive/mantle-framework": "^1.6",
     "fakerphp/faker": "^1.24",
-    "illuminate/view": "^11.38"
+    "illuminate/view": "^12.10"
   },
   "require-dev": {
     "alleyinteractive/alley-coding-standards": "^2.0",
