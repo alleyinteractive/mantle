@@ -8,11 +8,8 @@
 	<a href="https://packagist.org/packages/alleyinteractive/mantle-framework">
 		<img src="https://img.shields.io/packagist/v/alleyinteractive/mantle-framework.svg?style=flat-square" alt="Latest Version on Packagist" />
 	</a>
-	<a href="https://github.com/alleyinteractive/mantle/actions/workflows/tests.yml">
-		<img src="https://github.com/alleyinteractive/mantle/actions/workflows/tests.yml/badge.svg" alt="Testing Suite" />
-	</a>
-	<a href="https://github.com/alleyinteractive/mantle/actions/workflows/coding-standards.yml">
-		<img src="https://github.com/alleyinteractive/mantle/actions/workflows/coding-standards.yml/badge.svg" alt="Coding Standards" />
+	<a href="https://github.com/alleyinteractive/mantle/actions/workflows/all-pr-tests.yml-tests">
+		<img src="https://github.com/alleyinteractive/mantle/actions/workflows/all-pr-tests.yml/badge.svg" alt="Testing Suite" />
 	</a>
 </p>
 

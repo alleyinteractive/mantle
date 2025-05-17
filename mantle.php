@@ -6,7 +6,6 @@
  * Author:      Alley
  * Author URI:  https://alley.com/
  * Text Domain: mantle
- * Domain Path: /languages
  * Version:     0.1
  *
  * Mantle is a derivative work of Laravel by Taylor Otwell (licensed MIT).
