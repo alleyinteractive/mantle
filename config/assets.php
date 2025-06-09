@@ -16,7 +16,7 @@ return [
 	| can be customized to any other path.
 	|
 	*/
-	'path' => env( 'ASSET_BUILD_PATH', 'build' ),
+	'path' => environment( 'ASSET_BUILD_PATH', 'build' ),
 
 	/*
 	|--------------------------------------------------------------------------
@@ -25,7 +25,7 @@ return [
 	|
 	| This URL is used to properly generate the URL to built assets.
 	*/
-	'url'  => env(
+	'url'  => environment(
 		'ASSET_BUILD_URL',
 		function_exists( 'plugin_dir_url' ) ? \plugin_dir_url( __DIR__ ) . 'build' : '',
 	),
