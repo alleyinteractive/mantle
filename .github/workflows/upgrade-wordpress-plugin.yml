@@ -12,7 +12,7 @@ jobs:
   update-plugin:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v5
     - uses: alleyinteractive/action-update-wordpress-plugin@v2.0.0
       with:
         plugin-file: 'plugin.php'

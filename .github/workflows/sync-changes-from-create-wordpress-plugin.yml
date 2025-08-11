@@ -16,13 +16,13 @@ jobs:
       TARGET_REPO: "alleyinteractive/mantle"
     steps:
       - name: Checkout mantle repo
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
         with:
           token: ${{ secrets.PERSONAL_TOKEN }}
           fetch-depth: 0
 
       - name: Checkout create-wordpress-plugin repo
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
         with:
           repository: ${{ env.SOURCE_REPO }}
           path: create-wordpress-plugin
