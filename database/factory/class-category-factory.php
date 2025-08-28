@@ -32,8 +32,8 @@ class Category_Factory extends \Mantle\Database\Factory\Term_Factory {
 	 */
 	public function definition(): array {
 		return [
-			'description' => trim( $this->faker->paragraph( 2 ) ),
-			'name'        => $this->faker->sentence(),
+			'description' => trim( $this->faker->paragraph( 1 ) ),
+			'name'        => $this->faker->unique()->words( wp_rand( 1, 3 ), true ),
 			'taxonomy'    => 'category',
 		];
 	}
