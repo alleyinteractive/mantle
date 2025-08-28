@@ -33,8 +33,8 @@ class Tag_Factory extends \Mantle\Database\Factory\Term_Factory {
 	public function definition(): array {
 		return [
 			'description' => trim( $this->faker->paragraph( 2 ) ),
-			'name'        => $this->faker->sentence(),
-			'taxonomy'    => 'tag',
+			'name'        => $this->faker->unique()->words( wp_rand( 1, 3 ), true ),
+			'taxonomy'    => 'post_tag',
 		];
 	}
 }
