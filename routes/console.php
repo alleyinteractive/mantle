@@ -6,6 +6,7 @@
  */
 
 use Mantle\Facade\Console;
+use Mantle\Facade\Schedule;
 
 /*
 |--------------------------------------------------------------------------

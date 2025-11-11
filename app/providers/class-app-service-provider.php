@@ -9,6 +9,7 @@ namespace App\Providers;
 
 use Mantle\Application\App_Service_Provider as Service_Provider;
 use Mantle\Scheduling\Schedule;
+use Mantle\Types\Validator_Group as Group;
 
 /**
  * Application Service Provider
@@ -26,14 +27,18 @@ class App_Service_Provider extends Service_Provider {
 	 */
 	public function boot(): void {
 		// Boot the application here.
-	}
 
-	/**
-	 * Schedule any commands for the Application
-	 *
-	 * @param \Mantle\Scheduling\Schedule $schedule Scheduler instance.
-	 */
-	protected function schedule( $schedule ): void {
-		// Schedule any commands, jobs, callbacks, etc. here.
+		$plugin = new Group();
+
+		/**
+		 * You can also use alleyinteractive/wp-type-extension here to boot
+		 * application features manually.
+		 *
+		 * $plugin->include(
+		 *   new Example_Feature(),
+		 * );
+		 */
+
+		$plugin->boot();
 	}
 }
