@@ -37,11 +37,11 @@
     "react": "^18.3.1"
   },
   "devDependencies": {
-    "@alleyinteractive/build-tool": "^0.2.2",
+    "@alleyinteractive/build-tool": "^0.3.0",
     "@alleyinteractive/eslint-config": "^0.2.0",
     "@alleyinteractive/stylelint-config": "^0.0.2",
     "@alleyinteractive/tsconfig": "^0.2.0",
-    "@babel/preset-env": "^7.28.3",
+    "@babel/preset-env": "^7.28.5",
     "@wordpress/babel-preset-default": "^8.8.2",
     "ajv": "^8.17.1",
     "babel-jest": "^30.2.0",
