@@ -11,7 +11,7 @@
   ],
   "require": {
     "alleyinteractive/composer-wordpress-autoloader": "^1.0",
-    "alleyinteractive/mantle-framework": "^1.6",
+    "alleyinteractive/mantle-framework": "^1.9.1",
     "illuminate/view": "^12.10"
   },
   "require-dev": {
