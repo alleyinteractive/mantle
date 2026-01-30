@@ -1,74 +1,75 @@
 <?xml version="1.0"?>
 <ruleset>
-	<description>alleyinteractive/mantle</description>
+  <description>alleyinteractive/mantle</description>
 
-	<arg value="ps" />
+  <arg value="ps" />
 
-	<!-- Whenever possible, cache the scan results and re-use those for unchanged files on the next scan. -->
-	<arg name="cache" value=".phpcs/cache.json" />
+  <!-- Whenever possible, cache the scan results and re-use those for unchanged files on the next scan. -->
+  <arg name="cache" value=".phpcs/cache.json" />
 
-	<!-- Strip the filepaths down to the relevant bit. -->
-	<arg name="basepath" value="./" />
+  <!-- Strip the filepaths down to the relevant bit. -->
+  <arg name="basepath" value="./" />
 
-	<!-- Check up to 20 files simultaneously. -->
-	<arg name="parallel" value="20" />
+  <!-- Check up to 20 files simultaneously. -->
+  <arg name="parallel" value="20" />
 
-	<!-- Set severity to 1 to see everything that isn't effectively turned off. -->
-	<arg name="severity" value="1" />
+  <!-- Set severity to 1 to see everything that isn't effectively turned off. -->
+  <arg name="severity" value="1" />
 
-	<exclude-pattern>build/</exclude-pattern>
-	<exclude-pattern>tests/</exclude-pattern>
-	<exclude-pattern>bootstrap/cache</exclude-pattern>
-	<exclude-pattern>storage/framework/views</exclude-pattern>
+  <exclude-pattern>build/</exclude-pattern>
+  <exclude-pattern>tests/</exclude-pattern>
+  <exclude-pattern>bootstrap/cache</exclude-pattern>
+  <exclude-pattern>storage/framework/views</exclude-pattern>
 
-	<rule ref="Alley-Interactive">
-		<exclude name="PEAR.Functions.FunctionCallSignature.ContentAfterOpenBracket" />
-		<exclude name="PEAR.Functions.FunctionCallSignature.MultipleArguments" />
-		<exclude name="PEAR.Functions.FunctionCallSignature.CloseBracketLine" />
-		<exclude name="PHPCompatibility.FunctionDeclarations.NewClosure.ThisFoundOutsideClass" />
-		<exclude name="WordPress.NamingConventions.ValidPostTypeSlug.NotStringLiteral" />
-	</rule>
+  <rule ref="Alley-Interactive">
+    <exclude name="PEAR.Functions.FunctionCallSignature.ContentAfterOpenBracket" />
+    <exclude name="PEAR.Functions.FunctionCallSignature.MultipleArguments" />
+    <exclude name="PEAR.Functions.FunctionCallSignature.CloseBracketLine" />
+    <exclude name="PHPCompatibility.FunctionDeclarations.NewClosure.ThisFoundOutsideClass" />
+    <exclude name="WordPress.NamingConventions.ValidPostTypeSlug.NotStringLiteral" />
+    <exclude name="WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedNamespaceFound" />
+  </rule>
 
-	<rule ref="WordPress.NamingConventions.PrefixAllGlobals">
-		<properties>
-			<property name="prefixes" type="array">
-				<element value="App"/>
-				<element value="bootloader"/>
-			</property>
-		</properties>
-		<exclude-pattern>views/</exclude-pattern>
-	</rule>
+  <rule ref="WordPress.NamingConventions.PrefixAllGlobals">
+    <properties>
+      <property name="prefixes" type="array">
+        <element value="App"/>
+        <element value="bootloader"/>
+      </property>
+    </properties>
+    <exclude-pattern>views/</exclude-pattern>
+  </rule>
 
-	<rule ref="Squiz.Commenting.FunctionComment">
-		<exclude-pattern>src/mantle/framework/container/class-container.php</exclude-pattern>
-	</rule>
+  <rule ref="Squiz.Commenting.FunctionComment">
+    <exclude-pattern>src/mantle/framework/container/class-container.php</exclude-pattern>
+  </rule>
 
-	<rule ref="Squiz.PHP.DisallowMultipleAssignments">
-		<exclude-pattern>src/mantle/framework/container/class-container.php</exclude-pattern>
-	</rule>
+  <rule ref="Squiz.PHP.DisallowMultipleAssignments">
+    <exclude-pattern>src/mantle/framework/container/class-container.php</exclude-pattern>
+  </rule>
 
-	<rule ref="WordPress.Arrays.MultipleStatementAlignment.DoubleArrowNotAligned">
-		<exclude-pattern>config</exclude-pattern>
-	</rule>
+  <rule ref="WordPress.Arrays.MultipleStatementAlignment.DoubleArrowNotAligned">
+    <exclude-pattern>config</exclude-pattern>
+  </rule>
 
-	<rule ref="Generic.CodeAnalysis.UselessOverridingMethod.Found">
-		<exclude-pattern>app/</exclude-pattern>
-	</rule>
+  <rule ref="Generic.CodeAnalysis.UselessOverridingMethod.Found">
+    <exclude-pattern>app/</exclude-pattern>
+  </rule>
 
-	<rule ref="Squiz.PHP.CommentedOutCode.Found">
-		<exclude-pattern>routes/</exclude-pattern>
-		<exclude-pattern>app/</exclude-pattern>
-	</rule>
+  <rule ref="Squiz.PHP.CommentedOutCode.Found">
+    <exclude-pattern>routes/</exclude-pattern>
+    <exclude-pattern>app/</exclude-pattern>
+  </rule>
 
-	<rule ref="Squiz.Commenting.InlineComment.InvalidEndChar">
-		<exclude-pattern>app/providers</exclude-pattern>
-	</rule>
+  <rule ref="Squiz.Commenting.InlineComment.InvalidEndChar">
+    <exclude-pattern>app/providers</exclude-pattern>
+  </rule>
 
-	<rule ref="Squiz.Commenting.InlineComment">
-		<exclude-pattern>routes/</exclude-pattern>
-	</rule>
+  <rule ref="Squiz.Commenting.InlineComment">
+    <exclude-pattern>routes/</exclude-pattern>
+  </rule>
 
-	<rule ref="Internal.NoCodeFound">
-		<exclude-pattern>views/**/*.blade.php</exclude-pattern>
-	</rule>
+  <rule ref="Internal.NoCodeFound">
+    <exclude-pattern>views/**/*.blade.php</exclude-pattern>
+  </rule>
 </ruleset>

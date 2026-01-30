@@ -11,14 +11,13 @@
   ],
   "require": {
     "alleyinteractive/composer-wordpress-autoloader": "^1.0",
-    "alleyinteractive/mantle-framework": "^1.6",
-    "fakerphp/faker": "^1.24",
+    "alleyinteractive/mantle-framework": "^1.19",
     "illuminate/view": "^12.10"
   },
   "require-dev": {
     "alleyinteractive/alley-coding-standards": "^2.0",
+    "mantle-framework/testing-dependencies": "^1.19",
     "nunomaduro/collision": "^8.0",
-    "phpunit/phpunit": "^12.5",
     "szepeviktor/phpstan-wordpress": "^2.0"
   },
   "minimum-stability": "dev",
