@@ -12,7 +12,7 @@
   "require": {
     "alleyinteractive/composer-wordpress-autoloader": "^1.0",
     "alleyinteractive/mantle-framework": "^1.19",
-    "illuminate/view": "^12.10"
+    "illuminate/view": "^13.13"
   },
   "require-dev": {
     "alleyinteractive/alley-coding-standards": "^2.0",
