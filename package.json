@@ -7,8 +7,8 @@
     "npm": "10"
   },
   "scripts": {
-    "build": "alley-build build",
-    "create-block": "npx @alleyinteractive/create-block@latest -n mantle",
+    "build": "alley-build build --blocks-manifest",
+    "create-block": "npx @alleyinteractive/create-block@latest -n mantle --skip-registration",
     "create-entry": "npx @alleyinteractive/create-entry@latest -n mantle -t mantle",
     "create-slotfill": "npx @alleyinteractive/create-entry -s -n mantle -t mantle",
     "check-types": "tsc --noEmit",
@@ -19,14 +19,15 @@
     "packages-update": "alley-build packages-update --dist-tag=wp-6.7",
     "postinstall": "rm -rf node_modules/.cache/babel-loader && rm -rf node_modules/.cache/webpack",
     "release": "npx @alleyinteractive/create-release@latest",
-    "start": "alley-build start",
-    "start:hot": "alley-build start --hot",
+    "scaffold": "npx @alleyinteractive/scaffolder@latest",
+    "start": "alley-build start --blocks-manifest",
+    "start:hot": "alley-build start --hot --blocks-manifest",
     "stylelint": "stylelint \"**/*.scss\" --allow-empty-input",
     "stylelint:fix": "stylelint --fix \"**/*.scss\"",
     "test": "npm run check-types && npm run eslint && npm run stylelint && npm run jest"
   },
   "dependencies": {
-    "@alleyinteractive/block-editor-tools": "^0.14.0",
+    "@alleyinteractive/block-editor-tools": "^0.15.0",
     "@wordpress/block-editor": "^14.3.15",
     "@wordpress/blocks": "^13.8.5",
     "@wordpress/components": "^28.8.11",
@@ -40,14 +41,22 @@
     "@alleyinteractive/build-tool": "^0.3.0",
     "@alleyinteractive/eslint-config": "^0.2.0",
     "@alleyinteractive/stylelint-config": "^0.0.2",
-    "@alleyinteractive/tsconfig": "^0.2.0",
-    "@babel/preset-env": "^7.28.5",
+    "@alleyinteractive/tsconfig": "^0.3.0",
+    "@babel/preset-env": "^7.28.3",
+    "@types/wordpress__block-editor": "^14.21.0",
     "@wordpress/babel-preset-default": "^8.8.2",
     "ajv": "^8.17.1",
-    "babel-jest": "^30.2.0",
+    "babel-jest": "^30.1.1",
     "jest": "^30.2.0",
     "ts-jest": "^29.4.5",
     "typescript": "^5.9.3",
     "webpack-cli": "^6.0.1"
+  },
+  "overrides": {
+    "fast-uri": "^3.1.5",
+    "js-yaml@^4": "^4.3.1",
+    "nanoid": "^3.3.18",
+    "postcss": "^8.5.23",
+    "seroval": "^1.5.3"
   }
 }
