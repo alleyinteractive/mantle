@@ -10,15 +10,16 @@
     }
   ],
   "require": {
-    "alleyinteractive/composer-wordpress-autoloader": "^1.0",
-    "alleyinteractive/mantle-framework": "^1.19",
-    "illuminate/view": "^12.10"
+    "php": "^8.4",
+    "alleyinteractive/composer-wordpress-autoloader": "^1.4.1",
+    "alleyinteractive/mantle-framework": "^1.22.2",
+    "illuminate/view": "^13.40"
   },
   "require-dev": {
-    "alleyinteractive/alley-coding-standards": "^2.0",
-    "mantle-framework/testing-dependencies": "^1.19",
-    "nunomaduro/collision": "^8.0",
-    "szepeviktor/phpstan-wordpress": "^2.0"
+    "alleyinteractive/alley-coding-standards": "^2.6",
+    "mantle-framework/testing-dependencies": "^1.22.2",
+    "nunomaduro/collision": "^8.9.5",
+    "szepeviktor/phpstan-wordpress": "^2.0.4"
   },
   "minimum-stability": "dev",
   "prefer-stable": true,

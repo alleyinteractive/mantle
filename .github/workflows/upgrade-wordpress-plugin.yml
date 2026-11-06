@@ -2,7 +2,7 @@ name: Update WordPress Plugin
 
 on:
   schedule:
-    - cron: '0 */6 * * *'
+    - cron: '0 6 1 * *' # Run on the first day of every month at 6am UTC.
 
 permissions:
   contents: write
@@ -12,8 +12,8 @@ jobs:
   update-plugin:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v3
-    - uses: alleyinteractive/action-update-wordpress-plugin@v2.0.0
+    - uses: actions/checkout@v7
+    - uses: alleyinteractive/action-update-wordpress-plugin@v2.1.0
       with:
-        plugin-file: 'plugin.php'
+        plugin-file: 'mantle.php'
         upgrade-npm-dependencies: "true"
